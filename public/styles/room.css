@@ -185,30 +185,36 @@
 
 #hideCameraButton {
   opacity: 0.6;
+  transition: opacity 0.2s ease-in;
 }
 
 #playpauseButtonIcon {
-  height: 90%;
+  /* height: 90%; */
 }
 
 #muteButton {
   opacity: 0.6;
+  transition: opacity 0.2s ease-in;
 }
 
 #backButton {
   opacity: 0.6;
+  transition: opacity 0.2s ease-in;
 }
 
 #nextButton {
   opacity: 0.6;
+  transition: opacity 0.2s ease-in;
 }
 
 #volumeDownButton {
   opacity: 0.6;
+  transition: opacity 0.2s ease-in;
 }
 
 #volumeUpButton {
   opacity: 0.6;
+  transition: opacity 0.2s ease-in;
 }
 
 .grow {
@@ -220,47 +226,38 @@
 
 #hideCameraButton:hover {
   opacity: 90%;
-  transition: opacity 0.2s ease-in;
 }
 
 #muteButton:hover {
   opacity: 90%;
-  transition: opacity 0.2s ease-in;
 }
 
 #backButton:hover {
   opacity: 90%;
-  transition: opacity 0.2s ease-in;
 }
 
 #nextButton:hover {
   opacity: 90%;
-  transition: opacity 0.2s ease-in;
 }
 
 #volumeDownButton:hover {
   opacity: 90%;
-  transition: opacity 0.2s ease-in;
 }
 
 #volumeUpButton:hover {
   opacity: 90%;
-  transition: opacity 0.2s ease-in;
 }
 
 #playlistButton:hover {
   opacity: 90%;
-  transition: opacity 0.2s ease-in;
 }
 
 #chatButton:hover {
   opacity: 90%;
-  transition: opacity 0.2s ease-in;
 }
 
 #heartButton:hover {
   opacity: 90%;
-  transition: opacity 0.2s ease-in;
 }
 
 /* Keyboard icon */
