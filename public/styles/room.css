@@ -375,6 +375,12 @@ footer {
   border: 2px solid var(--color-linen);
   color: var(--color-text);
   background-color: transparent;
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in;
+}
+
+#leaveRoomButton:hover {
+  opacity: 0.9;
 }
 
 /* ================= Karaoke TV Video ================= */
@@ -827,6 +833,10 @@ kbd {
     url("https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Ffeedback.svg?v=1596918776029")
     no-repeat center center;
   background-size: 50%;
+}
+
+#feedback:hover {
+  background-color: var(--color-alabaster);
 }
 
 @media screen and (min-width: 768px) {
