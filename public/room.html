@@ -37,7 +37,7 @@
     <!-- Karaoke Video -->
     <div class="room-container">
       <div class="info-container">
-        <div class="info-section">
+        <div class="info-section-left">
           <a class="navbar-link navbar-link__home" href="/" target="_blank">
             <h1 class="brand-logo">
               KARAOKE NITE
@@ -46,7 +46,17 @@
           </a>
         </div>
 
-        <div class="info-section">
+        <div class="info-section-middle">
+          <button id="keyboardButton" onclick="keyboardModal()">
+            <img
+              id="keyboardButtonIcon"
+              src="https://cdn.glitch.com/aa3b905c-b152-45c7-9d6f-45c998461107%2Fkeyboard_icon.svg?v=1631257748840"
+              title="Keyboard Help"
+            />
+          </button>
+        </div>
+
+        <div class="info-section-right">
           <button class="button" onclick="inviteModal()" title="Room Name">
             Invite <span class="hidden__xs">&nbsp;Friends</span>
           </button>
@@ -1489,6 +1499,11 @@
       </div>
     </div>
 
+    <!--  Keyboard modal -->
+    <div id="keyboardModal" class="modal">
+      <kbd>space</kbd> Press space to change the scenery.
+    </div>
+
     <!-- ================== Invite Modal ==================== -->
 
     <div id="inviteModal" class="modal">
@@ -1777,6 +1792,20 @@
         $("#feedbackModal").modal("open");
       }
 
+      // Open keyboard modal and hide keyboard icon
+      function keyboardModal() {
+        $('#keyboardModal').modal('open');
+        
+        var myKeyboard = document.getElementById('keyboardButton');
+        myKeyboard.style.visibility = 'hidden';
+      }
+      
+      // When the keyboard modal closes, the keyboard icon reappear
+      $("#keyboardModal").on("modal:close", function () {
+         var myKeyboard = document.getElementById('keyboardButton');
+         myKeyboard.style.visibility = 'visible';
+      });
+
       function copyFunction() {
         var copyText = document.getElementById("myInput");
         copyText.select();
@@ -1813,6 +1842,35 @@
         button.
       </button>
     </div>
+
+    <!-- Change background -->
+    <script>
+      var backgrounds = ['https://cdn.glitch.com/aa3b905c-b152-45c7-9d6f-45c998461107%2Fsharks.svg?v=1631254209986',
+                         'https://cdn.glitch.com/aa3b905c-b152-45c7-9d6f-45c998461107%2Focean_loop.gif?v=1631414199461'];
+      
+      var environment = document.querySelector('.room-container');
+
+      function setEnvironment(newPreset) {
+        document.querySelector('.room-container').style.background = `url('${newPreset}') no-repeat center fixed`;
+        document.querySelector('.room-container').style.backgroundSize = "cover";
+      }
+
+      function getNextPreset() {
+        var currentPreset = environment.style.background.slice(4, -39).replace(/"/g, "");
+        console.log(currentPreset);
+        var index = backgrounds.indexOf(currentPreset);
+        console.log("index" + index);
+        return backgrounds[(index + 1) % backgrounds.length];
+      }
+
+      window.addEventListener('keydown', function (evt) {
+        if (evt.keyCode === 32 /* spacebar */) {
+          var newPreset = getNextPreset();
+          setEnvironment(newPreset);
+         
+        }
+      });
+    </script>
 
   </body>
 
