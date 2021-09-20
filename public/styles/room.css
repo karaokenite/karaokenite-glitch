@@ -27,6 +27,7 @@
 
 .video-container {
   display: flex;
+  min-height: 192px;
   padding: 1rem;
   align-items: end;
   justify-items: center;
@@ -35,8 +36,12 @@
 }
 
 .video-container .group {
+  box-sizing: border-box;
   display: grid;
+  margin: 10px auto;
   max-height: 100%;
+  min-height: 450px;
+  min-width: 100%;
   row-gap: 1rem;
   justify-items: center;
   grid-template-columns: minmax(0, 1fr);
@@ -388,14 +393,19 @@ footer {
 #karaoke-video {
   display: block;
   max-width: 100%;
+  min-height: 100%;
+  min-width: 100%;
   width: auto;
   max-height: 100%;
   margin: 0 auto;
+  background-color: var(--color-jet);
 }
 
 .karaoke-video-mask {
   display: flex;
   align-items: flex-end;
+  border-radius: 10px;
+  max-width: 450px;
   border-radius: 10px;
 }
 
