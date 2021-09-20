@@ -6,7 +6,7 @@
 }
 
 .room-container {
-  background: url("https://cdn.glitch.com/aa3b905c-b152-45c7-9d6f-45c998461107%2Focean_loop.gif?v=1631414199461")
+  background: url("https://cdn.glitch.com/aa3b905c-b152-45c7-9d6f-45c998461107%2Focean.gif?v=1631630084948")
     no-repeat center fixed;
   background-size: cover;
   overflow: hidden;
@@ -38,11 +38,11 @@
 .video-container .group {
   box-sizing: border-box;
   display: grid;
-  margin: 10px auto;
+  margin: 100 auto;
+  row-gap: 1rem;
   max-height: 100%;
   min-height: 450px;
   min-width: 100%;
-  row-gap: 1rem;
   justify-items: center;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: minmax(0, 2fr) minmax(0, max-content);
@@ -396,7 +396,7 @@ footer {
   min-height: 100%;
   min-width: 100%;
   width: auto;
-  max-height: 100%;
+  min-height: 100%;
   margin: 0 auto;
   background-color: var(--color-jet);
 }
@@ -406,7 +406,7 @@ footer {
   align-items: flex-end;
   border-radius: 10px;
   max-width: 450px;
-  border-radius: 10px;
+  margin-bottom: 30px; 
 }
 
 video {
@@ -746,7 +746,7 @@ kbd {
   font-weight: var(--weight-heavy);
 }
 
-#scene-logo {
+/* #scene-logo {
   top: 32px;
   left: 50px;
   z-index: 2;
@@ -758,12 +758,60 @@ kbd {
   text-decoration: none !important;
   justify-content: space-between;
   margin: auto;
-  font-weight: var(--weight-heavy);
+}
+ */
+
+/* Added */
+
+.brand-logo {
+  font-size: 22px;
+}
+
+.brand-betatag {
+  line-height: var(--line-height-text);
+  background: var(--color-pretty-in-pink);
+  color: var(--color-linen);
+  font-size: var(--font-size-sm);
+  padding: 0.01rem 0.4rem;
+  position: absolute;
+  left: calc(100% + 0.25rem);
+  height: 22px;
+  border-radius: 2px;
+  transform: rotate(-10deg);
+  font-weight: var(--weight-title);
+  /* Added */
+  text-transform: none;
+  top: -36%;
 }
 
 /* #scene-logo a {
   text-decoration: none;
   color: var(--color-linen);
+
+.brand-logo {
+  font-size: inherit;
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  font-weight: var(--weight-heavy);
+  top: 4px;
+}
+
+.brand-betatag {
+  line-height: var(--line-height-text);
+  background: var(--color-pretty-in-pink);
+  color: var(--color-linen);
+  font-size: var(--font-size-sm);
+  padding: 0.01rem 0.4rem;
+  position: absolute;
+  left: calc(100% + 0.25rem);
+  top: -32%;
+  height: 22px;
+  border-radius: 2px;
+  transform: rotate(-10deg);
+  font-weight: var(--weight-title);
+}
+
 } */
 
 #inviteModal {
