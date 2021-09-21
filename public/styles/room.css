@@ -39,7 +39,7 @@
   box-sizing: border-box;
   display: grid;
   margin: 100 auto;
-  row-gap: 1rem;
+  row-gap: 0.5rem;
   max-height: 100%;
   min-height: 450px;
   min-width: 100%;
@@ -390,23 +390,20 @@ footer {
 
 /* ================= Karaoke TV Video ================= */
 
-#karaoke-video {
-  display: block;
-  max-width: 100%;
-  min-height: 100%;
-  min-width: 100%;
-  width: auto;
-  min-height: 100%;
-  margin: 0 auto;
-  background-color: var(--color-jet);
-}
-
 .karaoke-video-mask {
   display: flex;
   align-items: flex-end;
   border-radius: 10px;
-  max-width: 450px;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
+  min-width: 100%; 
+}
+
+#karaoke-video {
+  display: block;
+  max-height: 100%;
+  width: auto;
+  margin: 0 auto;
+  /* background-color: var(--color-jet); */
 }
 
 video {
