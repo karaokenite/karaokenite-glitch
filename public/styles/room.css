@@ -744,21 +744,6 @@ kbd {
   font-weight: var(--weight-heavy);
 }
 
-/* #scene-logo {
-  top: 32px;
-  left: 50px;
-  z-index: 2;
-  position: absolute;
-  font-family: var(--font-brand);
-  font-size: 1.6em;
-  font-weight: var(--weight-heavy);
-  line-height: var(--line-height-text);
-  text-decoration: none !important;
-  justify-content: space-between;
-  margin: auto;
-}
- */
-
 /* Added */
 
 .brand-logo {
@@ -781,36 +766,6 @@ kbd {
   text-transform: none;
   top: -36%;
 }
-
-/* #scene-logo a {
-  text-decoration: none;
-  color: var(--color-linen);
-
-.brand-logo {
-  font-size: inherit;
-  margin: 0;
-  display: inline-block;
-  position: relative;
-  font-weight: var(--weight-heavy);
-  top: 4px;
-}
-
-.brand-betatag {
-  line-height: var(--line-height-text);
-  background: var(--color-pretty-in-pink);
-  color: var(--color-linen);
-  font-size: var(--font-size-sm);
-  padding: 0.01rem 0.4rem;
-  position: absolute;
-  left: calc(100% + 0.25rem);
-  top: -32%;
-  height: 22px;
-  border-radius: 2px;
-  transform: rotate(-10deg);
-  font-weight: var(--weight-title);
-}
-
-} */
 
 #inviteModal {
   font-family: var(--font-brand);
