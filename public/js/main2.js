@@ -202,7 +202,7 @@ function removePeer(socket_id) {
 function addPeer(socket_id, userName, am_initiator) {
   peers[socket_id] = new SimplePeer({
     initiator: am_initiator,
-    stream: am_initiator ? false : localStream,
+    stream: localStream,
     config: configuration,
   });
 
