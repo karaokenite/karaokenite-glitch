@@ -193,10 +193,6 @@
   transition: opacity 0.2s ease-in;
 }
 
-#playpauseButtonIcon {
-  /* height: 90%; */
-}
-
 #muteButton {
   opacity: 0.6;
   transition: opacity 0.2s ease-in;
@@ -220,6 +216,13 @@
 #volumeUpButton {
   opacity: 0.6;
   transition: opacity 0.2s ease-in;
+}
+
+#heartButton {
+  position: relative;
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in;
+  margin-right: 15px;
 }
 
 .grow {
@@ -383,6 +386,7 @@ footer {
   background-color: transparent;
   opacity: 0.6;
   transition: opacity 0.2s ease-in;
+  margin-left: 15px;
 }
 
 #leaveRoomButton:hover {
@@ -396,7 +400,7 @@ footer {
   align-items: flex-end;
   border-radius: 10px;
   margin-bottom: 30px;
-  min-width: 100%; 
+  /* min-width: 100%;  */
 }
 
 #karaoke-video {
@@ -861,4 +865,81 @@ kbd {
   font-family: var(--font-brand);
   color: var(--color-slate);
   text-align: center;
+}
+
+
+/* Heart Button */
+
+#heart1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+  /* animation-duration: 4s; */
+  left: 2px;
+  /* animation-delay: 0s; */
+}
+
+#heart2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+  animation-delay: 0.4s;
+  /* animation-duration: 4s; */
+  left: 3px;
+}
+
+#heart3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+  animation-delay: 1.25s;
+  left: 4px;
+}
+
+.heart1animate {
+  animation: 2.5s ease-in-out hearts normal;
+  left: 2px;
+  animation-duration: 4s;
+
+}
+
+.heart2animate {
+  animation: 2.5s ease-in-out hearts normal;
+  left: 4px;
+  animation-duration: 4s;
+
+}
+
+.heart3animate {
+  animation: 2s ease-in-out hearts normal;
+  left: 6px;
+  animation-duration: 4s;
+}
+
+@keyframes hearts {
+  0% {
+    transform: rotate(20deg);
+    opacity: 0;
+  }
+  50% {
+    transform: rotate(-20deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(20deg);
+    opacity: 0;
+    top: -200px;
+  }
 }
