@@ -255,17 +255,46 @@
                   />
                 </button> -->
 
-                <!-- <button
+                <button
                   id="heartButton"
                   type="button"
                   data-state="heart"
-                  title="Emoji Button - Coming Soon!"
+                  title="Heart Button (Testing)"
+                  onclick="heartAnimation()"
                 >
                   <img
                     id="heartIcon"
                     src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FHeart.svg?v=1621070361140"
                   />
-                </button> -->
+
+                  <div id="hearts-animations">
+                    <div id="heart1">
+                      <img
+                      src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FHeart.svg?v=1621070361140"
+                      height="35px"
+                      width="36px"
+                      />
+                    </div>
+                    <div id="heart2">
+                      <img
+                      src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FHeart.svg?v=1621070361140"
+                      height="35px"
+                      width="36px"
+                      />
+                    </div>
+                    <div id="heart3">
+                      <img
+                      src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FHeart.svg?v=1621070361140"
+                      height="35px"
+                      width="36px"
+                      />
+                    </div>
+  
+                  </div>
+                </button>
+
+            
+               
               </div>
             </div>
           </div>
@@ -1660,6 +1689,7 @@
     <script src="/js/main2.js"></script>
     <script src="/js/playback-new.js"></script>
     <script src="/js/video-player-new.js"></script>
+
     <script>
       const sonny2 = socket;
       // =========================================== Karaoke Playlist (mp4's) =====================================
@@ -1933,6 +1963,25 @@
         document
           .getElementById("add-more-song-notice")
           .removeAttribute("populated");
+      }
+    </script>
+
+
+    <script>
+      function heartAnimation() {
+
+        document.querySelector('#heart1').classList.remove('heart1animate');
+        document.querySelector('#heart2').classList.remove('heart2animate');
+        document.querySelector('#heart3').classList.remove('heart3animate');
+
+        void document.getElementById('heart1').offsetWidth;
+        void document.getElementById('heart2').offsetWidth;
+        void document.getElementById('heart3').offsetWidth;
+
+        document.querySelector('#heart1').classList.add('heart1animate');
+        document.querySelector('#heart2').classList.add('heart2animate');
+        document.querySelector('#heart3').classList.add('heart3animate');
+        
       }
     </script>
 
