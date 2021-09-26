@@ -193,18 +193,33 @@
                 </button>
 
                 <button
-                  id="volumeDownButton"
+                  id="volumeButton"
                   type="button"
                   data-state="voldown"
                   title="Volumn Down"
                 >
                   <img
-                    id="volumeDownIcon"
+                    id="volumeButtonIcon"
                     src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FVolume%20-%20Low.svg?v=1621062867508"
                   />
                 </button>
 
-                <button
+                <!-- Volume modal -->
+                <div id="volumeModal" class="modal">
+                  <img
+                  id="volumeDownIcon"
+                  src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FVolume%20-%20Low.svg?v=1621062867508"
+                  />                 
+                
+                  <div id="volume"></div>
+
+                  <img
+                  id="volumeUpIcon"
+                  src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_volume_white.svg?v=1614749830096"
+                  /> 
+                </div>
+                
+                <!-- <button
                   id="volumeUpButton"
                   type="button"
                   data-state="volup"
@@ -214,7 +229,7 @@
                     id="volumeUpIcon"
                     src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_volume_white.svg?v=1614749830096"
                   />
-                </button>
+                </button> -->
                 <!--
                 <button id="voldec" type="button" data-state="voldown">
                   <img id="volumeDownIcon" src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_volume_white.svg?v=1614749830096" />
@@ -1940,6 +1955,14 @@
       $("#keyboardModal").on("modal:close", function () {
          var myKeyboard = document.getElementById('keyboardButton');
          myKeyboard.style.visibility = 'visible';
+      });
+
+      // Volume modal appear
+      var volumeControl = $("#volumeModal");
+      
+      $("#volumeButton").on("click", function( event ) {
+        volumeControl.show();
+        console.log("pressed");
       });
 
       function copyFunction() {

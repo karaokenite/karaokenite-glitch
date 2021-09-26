@@ -208,15 +208,15 @@
   transition: opacity 0.2s ease-in;
 }
 
-#volumeDownButton {
+#volumeButton {
   opacity: 0.6;
   transition: opacity 0.2s ease-in;
 }
 
-#volumeUpButton {
+/* #volumeUpButton {
   opacity: 0.6;
   transition: opacity 0.2s ease-in;
-}
+} */
 
 #heartButton {
   position: relative;
@@ -248,13 +248,13 @@
   opacity: 90%;
 }
 
-#volumeDownButton:hover {
+#volumeButton:hover {
   opacity: 90%;
 }
 
-#volumeUpButton:hover {
+/* #volumeUpButton:hover {
   opacity: 90%;
-}
+} */
 
 #playlistButton:hover {
   opacity: 90%;
@@ -943,3 +943,73 @@ kbd {
     top: -200px;
   }
 }
+
+/* Volume Modal */
+
+/* Parent box */
+
+#volumeModal {
+  width: 236px;
+  height: 31px;
+  background: #353535;
+  border-radius: 4px;
+  z-index: 5;
+  padding: 0;
+  top: 50%;
+  margin-top: 15px;
+}
+
+/* Inside box */
+
+#volumeDownIcon {
+  float: left;
+  /* position: absolute;
+  margin: auto; */
+  padding: 2px;
+  /* margin-left: 5px; */
+}
+
+#volume {
+  float: left;
+  /* left: 24px; */
+  margin: 0 auto;
+  height: 5px;
+  width: 130px;
+  background: #555;
+  border-radius: 15px;
+  /* position: absolute; */
+  top: 50%;
+  margin-top: -3px;
+  /* margin-left: 5px; */
+  margin-right: 5px;
+  padding: 2px;
+  position: relative;
+}
+
+#volumeUpIcon {
+  float: left;
+  padding: 2px;
+}
+
+/* 
+.ui-slider-range-min {
+  height: 5px;
+  width: 300px;
+  position: absolute;
+  background: $primary-color;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+.ui-slider-handle {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: #FFF;
+  position: absolute;
+  margin-left: -8px;
+  margin-top: -8px;
+  cursor: pointer;
+  outline: none;
+} */
