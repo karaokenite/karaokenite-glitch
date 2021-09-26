@@ -211,12 +211,18 @@
                   src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FVolume%20-%20Low.svg?v=1621062867508"
                   />                 
                 
-                  <div id="volume"></div>
+                  <!-- <div id="volume"></div> -->
+                  <input type="range" min="0.0" max="1.0" value="0.5" class="slider" id="volume" step=0.05>
 
                   <img
                   id="volumeUpIcon"
                   src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_volume_white.svg?v=1614749830096"
                   /> 
+
+                  <img
+                  id="closeIcon"
+                  src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fclose.svg?v=1632640337294"
+                  />
                 </div>
                 
                 <!-- <button
@@ -1943,6 +1949,8 @@
         $("#feedbackModal").modal("open");
       }
 
+      // KEYBOARD MODAL (AT THE TOP)
+
       // Open keyboard modal and hide keyboard icon
       function keyboardModal() {
         $('#keyboardModal').modal('open');
@@ -1957,12 +1965,26 @@
          myKeyboard.style.visibility = 'visible';
       });
 
+      // VOLUME MODAL (AT THE BOTTOM)
+
       // Volume modal appear
       var volumeControl = $("#volumeModal");
       
       $("#volumeButton").on("click", function( event ) {
         volumeControl.show();
         console.log("pressed");
+      });
+
+      // Close volume modal on clicking the close button
+      $('#volumeModal').find('#closeIcon').on('click',function(){
+        $(this).parents('#volumeModal').hide();
+      });
+
+      // Close volume modal on click outside at anywhere
+      $(document).on('click',function(e) {
+        if(!(($(e.target).closest("#volumeModal").length > 0 ) || ($(e.target).closest("#volumeButton").length > 0))) {
+          $("#volumeModal").hide();
+        }
       });
 
       function copyFunction() {
