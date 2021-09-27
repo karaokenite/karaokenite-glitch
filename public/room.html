@@ -137,14 +137,16 @@
 
             <div class="footer-middle">
               <div class="btn-group" id="btn-group">
-                <button id="hideCameraButton" title="Hide Camera">
-                  <img
-                    id="hideCameraButtonIcon"
-                    src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_camera_white.svg?v=1614747337937"
-                  />
-                </button>
+                <div class="btn-tab">
+                  <button id="hideCameraButton" title="Hide Camera">
+                    <img
+                      id="hideCameraButtonIcon"
+                      src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_camera_white.svg?v=1614747337937"
+                    />
+                  </button>
+                </div>
 
-                <button
+                <div class="btn-tab"><button
                   id="muteButton"
                   type="button"
                   data-state="mute"
@@ -154,9 +156,9 @@
                     id="muteButtonIcon"
                     src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_mic_white.svg?v=1614747341515"
                   />
-                </button>
+                </button></div>
 
-                <button
+                <div class="btn-tab"><button
                   id="backButton"
                   type="button"
                   data-state="play"
@@ -166,9 +168,9 @@
                     id="backButtonIcon"
                     src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_previous_white.svg?v=1614749830096"
                   />
-                </button>
+                </button></div>
 
-                <button
+                <div class="btn-tab"><button
                   id="playpauseButton"
                   class="grow"
                   type="button"
@@ -178,9 +180,9 @@
                     id="playpauseButtonIcon"
                     src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FGroup%2021.svg?v=1618632508004"
                   />
-                </button>
+                </button></div>
 
-                <button
+                <div class="btn-tab"><button
                   id="nextButton"
                   type="button"
                   data-state="play"
@@ -190,21 +192,43 @@
                     id="nextButtonIcon"
                     src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_next_white.svg?v=1614749830096"
                   />
-                </button>
+                </button></div>
 
-                <button
-                  id="volumeDownButton"
+                <div class="btn-tab"><button
+                  id="volumeButton"
                   type="button"
                   data-state="voldown"
-                  title="Volumn Down"
+                  title="Change Volume"
                 >
                   <img
-                    id="volumeDownIcon"
+                    id="volumeButtonIcon"
                     src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FVolume%20-%20Low.svg?v=1621062867508"
                   />
                 </button>
+                
+                <!-- Volume modal -->
+                <div id="volumeModal" class="modal">
+                  <img
+                  id="volumeDownIcon"
+                  src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FVolume%20-%20Low.svg?v=1621062867508"
+                  />                 
+                
+                  <!-- <div id="volume"> -->
+                  <input type="range" min="0.0" max="1.0" value="0.5" class="slider" id="volume" step=0.05>
 
-                <button
+                  <img
+                  id="volumeUpIcon"
+                  src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_volume_white.svg?v=1614749830096"
+                  /> 
+
+                  <img
+                  id="closeIcon"
+                  src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fclose.svg?v=1632640337294"
+                  />
+                </div>
+              </div>
+                
+                <!-- <button
                   id="volumeUpButton"
                   type="button"
                   data-state="volup"
@@ -214,7 +238,7 @@
                     id="volumeUpIcon"
                     src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_volume_white.svg?v=1614749830096"
                   />
-                </button>
+                </button> -->
                 <!--
                 <button id="voldec" type="button" data-state="voldown">
                   <img id="volumeDownIcon" src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_volume_white.svg?v=1614749830096" />
@@ -1928,6 +1952,8 @@
         $("#feedbackModal").modal("open");
       }
 
+      // KEYBOARD MODAL (AT THE TOP)
+
       // Open keyboard modal and hide keyboard icon
       function keyboardModal() {
         $('#keyboardModal').modal('open');
@@ -1940,6 +1966,32 @@
       $("#keyboardModal").on("modal:close", function () {
          var myKeyboard = document.getElementById('keyboardButton');
          myKeyboard.style.visibility = 'visible';
+      });
+
+      // VOLUME MODAL (AT THE BOTTOM)
+
+      // Volume modal appear
+      // var volumeControl = $("#volumeModal");
+      var volume = document.getElementById('volumeModal');
+
+      $("#volumeButton").on("click", function( event ) {
+        // volumeControl.show();
+        volume.style.visibility = 'visible';
+        console.log("pressed");
+      });
+
+      // Close volume modal on clicking the close button
+      $('#volumeModal').find('#closeIcon').on('click',function(){
+        // $(this).parents('#volumeModal').hide();
+        volume.style.visibility = 'hidden';
+      });
+
+      // Close volume modal on click outside at anywhere
+      $(document).on('click',function(e) {
+        if(!(($(e.target).closest("#volumeModal").length > 0 ) || ($(e.target).closest("#volumeButton").length > 0))) {
+          // $("#volumeModal").hide();
+          volume.style.visibility = 'hidden';
+        }
       });
 
       function copyFunction() {

@@ -86,47 +86,56 @@ function backFunction() {
 }
 
 // Down Button
-var el = document.getElementById('volumeDownButton');
+// var el = document.getElementById('volumeDownButton');
 
-if (el.addEventListener) {
-  el.addEventListener('click', volumnDownFunction, false);
-  console.log('false');
-} else {
-  el.attachEvent('onclick', volumnDownFunction);
-  console.log('true');
-}
+// if (el.addEventListener) {
+//   el.addEventListener('click', volumnDownFunction, false);
+//   console.log('false');
+// } else {
+//   el.attachEvent('onclick', volumnDownFunction);
+//   console.log('true');
+// }
 
-function volumnDownFunction() {
-  sonny1.emit('voldec', roomName);
+// function volumnDownFunction() {
+//   sonny1.emit('voldec', roomName);
 
-  var video = document.querySelector('#karaoke-video');
-  // video.volume = 0.5;
-  video.volume = video.volume - 0.2;
+//   var video = document.querySelector('#karaoke-video');
+//   // video.volume = 0.5;
+//   video.volume = video.volume - 0.2;
 
-  console.log('Volume set to low');
-}
+//   console.log('Volume set to low');
+// }
 
 // Up Button
 
-var el = document.getElementById('volumeUpButton');
+// var el = document.getElementById('volumeUpButton');
 
-if (el.addEventListener) {
-  el.addEventListener('click', volumnUpFunction, false);
-  console.log('false');
-} else {
-  el.attachEvent('onclick', volumnUpFunction);
-  console.log('true');
+// if (el.addEventListener) {
+//   el.addEventListener('click', volumnUpFunction, false);
+//   console.log('false');
+// } else {
+//   el.attachEvent('onclick', volumnUpFunction);
+//   console.log('true');
+// }
+
+// function volumnUpFunction() {
+//   sonny1.emit('volinc', roomName);
+
+//   var video = document.querySelector('#karaoke-video');
+//   // video.volume = 1.0;
+//   video.volume = video.volume + 0.2;
+
+//   console.log('Volume set to low');
+// }
+
+var slider = document.getElementById("volume");
+var video = document.querySelector('#karaoke-video');
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  video.volume = slider.value;
 }
 
-function volumnUpFunction() {
-  sonny1.emit('volinc', roomName);
-
-  var video = document.querySelector('#karaoke-video');
-  // video.volume = 1.0;
-  video.volume = video.volume + 0.2;
-
-  console.log('Volume set to low');
-}
 
 sonny1.on(SE_GET_PLAY_INFO, (sender) => {
   let video = document.querySelector('#karaoke-video');
@@ -181,22 +190,24 @@ sonny1.on(SE_NEXT, function () {
   console.log('host setting video to ', playlist[video_count]);
 });
 
-sonny1.on('voldec', function () {
-  console.log('Volume - event gotten on the client');
+// Do we need this?
 
-  var video = document.querySelector('#karaoke-video');
-  // video.volume = 0.5;
-  video.volume = video.volume - 0.2;
+// sonny1.on('voldec', function () {
+//   console.log('Volume - event gotten on the client');
 
-  console.log('Volume set to low');
-});
+//   var video = document.querySelector('#karaoke-video');
+//   // video.volume = 0.5;
+//   video.volume = video.volume - 0.2;
 
-sonny1.on('volinc', function () {
-  console.log('Volume + event gotten on the client');
+//   console.log('Volume set to low');
+// });
 
-  var video = document.querySelector('#karaoke-video');
-  // video.volume = 1.0;
-  video.volume = video.volume + 0.2;
+// sonny1.on('volinc', function () {
+//   console.log('Volume + event gotten on the client');
 
-  console.log('Volume set to low');
-});
+//   var video = document.querySelector('#karaoke-video');
+//   // video.volume = 1.0;
+//   video.volume = video.volume + 0.2;
+
+//   console.log('Volume set to low');
+// });
