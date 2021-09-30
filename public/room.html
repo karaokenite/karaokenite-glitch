@@ -1997,6 +1997,13 @@
           volume.style.visibility = 'hidden';
         }
       });
+      
+      // Share room URL
+      let roomMatch = location.search.match(/room=(\w+)/);
+
+      if (roomMatch) {
+        document.getElementById("myInput").value = "https://www.karaokenite.co/room.html?room=" + roomMatch[1];
+      }   
 
       function copyFunction() {
         var copyText = document.getElementById("myInput");
