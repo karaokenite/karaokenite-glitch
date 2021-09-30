@@ -798,6 +798,10 @@ kbd {
   border-color: white;
 }
 
+#room:hover {
+  opacity: 90%;
+}
+
 #inviteModal {
   font-family: var(--font-brand);
   color: var(--color-slate);
@@ -885,7 +889,8 @@ kbd {
 }
 
 #feedback:hover {
-  background-color: var(--color-alabaster);
+  /* background-color: var(--color-alabaster); */
+  opacity: 90%;
 }
 
 @media screen and (min-width: 768px) {
