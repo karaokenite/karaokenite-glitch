@@ -47,6 +47,11 @@
       gtag('config', 'UA-167427633-1');
     </script>
 
+    <script
+      async
+      src="https://platform.twitter.com/widgets.js"
+      charset="utf-8"
+    ></script>
   </head>
 
   <body>
@@ -1680,6 +1685,22 @@
             </button>
           </div>
         </div>
+        
+        <br>
+
+        <div class="shareButton">
+          <a
+            href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+            class="twitter-share-button"
+            data-size="large"
+            data-url="https://karaokenite.co"
+            data-via="karaoke_nite"
+            data-show-count="true"
+            >Tweet</a
+          >
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
       </div>
     </div>
 
@@ -2004,6 +2025,8 @@
       if (roomMatch) {
         document.getElementById("myInput").value = "https://www.karaokenite.co/room.html?room=" + roomMatch[1];
       }   
+
+      document.querySelector(".twitter-share-button").setAttribute("data-text", "Come hang in my karaoke room! The room name is " + roomMatch[1]);
 
       function copyFunction() {
         var copyText = document.getElementById("myInput");
