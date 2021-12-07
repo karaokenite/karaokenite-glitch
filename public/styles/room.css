@@ -304,7 +304,7 @@ body {
 /* Glowing animation */
 
 #playlistButton {
-  animation: glowing 3000ms 12;
+  animation: glowing 3000ms infinite;
 }
 
 @keyframes glowing {
