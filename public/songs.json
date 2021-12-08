@@ -1,0 +1,143 @@
+[
+  {
+    "title": "In Da Club",
+    "artist": "50 Cent",
+    "alternate_names": ["Curtis Jackson", "G-Unit"],
+    "album": "Get Rich or Die Tryin'",
+    "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2F50_Cent_Get_Rich_or_Die_Tryin.jpg?v=1630391709929",
+    "genre": ["Hip Hop", "Rap"],
+    "year": 2003
+  },
+  {
+    "title": "good 4 u",
+    "artist": "Oliva Rodrigo",
+    "alternate_names": [""],
+    "album": "Sour",
+    "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FOlivia_Rodrigo_Sour.png?v=1630395581342",
+    "genre": ["Pop-Punk", "Pop"],
+    "year": 2021
+  },
+  {
+    "title": "I Want It That Way",
+    "artist": "Backstreet Boys",
+    "alternate_names": ["Nick Carter", "Howie Dorough", "AJ McLean", "Brian Littrell", "Kevin Richardson"],
+    "album": "Millenium",
+    "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FBackstreet_Boys_Millennium.jpg?v=1630395553586",
+    "genre": ["Pop"],
+    "year": 1999
+  },
+  {
+    "title": "Peaches",
+    "artist": "Justin Bieber",
+    "alternate_names": ["Biebs"],
+    "album": "Justice",
+    "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FJustin_Bieber_Justice.png?v=1630395564134",
+    "genre": ["Pop"],
+    "year": 2021
+  },  
+  {
+    "title": "Dilemma (ft. Kelly Rowland)",
+    "artist": "Nelly",
+    "alternate_names": [""],
+    "album": "Nellyville",
+    "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FNelly_Nellyville.jpg?v=1630395574505",
+    "genre": ["Pop", "R&B"],
+    "year": 2002
+  },
+  {
+    "title": "Tall Trees",
+    "artist": "Manorofanimals",
+    "alternate_names": ["Sam Lasko"],
+    "album": "Manorofanimals",
+    "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Ftall_trees.jpeg?v=1621055790085",
+    "genre": ["Pop"],
+    "year": 2021
+  },
+  {
+    "title": "Dilemma (ft. Kelly Rowland)",
+    "artist": "Nelly",
+    "alternate_names": [""],
+    "album": "Nellyville",
+    "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FNelly_Nellyville.jpg?v=1630395574505",
+    "genre": ["Pop", "R&B"],
+    "year": 2002
+  },
+  {
+    "title": "my ex's best friend (ft. blackbear)",
+    "artist": "Machine Gun Kelly",
+    "alternate_names": ["MGK", "Kells", "Kellz"],
+    "album": "Tickets to My Downfall",
+    "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FMachine_Gun_Kelly_Tickets_to_My_Downfall.png?v=1630395569665",
+    "genre": ["Pop Punk"],
+    "year": 2020
+  },
+  {
+    "title": "Truly Madly Deeply",
+    "artist": "Savage Garden",
+    "alternate_names": [""],
+    "album": "Savage Garden",
+    "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FSavage_Garden_Savage_Garden.jpg?v=1630395576628",
+    "genre": ["Pop"],
+    "year": 1997
+  },
+  {
+    "title": "Love Story",
+    "artist": "Taylor Swift",
+    "alternate_names": ["Tay"],
+    "album": "Fearless",
+    "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FTaylor_Swift_Fearless.png?v=1630395579012",
+    "genre": ["Pop", "Country"],
+    "year": 2008
+  },
+  {
+    "title": "She Will Be Loved",
+    "artist": "Maroon 5",
+    "alternate_names": ["Adam Levine", "Kara's Flowers"],
+    "album": "Songs About Jane",
+    "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FMaroon_5_Songs_About_Jane.jpg?v=1630395572591",
+    "genre": ["Pop Rock"],
+    "year": 2004
+  },
+  {
+    "name": "Madam Edgecombe",
+    "alternate_names": [],
+    "species": "human",
+    "gender": "female",
+    "house": "",
+    "dateOfBirth": "",
+    "yearOfBirth": "",
+    "wizard": true,
+    "ancestry": "",
+    "eyeColour": "",
+    "hairColour": "",
+    "wand": { "wood": "", "core": "", "length": "" },
+    "patronus": "",
+    "hogwartsStudent": false,
+    "hogwartsStaff": false,
+    "actor": "",
+    "alternate_actors": [],
+    "alive": true,
+    "image": ""
+  },
+  {
+    "name": "John Dawlish",
+    "alternate_names": [],
+    "species": "human",
+    "gender": "male",
+    "house": "",
+    "dateOfBirth": "",
+    "yearOfBirth": "",
+    "wizard": true,
+    "ancestry": "",
+    "eyeColour": "",
+    "hairColour": "grey",
+    "wand": { "wood": "", "core": "", "length": "" },
+    "patronus": "",
+    "hogwartsStudent": false,
+    "hogwartsStaff": false,
+    "actor": "Richard Leaf",
+    "alternate_actors": [],
+    "alive": true,
+    "image": ""
+  }
+]
