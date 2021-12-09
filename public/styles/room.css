@@ -446,10 +446,6 @@ video {
   display: block;
 }
 
-button[data-state="mute"] {
-  /* font-size: 1.3rem; */
-}
-
 .jquery-modal.blocker {
   background-color: transparent;
 }
@@ -545,6 +541,9 @@ button[data-state="mute"] {
   }
   .controls .button {
     padding: 0 4rem;
+  }
+  #searchWrapper {
+    justify-content: start;
   }
 }
 
@@ -1056,4 +1055,26 @@ kbd {
     0% { transform: translate(0,  0px); }
     50%  { transform: translate(0, 10px); }
     100%   { transform: translate(0, -0px); }   
+}
+
+/* Search Bar */
+
+#searchWrapper {
+  position: relative;
+}
+
+/* #searchWrapper::after {
+  content: '🔎';
+  position: absolute;
+  top: 2px;
+  right: 8px;
+} */
+
+#searchBar {
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 3px;
+  border: 1px solid #eaeaea;
+  padding: 5px 10px;
+  font-size: var(--font-size-md);
 }
