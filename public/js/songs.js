@@ -9,8 +9,6 @@ searchBar.addEventListener('keyup', (e) => {
   const searchString = e.target.value.toLowerCase();
 
   const filteredSongs = songs.filter( song => {
-    console.log(song.title);
-    console.log(song.artist);
 
     return (
       song.title.toLowerCase().includes(searchString) || 
