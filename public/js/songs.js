@@ -10,9 +10,8 @@ searchBar.addEventListener('keyup', (e) => {
 
   const filteredSongs = songs.filter( song => {
 
-    return (
-return Object.values(song).some(value => typeof value === 'string' ? value.toLowerCase().includes(searchString) : false)
-    );
+    return Object.values(song).some(value => typeof value === 'string' ? value.toLowerCase().includes(searchString) : false)
+  
   });
   
   displaysongs(filteredSongs);
