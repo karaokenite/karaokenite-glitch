@@ -20,7 +20,6 @@ searchBar.addEventListener('keyup', (e) => {
   });
   
   displaysongs(filteredSongs);
-  // console.log(filteredsongs);
 });
 
 
