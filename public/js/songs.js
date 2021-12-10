@@ -11,9 +11,7 @@ searchBar.addEventListener('keyup', (e) => {
   const filteredSongs = songs.filter( song => {
 
     return (
-      song.title.toLowerCase().includes(searchString) || 
-      song.artist.toLowerCase().includes(searchString) ||
-      song.album.toLowerCase().includes(searchString)
+return Object.values(song).some(value => typeof value === 'string' ? value.toLowerCase().includes(searchString) : false)
     );
   });
   
