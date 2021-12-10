@@ -26,7 +26,6 @@ const loadsongs = async () => {
     const res = await fetch('./songs.json');
     songs = await res.json();
     displaysongs(songs);
-    console.log(songs);
   } catch (err) {
     console.error(err);
   }
