@@ -59,7 +59,7 @@
     <div class="room-container">
       <div class="info-container">
         <div class="info-section-left">
-          <a class="navbar-link navbar-link__home" href="/" target="_blank">
+          <a class="navbar-link navbar-link__home" href="/" target="_blank" rel="noopener">
             <h1 class="brand-logo">
               KARAOKE NITE
               <span class="brand-betatag">beta</span>
@@ -112,14 +112,19 @@
           </div>
 
           <div class="user-container" id="videoChatRoom">
-            <div class="user">
+            <div class="user " id="video-container">
               <video
                 id="localVideo"
                 class="user-camera user-video"
                 autoplay
                 muted
               ></video>
+             
               <div class="user-name" id="userName"></div>
+              <div class="user-image-container" id="userImageContainer">
+                   <!-- <img class="user-image" id="userImage" src="./images/SmileyCyan.png"/> -->
+              </div>
+           
             </div>
           </div>
         </div>
@@ -454,7 +459,7 @@
           id="giveFeedbackButton"
           class="button button-bold"
           href="https://karaokenite.typeform.com/to/SaHxnvyT"
-          target="_blank"
+          target="_blank" rel="noopener"
           title="Give Feedback"
           >Give Feedback</a
         >
@@ -464,7 +469,7 @@
           id="reportBugButton"
           class="button"
           href="https://karaokenite.typeform.com/to/qqQslFgC"
-          target="_blank"
+          target="_blank" rel="noopener"
           title="Invite friends to the room"
           >Report a Bug</a
         >
