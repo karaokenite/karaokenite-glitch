@@ -27,7 +27,7 @@ let peers = {};
 // Redirect if not https
 if (
   location.protocol !== 'https:' &&
-  location.hostname !== "localhost" &&
+  location.hostname !== 'localhost' &&
   !location.port
 ) {
   location.href =
