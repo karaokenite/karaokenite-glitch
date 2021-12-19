@@ -31,7 +31,7 @@ if (
   !location.port
 ) {
   location.href =
-    "https:" + window.location.href.substring(window.location.protocol.length);
+    'https:' + window.location.href.substring(window.location.protocol.length);
 }
 
 // ==================== CONFIGURATION ====================
@@ -41,11 +41,11 @@ if (
 const configuration = {
   iceServers: [
     // { urls: 'stun:stun.services.mozilla.com' },
-    { urls: "stun:stun.l.google.com:19302" },
+    { urls: 'stun:stun.l.google.com:19302' },
     {
-      url: "turn:192.158.29.39:3478?transport=udp",
-      credential: "JZEOEt2V3Qb0y27GRntt2u2PAYA=",
-      username: "28224511:1379330808",
+      url: 'turn:192.158.29.39:3478?transport=udp',
+      credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+      username: '28224511:1379330808',
     },
   ],
 };
@@ -65,7 +65,7 @@ let constraints = {
 };
 
 constraints.video.facingMode = {
-  ideal: "user",
+  ideal: 'user',
 };
 
 // Enabling the camera at startup
@@ -94,17 +94,17 @@ init();
 function init() {
   // Get room name
   let params = new URLSearchParams(window.location.search),
-    roomName = (params.get("room") || "").trim().replace(" ", "-"),
-    userName = (params.get("username") || "").trim().replace(" ", "-");
+    roomName = (params.get('room') || '').trim().replace(' ', '-'),
+    userName = (params.get('username') || "").trim().replace(' ', '-');
 
   // console.log('userName is', userName);
 
   if (!roomName) {
-    alert("Please enter the room name.");
+    alert('Please enter the room name.');
     return;
   }
 
-  socket = io("/", {
+  socket = io('/', {
     query: {
       roomName: roomName,
       userName: userName,
@@ -112,17 +112,17 @@ function init() {
   });
 
   socket.on(SE_INIT, (playInfo) => {
-    console.log("INIT");
+    console.log('INIT');
 
     playlist.push(...playInfo.playlist);
     video_count = playInfo.currentPlayingIndex;
 
-    var video = document.querySelector("#karaoke-video");
-    var videoSync = document.querySelector("#karaoke-video source");
+    var video = document.querySelector('#karaoke-video');
+    var videoSync = document.querySelector('karaoke-video source');
 
     video.pause();
-    videoSync.setAttribute("src", playlist[video_count]);
-    videoSync.setAttribute("currentTime", 0);
+    videoSync.setAttribute('src', playlist[video_count]);
+    videoSync.setAttribute('currentTime', 0);
     video.load();
     video.currentTime = playInfo.currentPlayingTime;
 
@@ -139,24 +139,24 @@ function init() {
   });
 
   socket.on(SE_NEW_USER_ADDED, (socket_id, newUserName) => {
-    console.log("NEW USER ADDED " + socket_id);
+    console.log('NEW USER ADDED ' + socket_id);
     addPeer(socket_id, newUserName, false);
 
     socket.emit(SE_EXISTING_USER_NOTIFY, socket_id, userName);
   });
 
   socket.on(SE_EXISTING_USER_NOTIFY, (socket_id, existingUserName) => {
-    console.log("EXISTING USER NOTIFY " + socket_id);
+    console.log('EXISTING USER NOTIFY ' + socket_id);
     addPeer(socket_id, existingUserName, true);
   });
 
   socket.on(SE_USER_REMOVED, (socket_id) => {
-    console.log("USER REMOVED " + socket_id);
+    console.log('USER REMOVED ' + socket_id);
     removePeer(socket_id);
   });
 
   socket.on(SE_DISCONNECT, () => {
-    console.log("GOT DISCONNECTED");
+    console.log('GOT DISCONNECTED');
     for (let socket_id in peers) {
       removePeer(socket_id);
     }
@@ -208,28 +208,28 @@ function addPeer(socket_id, userName, am_initiator) {
     config: configuration,
   });
 
-  peers[socket_id].on("signal", (data) => {
+  peers[socket_id].on('signal', (data) => {
     socket.emit(SE_SIGNAL, {
       signal: data,
       socket_id: socket_id,
     });
   });
 
-  peers[socket_id].on("stream", (stream) => {
+  peers[socket_id].on('stream', (stream) => {
     let newVid = document.createElement("video");
     newVid.srcObject = stream;
     newVid.id = socket_id;
     newVid.playsinline = false;
     newVid.autoplay = true;
     // newVid.id = 'video';
-    // newVid.className = "video-camera"
-    // newVid.className = "peer-video"
-    newVid.classList.add("user-camera", "peer-video");
+    // newVid.className = 'video-camera'
+    // newVid.className = 'peer-video'
+    newVid.classList.add('user-camera', 'peer-video');
     newVid.onclick = () => openPictureMode(newVid);
     newVid.ontouchstart = (e) => openPictureMode(newVid);
 
-    let user = document.createElement("div");
-    user.className = "user";
+    let user = document.createElement('div');
+    user.className = 'user';
     user.appendChild(newVid);
     videoChatRoom.appendChild(user);
 
@@ -244,8 +244,8 @@ function addPeer(socket_id, userName, am_initiator) {
     // videos.appendChild(newVid);
 
     // Username:
-    let elemUserName = document.createElement("div");
-    elemUserName.className = "user-name";
+    let elemUserName = document.createElement('div');
+    elemUserName.className = 'user-name';
     elemUserName.innerHTML = userName;
     // username.innerHTML = userName;
     user.appendChild(elemUserName);
@@ -256,7 +256,7 @@ function addPeer(socket_id, userName, am_initiator) {
 // @param {HTMLVideoElement} el video element to put in pip mode
 
 function openPictureMode(el) {
-  console.log("opening pip");
+  console.log('opening pip');
   el.requestPictureInPicture();
 }
 
@@ -264,7 +264,7 @@ function openPictureMode(el) {
 // It will just enable the camera. 2 cameras not supported.
 
 function switchMedia() {
-  if (constraints.video.facingMode.ideal === "user") {
+  if (constraints.video.facingMode.ideal === 'user') {
     constraints.video.facingMode.ideal = "environment";
   } else {
     constraints.video.facingMode.ideal = "user";
