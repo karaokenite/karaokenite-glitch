@@ -3,17 +3,17 @@
 
 // Socket event constants.
 const SE_INIT = "Init",
-  SE_NEW_USER_ADDED = "NewUserAdded",
-  SE_EXISTING_USER_NOTIFY = "ExistingUserNotify",
-  SE_USER_REMOVED = "UserRemoved",
-  SE_DISCONNECT = "disconnect", // Do not change this name because it is a system event.
-  SE_SIGNAL = "Signal",
-  SE_PLAY = "Play",
-  SE_PAUSE = "Pause",
-  SE_PREV = "Prev",
-  SE_NEXT = "Next",
-  SE_ADD_SONG_TO_PLAYLIST = "AddSongToPlaylist",
-  SE_GET_PLAY_INFO = "GetPlayInfo";
+      SE_NEW_USER_ADDED = "NewUserAdded",
+      SE_EXISTING_USER_NOTIFY = "ExistingUserNotify",
+      SE_USER_REMOVED = "UserRemoved",
+      SE_DISCONNECT = "disconnect", // Do not change this name because it is a system event.
+      SE_SIGNAL = "Signal",
+      SE_PLAY = "Play",
+      SE_PAUSE = "Pause",
+      SE_PREV = "Prev",
+      SE_NEXT = "Next",
+      SE_ADD_SONG_TO_PLAYLIST = "AddSongToPlaylist",
+      SE_GET_PLAY_INFO = "GetPlayInfo";
 
 // Socket.io socket
 var socket;
@@ -94,8 +94,8 @@ init();
 function init() {
   // Get room name
   let params = new URLSearchParams(window.location.search),
-    roomName = (params.get('room') || '').trim().replace(' ', '-'),
-    userName = (params.get('username') || '').trim().replace(' ', '-');
+      roomName = (params.get('room') || '').trim().replace(' ', '-'),
+      userName = (params.get('username') || '').trim().replace(' ', '-');
 
   // console.log('userName is', userName);
 
