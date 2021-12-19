@@ -113,7 +113,6 @@ function init() {
 
   socket.on(SE_INIT, (playInfo) => {
     console.log('INIT');
-
     playlist.push(...playInfo.playlist);
     video_count = playInfo.currentPlayingIndex;
 
@@ -146,7 +145,7 @@ function init() {
   });
 
   socket.on(SE_EXISTING_USER_NOTIFY, (socket_id, existingUserName) => {
-    console.log('EXISTING USER NOTIFY ' + socket_id);
+    console.log('EXISTING USER NOTIFY ' + socket_id);    
     addPeer(socket_id, existingUserName, true);
   });
 
@@ -437,7 +436,7 @@ muteButton.addEventListener('click', function () {
   }
 });
 
-hideCameraButton.addEventListener("click", function () {
+hideCameraButton.addEventListener('click', function () {
   hideCameraFlag = !hideCameraFlag;
 
   if (hideCameraFlag) {
@@ -455,6 +454,6 @@ hideCameraButton.addEventListener("click", function () {
 
     // hideCameraButton.textContent = "Hide Camera";
     hideCameraButtonIcon.src =
-      "https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_camera_white.svg?v=1614747337937";
+      'https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_camera_white.svg?v=1614747337937';
   }
 });
