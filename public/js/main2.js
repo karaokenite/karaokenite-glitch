@@ -73,7 +73,7 @@ constraints.video.facingMode = {
 navigator.mediaDevices
   .getUserMedia(constraints)
   .then((stream) => {
-    console.log("Received local stream");
+    console.log('Received local stream');
     init2();
 
     localVideo.srcObject = stream;
