@@ -107,7 +107,7 @@ function init() {
   socket = io('/', {
     query: {
       roomName: roomName,
-      userName: userName,
+      userName: userName
     },
   });
 
@@ -118,7 +118,7 @@ function init() {
     video_count = playInfo.currentPlayingIndex;
 
     var video = document.querySelector('#karaoke-video');
-    var videoSync = document.querySelector('karaoke-video source');
+    var videoSync = document.querySelector('#karaoke-video source');
 
     video.pause();
     videoSync.setAttribute('src', playlist[video_count]);
