@@ -95,7 +95,7 @@ function init() {
   // Get room name
   let params = new URLSearchParams(window.location.search),
     roomName = (params.get('room') || '').trim().replace(' ', '-'),
-    userName = (params.get('username') || "").trim().replace(' ', '-');
+    userName = (params.get('username') || '').trim().replace(' ', '-');
 
   // console.log('userName is', userName);
 
@@ -216,14 +216,14 @@ function addPeer(socket_id, userName, am_initiator) {
   });
 
   peers[socket_id].on('stream', (stream) => {
-    let newVid = document.createElement("video");
+    let newVid = document.createElement('video');
     newVid.srcObject = stream;
     newVid.id = socket_id;
     newVid.playsinline = false;
     newVid.autoplay = true;
     // newVid.id = 'video';
-    // newVid.className = 'video-camera'
-    // newVid.className = 'peer-video'
+    // newVid.className = "video-camera"
+    // newVid.className = "peer-video"
     newVid.classList.add('user-camera', 'peer-video');
     newVid.onclick = () => openPictureMode(newVid);
     newVid.ontouchstart = (e) => openPictureMode(newVid);
@@ -265,9 +265,9 @@ function openPictureMode(el) {
 
 function switchMedia() {
   if (constraints.video.facingMode.ideal === 'user') {
-    constraints.video.facingMode.ideal = "environment";
+    constraints.video.facingMode.ideal = 'environment';
   } else {
-    constraints.video.facingMode.ideal = "user";
+    constraints.video.facingMode.ideal = 'user';
   }
 
   const tracks = localStream.getTracks();
@@ -408,32 +408,32 @@ const init2 = () => {
 
 // Enable/disable microphone
 
-let muteButton = document.getElementById("muteButton");
+let muteButton = document.getElementById('muteButton');
 // console.log(muteButton);
-let muteButtonIcon = document.getElementById("muteButtonIcon");
+let muteButtonIcon = document.getElementById('muteButtonIcon');
 
-let hideCameraButton = document.getElementById("hideCameraButton");
-let hideCameraButtonIcon = document.getElementById("hideCameraButtonIcon");
+let hideCameraButton = document.getElementById('hideCameraButton');
+let hideCameraButtonIcon = document.getElementById('hideCameraButtonIcon');
 
 //user image
-let userImageContainer = document.getElementById("userImageContainer");
+let userImageContainer = document.getElementById('userImageContainer');
 
 //leave room button
-let leaveRoomButton = document.getElementById("leaveRoomButton");
+let leaveRoomButton = document.getElementById('leaveRoomButton');
 
 let muteFlag = false;
 let hideCameraFlag = false;
 
-muteButton.addEventListener("click", function () {
+muteButton.addEventListener('click', function () {
   muteFlag = !muteFlag;
   if (muteFlag) {
     localStream.getTracks()[0].enabled = false;
     muteButtonIcon.src =
-      "https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_mic_slash_white.svg?v=1614747343660";
+      'https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_mic_slash_white.svg?v=1614747343660';
   } else {
     localStream.getTracks()[0].enabled = true;
     muteButtonIcon.src =
-      "https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_mic_white.svg?v=1614747341515";
+      'https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_mic_white.svg?v=1614747341515';
   }
 });
 
@@ -446,7 +446,7 @@ hideCameraButton.addEventListener("click", function () {
     userImageContainer.innerHTML = "";
 
     hideCameraButtonIcon.src =
-      "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FVideo-Camera-Slash.svg?v=1630962345127";
+      'https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FVideo-Camera-Slash.svg?v=1630962345127';
   } else {
     localStream.getTracks()[1].enabled = true;
 
