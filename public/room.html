@@ -760,7 +760,7 @@
       let roomMatch = location.search.match(/room=(\w+)/);
 
       if (roomMatch) {
-        document.getElementById("myInput").value = "https://www.karaokenite.co/room.html?room=" + roomMatch[1];
+        document.getElementById("myInput").value = "https://www.karaokenite.co/room.html?room=" + roomMatch[1] + "&username=New_User";
       }   
 
       document.querySelector(".twitter-share-button").setAttribute("data-text", "Come hang in my karaoke room! The room name is " + roomMatch[1]);
