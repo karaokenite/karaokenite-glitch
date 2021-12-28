@@ -1140,3 +1140,26 @@ kbd {
       rgba(255, 255, 255, 1)
   100%);
 }
+
+#choose-song {
+  position: absolute;
+  width: 300px;
+  height: 56px;
+  left: 230px;
+  bottom: -25px;
+  background: #F7FF57;
+  border-radius: 40px;
+  /* color: #000000; */
+  font-weight: 800;
+  font-size: 16px;
+
+  /* font-family: Nunito; */
+  /* font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 5px;*/
+}
