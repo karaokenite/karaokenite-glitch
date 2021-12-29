@@ -467,7 +467,6 @@ video {
 .modal.modal__large {
   /* background-color: rgba(255, 255, 255, 0.75); */
   background: rgba(3, 3, 22, 0.4);
-  padding: 1rem;
   max-width: 750px;
 }
 
@@ -491,8 +490,9 @@ video {
 .catalog-grid {
   display: grid;
   gap: 1rem;
-  max-height: 55vh;
-  padding: 2rem;
+  max-height: 45vh;
+  padding: 1rem 2rem 2rem 2rem;
+  margin-bottom: 15px;
   overflow-y: auto;
   position: relative;
   width: 100%;
@@ -1093,8 +1093,8 @@ kbd {
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
   border-radius: 12px;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 
 ::placeholder {
@@ -1110,7 +1110,7 @@ kbd {
 .search-icon {
   position: absolute;
   top: 18px;
-  left: 48px;
+  left: 55px;
   width: 24px;
   height: 24px;
 }
