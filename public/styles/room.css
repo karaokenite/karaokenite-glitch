@@ -497,6 +497,12 @@ video {
   position: relative;
   width: 100%;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  -webkit-mask-image: -webkit-gradient(linear, center top, center bottom, 
+  color-stop(0.50,  rgba(0,0,0,1)),
+  color-stop(1.00,  rgba(0,0,0,0)));
+mask-image: -webkit-gradient(linear, center top, center bottom, 
+  color-stop(0.50,  rgba(0,0,0,1)),
+  color-stop(1.00,  rgba(0,0,0,0)));
 }
 /* 
 .catalog-grid:after {
@@ -1131,14 +1137,15 @@ kbd {
 
 #fade {
   position: absolute;
-  bottom: 0px;
+  bottom: 10px;
+  
   display: block;
-  width: 100%;
-  height: 75px;
-  background-image: linear-gradient(to bottom, 
+  width: 95%;
+  height: 100px;
+  /* background-image: linear-gradient(to bottom, 
       rgba(255, 255, 255, 0), 
-      rgba(255, 255, 255, 1)
-  100%);
+      rgb(19, 40, 233)
+  100%); */
 }
 
 #choose-song {
