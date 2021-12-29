@@ -15,6 +15,11 @@ searchBar.addEventListener('keyup', (e) => {
   });
   
   displaysongs(filteredSongs);
+
+  // No results
+  if (filteredSongs.length == 0) {
+    songsList.innerHTML = "Sorry, we can't find what you are looking for.";
+  }
 });
 
 
