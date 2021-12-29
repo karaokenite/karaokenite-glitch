@@ -1024,13 +1024,11 @@ kbd {
 
 #volume {
   float: left;
-  /* left: 24px; */
   margin: 0 auto;
   height: 5px;
   width: 130px;
   /* background: #555; */
   border-radius: 15px;
-  /* position: absolute; */
   top: 50%;
   margin-top: -3px;
   margin-left: 3px;
@@ -1087,7 +1085,6 @@ kbd {
   height: 64px;
   border: 1px solid #eaeaea;
   font-size: var(--font-size-md);
-  /* background-color: #979797; */
   background-color: rgba(255, 255, 255, 0.2);
   padding: 2px 23px 2px 46px;
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -1118,7 +1115,7 @@ kbd {
 .clear-icon {
   position: absolute;
   top: 18px;
-  right: 48px;
+  right: 50px;
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -1129,21 +1126,21 @@ kbd {
   position: absolute;
   width: 300px;
   height: 56px;
-  left: 230px;
+  /* left: 230px; */
+  left: 50%;
   bottom: -25px;
+  transform: translate(-50%);
   background: #F7FF57;
   border-radius: 40px;
-  /* color: #000000; */
   font-weight: 800;
   font-size: 16px;
+}
 
-  /* font-family: Nunito; */
-  /* font-style: normal;
-  font-weight: 800;
-  font-size: 16px;
-  line-height: 22px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 5px;*/
+#no-results-text {
+  display: none;
+  text-align: left;
+  position: relative;
+  left: 2.5rem;
+  font-size: 20px;
+  max-width: 80%;
 }

@@ -1,5 +1,7 @@
 const songsList = document.getElementsByClassName('catalog-grid')[0];
 const searchBar = document.getElementById('searchBar');
+const noResults = document.getElementById('no-results-text');
+
 let songs = [];
 
 console.log(searchBar);
@@ -15,10 +17,12 @@ searchBar.addEventListener('keyup', (e) => {
   });
   
   displaysongs(filteredSongs);
+  noResults.style.display = "none";
+
 
   // No results
   if (filteredSongs.length == 0) {
-    songsList.innerHTML = "Sorry, we can't find what you are looking for.";
+    noResults.style.display = "block";
   }
 });
 
