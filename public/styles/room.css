@@ -504,17 +504,7 @@ mask-image: -webkit-gradient(linear, center top, center bottom,
   color-stop(0.50,  rgba(0,0,0,1)),
   color-stop(1.00,  rgba(0,0,0,0)));
 }
-/* 
-.catalog-grid:after {
-  content: "";
-  position: absolute;
-  z-index: 99;
-  bottom: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1) 90%);  width: 100%;
-  height: 4em;
-} */
+
 
 @media (min-width: 768px) {
   .footer-right {
@@ -1133,19 +1123,6 @@ kbd {
   height: 24px;
   cursor: pointer;
   visibility: hidden;
-}
-
-#fade {
-  position: absolute;
-  bottom: 10px;
-  
-  display: block;
-  width: 95%;
-  height: 100px;
-  /* background-image: linear-gradient(to bottom, 
-      rgba(255, 255, 255, 0), 
-      rgb(19, 40, 233)
-  100%); */
 }
 
 #choose-song {
