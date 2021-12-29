@@ -354,25 +354,8 @@
             class="clear-icon" 
             src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/search_close.svg?v=1640474939964" />
         </div>
+        <p id="no-results-text">Sorry, we can't find what you are looking for.</p>
         <div class="catalog-grid" onscroll="dismissAddedNotice()">
-          <!-- New -->
-          <!-- <ul id="songsList"></ul> -->
-
-          <!-- Example -->
-          <!-- <button
-            onclick="grabURL(event, 79)"
-            class="catalog-item jukebox"
-            type="button"
-          >
-            <img
-              src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FThe_Colour_And_The_Shape.jpeg?v=1632203175507"
-              alt="The Colour and the Shape"
-              width="600"
-              height="400"
-            />
-            <div class="title">Everlong</div>
-            <div class="artist">Foo Fighters</div>
-          </button> -->
         </div>
 
         <div id="added-notice">
@@ -871,7 +854,7 @@
         openModal();
         $('.room-container').toggleClass('blur-background');
       }
-
+      
       $("#songModal").on("modal:close", function () {
         $('.room-container').toggleClass('blur-background');
       });
