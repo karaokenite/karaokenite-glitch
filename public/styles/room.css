@@ -465,7 +465,6 @@ video {
 }
 
 .modal.modal__large {
-  /* background-color: rgba(255, 255, 255, 0.75); */
   background: rgba(3, 3, 22, 0.4);
   max-width: 750px;
 }
