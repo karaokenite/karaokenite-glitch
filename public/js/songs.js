@@ -19,8 +19,7 @@ searchBar.addEventListener('keyup', (e) => {
   displaysongs(filteredSongs);
   noResults.style.display = "none";
 
-
-  // No results
+  // No search results
   if (filteredSongs.length == 0) {
     noResults.style.display = "block";
   }
