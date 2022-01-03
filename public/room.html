@@ -330,9 +330,6 @@
   
                   </div>
                 </button>
-
-            
-               
               </div>
             </div>
           </div>
@@ -342,26 +339,23 @@
 
     <div id="songModal" class="catalog modal modal__large">
       <div class="modal-content">
+        <h2>Add songs in queue</h2>
+        <div id="searchWrapper">
+          <img 
+            class="search-icon" 
+            src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/search_icon.svg?v=1640474938766" />
+          <input
+            type="text"
+            name="searchBar"
+            id="searchBar"
+            placeholder="Search for song titles or artist name"
+          />
+          <img 
+            class="clear-icon" 
+            src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/search_close.svg?v=1640474939964" />
+        </div>
+        <p id="no-results-text">Sorry, we can't find what you are looking for.</p>
         <div class="catalog-grid" onscroll="dismissAddedNotice()">
-          <!-- New -->
-          <!-- <ul id="songsList"></ul> -->
-
-          <!-- Example -->
-          <!-- <button
-            onclick="grabURL(event, 79)"
-            class="catalog-item jukebox"
-            type="button"
-          >
-            <img
-              src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FThe_Colour_And_The_Shape.jpeg?v=1632203175507"
-              alt="The Colour and the Shape"
-              width="600"
-              height="400"
-            />
-            <div class="title">Everlong</div>
-            <div class="artist">Foo Fighters</div>
-          </button> -->
-
         </div>
 
         <div id="added-notice">
@@ -370,17 +364,11 @@
             queue!
           </button>
         </div>
-
+        <!-- Old buttons 
         <div class="catalog-controls controls">
-          <div id="searchWrapper">
-            <input
-              type="text"
-              name="searchBar"
-              id="searchBar"
-              placeholder="🔎 Search for songs"
-            />
-          </div>
+        
           <a class="button" href="#" rel="modal:close">Done</a>
+
           <button
             class="button button-bold"
             disabled
@@ -389,7 +377,16 @@
           >
             Add Song
           </button>
-        </div>
+        </div> -->
+
+        <button
+          disabled
+          class="modal-button"
+          id="choose-song"
+          onclick="addSong()"
+        >
+        Add Song
+      </button>
       </div>
     </div>
 
@@ -856,7 +853,32 @@
       document.getElementById("playlistButton").onclick = function() {
         document.getElementById("onboard-tooltip").style.display = "none";
         openModal();
+        $('.room-container').toggleClass('blur-background');
       }
+      
+      $("#songModal").on("modal:close", function () {
+        $('.room-container').toggleClass('blur-background');
+      });
+
+      const clearIcon = document.querySelector(".clear-icon");
+      // const searchBar = document.querySelector(".searchBar");
+
+      searchBar.addEventListener("keyup", () => {
+
+        if (searchBar.value && clearIcon.style.visibility != "visible") {
+          clearIcon.style.visibility = "visible";
+        } else if(!searchBar.value) {
+          clearIcon.style.visibility = "hidden";
+        }
+      });
+      
+      // Clear icon clicked 
+
+      clearIcon.addEventListener("click", () => {
+        searchBar.value = "";
+        clearIcon.style.visibility = "hidden";
+      });
+
     </script>
 
   </body>
