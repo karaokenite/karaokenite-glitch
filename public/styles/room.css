@@ -1121,11 +1121,10 @@ kbd {
   visibility: hidden;
 }
 
-#choose-song {
+.modal-button {
   position: absolute;
   width: 300px;
   height: 56px;
-  /* left: 230px; */
   left: 50%;
   bottom: -25px;
   transform: translate(-50%);
