@@ -676,6 +676,7 @@
         selectedElement.classList.add(selectedClass);
 
         document.getElementById("choose-song").removeAttribute("disabled");
+        document.getElementById("choose-song").style.cursor = "pointer";
       }
 
       function addSong() {
@@ -685,6 +686,7 @@
         console.log("playlist pushed");
 
         document.getElementById("choose-song").setAttribute("disabled", true);
+        document.getElementById("choose-song").style.cursor = "auto";
         document.getElementById("added-notice").setAttribute("populated", true);
         document.getElementById("added-notice-song").textContent =
           songNames[selectedIndex];

@@ -478,7 +478,6 @@ video {
   grid-template-rows: 1fr 5rem;
   row-gap: 1rem;
   grid-template-rows: 1fr max-content;
-  
 }
 
 .modal a.close-modal {
