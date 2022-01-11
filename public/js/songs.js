@@ -1,5 +1,7 @@
 const songsList = document.getElementsByClassName('catalog-grid')[0];
 const searchBar = document.getElementById('searchBar');
+const noResults = document.getElementById('no-results-text');
+
 let songs = [];
 
 console.log(searchBar);
@@ -15,6 +17,12 @@ searchBar.addEventListener('keyup', (e) => {
   });
   
   displaysongs(filteredSongs);
+  noResults.style.display = "none";
+
+  // No search results
+  if (filteredSongs.length == 0) {
+    noResults.style.display = "block";
+  }
 });
 
 
