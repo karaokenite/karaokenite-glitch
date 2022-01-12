@@ -21,6 +21,7 @@
 
     <link href="/styles/shared.css" rel="stylesheet" type="text/css" />
     <link href="/styles/room.css" rel="stylesheet" type="text/css" />
+    <link href="/styles/queue.css" rel="stylesheet" type="text/css" />
 
     <script
       src="https://cdn.socket.io/3.1.3/socket.io.min.js"
@@ -109,6 +110,30 @@
                 >Download MP4</a
               >
             </video>
+
+            <div class="song-queue">
+              <h3>Playlist</h3>
+              <div class="queue-list">
+                <img
+                  class="queue-album"
+                  src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FThe_Colour_And_The_Shape.jpeg?v=1632203175507"
+                  alt="Welcome"
+                />
+                <div class="queue-title">Welcome Video</div>
+                <div class="queue-artist">Karaoke Nite</div>
+                <div class="queue-time">4:23</div>
+                <!-- <img
+                  src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FThe_Colour_And_The_Shape.jpeg?v=1632203175507"
+                  alt="The Colour and the Shape"
+                  width="600"
+                  height="400"
+                />
+                <div class="title">Everlong</div>
+                <div class="artist">Foo Fighters</div>
+                <div class="time">4:23</div> -->
+              </div>
+            </div>
+
           </div>
 
           <div class="user-container" id="videoChatRoom">
@@ -269,6 +294,19 @@
                   type="button"
                   onclick="openModal()"
                   title="Add Song"
+                >
+                  <img
+                  id="playlistIcon"
+                  src="https://cdn.glitch.global/aa3b905c-b152-45c7-9d6f-45c998461107/add-song.svg?v=1641949339851"
+                  />
+                  <div id="onboard-tooltip">
+                    Add Songs
+                  </div>
+                </button>
+                <button
+                  id="queueButton"
+                  type="button"
+                  title="Queue Playlist"
                 >
                   <img
                     id="playlistIcon"
@@ -705,6 +743,10 @@
         $("#songModal").modal("open");
       }
 
+      $('#queueButton').on('click', function(){
+        $('.song-queue').toggleClass('show');
+      });
+
       function inviteModal() {
         $("#inviteModal").modal("open");
       }
@@ -883,6 +925,8 @@
 
     </script>
 
+
+    <script src="/js/queue.js"></script>
   </body>
 
   <!-- <script src="/js/chat.js"></script> -->

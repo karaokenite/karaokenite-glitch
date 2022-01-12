@@ -512,7 +512,6 @@ mask-image: -webkit-gradient(linear, center top, center bottom,
   color-stop(1.00,  rgba(0,0,0,0)));
 }
 
-
 @media (min-width: 768px) {
   .footer-right {
     position: static;
