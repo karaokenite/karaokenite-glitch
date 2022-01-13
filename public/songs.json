@@ -7,7 +7,8 @@
     "album": "Get Rich or Die Tryin'",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2F50_Cent_Get_Rich_or_Die_Tryin.jpg?v=1630391709929",
     "genre": ["Hip Hop", "Rap"],
-    "year": 2003
+    "year": 2003,
+    "length": "3:13"
   },
   {
     "id": 1,
@@ -17,7 +18,8 @@
     "album": "Sour",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FOlivia_Rodrigo_Sour.png?v=1630395581342",
     "genre": ["Pop-Punk", "Pop"],
-    "year": 2021
+    "year": 2021,
+    "length": "2:58"
   },
   {
     "id": 2,
@@ -27,7 +29,8 @@
     "album": "Millenium",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FBackstreet_Boys_Millennium.jpg?v=1630395553586",
     "genre": ["Pop"],
-    "year": 1999
+    "year": 1999,
+    "length": "3:33"
   },
   {
     "id": 3,

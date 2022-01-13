@@ -34,7 +34,7 @@ const displayQueue = (songs) => {
             <div class="queue-title">${song.title}</div>
             <div class="queue-artist">${song.artist}</div>
           </div>
-          <div class="queue-time">${song.time}</div>
+          <div class="queue-time">${song.length}</div>
         </div>
       </div>
     `;

@@ -522,9 +522,9 @@
     </div>
 
     <script>
-            // =========================================== Karaoke Playlist (mp4's) =====================================
+      // =========================================== Karaoke Playlist (mp4's) =====================================
 
-            var playlist = [
+      var playlist = [
         "https://cdn.glitch.com/aa3b905c-b152-45c7-9d6f-45c998461107%2Fkaraoke_nite_welcome_video_hd.mp4?v=1632152001401",
       ];
 
@@ -534,14 +534,7 @@
           "artist": "Karaoke Nite",
           "album": "Onboarding",
           "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fprofile.png?v=1596924786340",
-          "time": "0:10"
-        },
-        {
-          "title": "Everlong",
-          "artist": "Foo Fighters",
-          "album": "The Colour and the Shape",
-          "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FThe_Colour_And_The_Shape.jpeg?v=1632203175507",
-          "time": "4:23"
+          "length": "0:10"
         }
       ];
 
@@ -757,13 +750,30 @@
         playlist.push(jukebox[selectedIndex]);
         sonny2.emit(SE_ADD_SONG_TO_PLAYLIST, jukebox[selectedIndex]);
 
+        // Fetch the correct from songs.json
+        
+        const loadsongs = async () => {
+          try {
+            const res = await fetch('./songs.json');
+            songs = await res.json();
+          } catch (err) {
+            console.error(err);
+          }
+        };
+
+        loadsongs();
+
+        let obj = songs.find(o => o.id === selectedIndex);
+
+        console.log(obj);
+
         // Add to queue:
         var new_song_to_queue = {
-          "title": "Welcome Video",
-          "artist": "Karaoke Nite",
-          "album": "Onboarding",
-          "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fprofile.png?v=1596924786340",
-          "time": "0:10"
+          "title": obj["title"],
+          "artist": obj["artist"],
+          "album": obj["album"],
+          "album_image": obj["album_image"],
+          "length": obj["length"]
         };
 
         queue.push(new_song_to_queue);

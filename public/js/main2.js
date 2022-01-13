@@ -172,9 +172,7 @@ function init() {
   });
 
   socket.on(SE_ADD_SONG_TO_QUEUE, (queueSong) => {
-    console.log("main2.js........", queueSong);
     queue.push(queueSong);
-    displayQueue(queue);
     console.log("main2.js........", queueSong);
   });
 
