@@ -13,6 +13,7 @@ const SE_INIT = "Init",
       SE_PREV = "Prev",
       SE_NEXT = "Next",
       SE_ADD_SONG_TO_PLAYLIST = "AddSongToPlaylist",
+      SE_ADD_SONG_TO_QUEUE = "AddSongToQueue",
       SE_GET_PLAY_INFO = "GetPlayInfo";
 
 
@@ -65,6 +66,7 @@ module.exports = (io) => {
         socketUserMap: {},
         playInfo: {
           playlist: [],
+          queue: [],
           currentPlayingIndex: 0,
           currentPlayingTime: 0,
           isPlaying: false
@@ -246,12 +248,24 @@ module.exports = (io) => {
     // Triggered when a user presses the "Choose Song" button
     socket.on(SE_ADD_SONG_TO_PLAYLIST, function (songUrl) {
       console.log(
-        `Client ${socket.id} in room ${roomName} emitted 'addSongToPlaylist' event.`
+        `Client ${socket.id} in room ${roomName} emitted 'addSongToPlaylist' event with ${songUrl}`
       );
 
       rooms[roomName].playInfo.playlist.push(songUrl);
 
       socket.to(roomName).emit(SE_ADD_SONG_TO_PLAYLIST, songUrl);
     });
+
+     // Triggered when a user presses the "Choose Song" button
+     socket.on(SE_ADD_SONG_TO_QUEUE, function (queueSong) {
+      console.log(
+        `Client ${socket.id} in room ${roomName} emitted 'addSongToQueue' event with ${queueSong["title"]}`
+      );
+
+      rooms[roomName].playInfo.queue.push(queueSong);
+
+      socket.to(roomName).emit(SE_ADD_SONG_TO_QUEUE, queueSong);
+    });
+
   });
 };

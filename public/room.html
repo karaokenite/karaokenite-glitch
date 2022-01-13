@@ -22,7 +22,7 @@
     <link href="/styles/shared.css" rel="stylesheet" type="text/css" />
     <link href="/styles/room.css" rel="stylesheet" type="text/css" />
     <link href="/styles/queue.css" rel="stylesheet" type="text/css" />
-
+    
     <script
       src="https://cdn.socket.io/3.1.3/socket.io.min.js"
       integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
@@ -116,10 +116,10 @@
 
               <div class="queue-list">
                 
-                <div class="song-list">
+                <!-- <div class="queue-song">
                   <img
                     class="queue-album"
-                    src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FThe_Colour_And_The_Shape.jpeg?v=1632203175507"
+                    src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fprofile.png?v=1596924786340"
                     alt="Welcome"
                   />
                   <div class="queue-group">
@@ -127,11 +127,11 @@
                       <div class="queue-title">Welcome Video</div>
                       <div class="queue-artist">Karaoke Nite</div>
                     </div>
-                    <div class="queue-time">4:23</div>
+                    <div class="queue-time">0:10</div>
                   </div>
                 </div>
 
-                <div class="song-list">              
+                <div class="queue-song">              
                   <img
                     class="queue-album"
                     src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FThe_Colour_And_The_Shape.jpeg?v=1632203175507"
@@ -144,7 +144,8 @@
                     </div>
                     <div class="queue-time">4:23</div>
                   </div>
-                </div>
+                </div> -->
+
               </div>
 
             </div>
@@ -520,17 +521,28 @@
       </div>
     </div>
 
-    <script src="/js/songs.js"></script>
-    <script src="/js/main2.js"></script>
-    <script src="/js/playback-new.js"></script>
-    <script src="/js/video-player-new.js"></script>
-
     <script>
-      const sonny2 = socket;
-      // =========================================== Karaoke Playlist (mp4's) =====================================
+            // =========================================== Karaoke Playlist (mp4's) =====================================
 
-      var playlist = [
+            var playlist = [
         "https://cdn.glitch.com/aa3b905c-b152-45c7-9d6f-45c998461107%2Fkaraoke_nite_welcome_video_hd.mp4?v=1632152001401",
+      ];
+
+      var queue = [
+        {
+          "title": "Welcome Video",
+          "artist": "Karaoke Nite",
+          "album": "Onboarding",
+          "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fprofile.png?v=1596924786340",
+          "time": "0:10"
+        },
+        {
+          "title": "Everlong",
+          "artist": "Foo Fighters",
+          "album": "The Colour and the Shape",
+          "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FThe_Colour_And_The_Shape.jpeg?v=1632203175507",
+          "time": "4:23"
+        }
       ];
 
       var jukebox = [
@@ -700,6 +712,16 @@
         "...Baby One More Time",
         "Everlong"
       ];
+    </script>
+
+    <script src="/js/songs.js"></script>
+    <script src="/js/queue.js"></script>
+    <script src="/js/main2.js"></script>
+    <script src="/js/playback-new.js"></script>
+    <script src="/js/video-player-new.js"></script>
+
+    <script>
+      const sonny2 = socket;
 
       function findParentButton(element) {
         if (!element) {
@@ -734,6 +756,19 @@
       function addSong() {
         playlist.push(jukebox[selectedIndex]);
         sonny2.emit(SE_ADD_SONG_TO_PLAYLIST, jukebox[selectedIndex]);
+
+        // Add to queue:
+        var new_song_to_queue = {
+          "title": "Welcome Video",
+          "artist": "Karaoke Nite",
+          "album": "Onboarding",
+          "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fprofile.png?v=1596924786340",
+          "time": "0:10"
+        };
+
+        queue.push(new_song_to_queue);
+        sonny2.emit(SE_ADD_SONG_TO_QUEUE, new_song_to_queue);
+        displayQueue(queue);
 
         console.log("playlist pushed");
 
@@ -940,7 +975,6 @@
     </script>
 
 
-    <script src="/js/queue.js"></script>
   </body>
 
   <!-- <script src="/js/chat.js"></script> -->
