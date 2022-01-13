@@ -22,39 +22,55 @@
 .song-queue.show {
   /* display: flex; */
   opacity: 1;
-  max-height: 100%;
+  /* max-height: 350px; */
   width: 250px;
-  min-height: 275px;
+  height: 350px;
+  /* min-height: 275px; */
 }
 
 .queue-list {
   display: flex;
-  /* grid-template-columns: 200px; */
   padding: 5px;
   position: relative;
   flex-direction: column;
 }
-.queue-group{
-  border-bottom: 1px solid grey;
+
+.queue-group {
+  /* border-bottom: 1px solid grey; */
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: space-between;
-  width: 80%
+  width: 80%;
 }
+
+.queue-group::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -10px;
+  transform: translate(0, +50%);
+  background-color: white;
+}
+
 .song-list {
- 
   display: flex;
   align-items: center;
   gap: 20px;
   /* justify-content: space-between; */
-  margin-bottom: 10px;
+  margin-bottom: 21px;
+}
+
+.song-list:last-of-type .queue-group::after {
+  display: none;
 }
 
 .queue-album {
   /* display: grid; */
   border-radius: 50%;
   height: 32px;
-  width: 20px;
+  width: 32px;
 }
 
 .queue-title {
@@ -62,6 +78,7 @@
   font-weight: 500;
   color: #F2F2F2;
   font-size: 16px;
+  font-weight: bold;
 }
 
 .queue-artist {
