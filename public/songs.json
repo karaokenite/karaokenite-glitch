@@ -7,8 +7,8 @@
     "album": "Get Rich or Die Tryin'",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2F50_Cent_Get_Rich_or_Die_Tryin.jpg?v=1630391709929",
     "genre": ["Hip Hop", "Rap"],
-    "year": 2003,
-    "length": "3:13"
+    "length": "3:13",
+    "year": 2003
   },
   {
     "id": 1,
@@ -18,8 +18,8 @@
     "album": "Sour",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FOlivia_Rodrigo_Sour.png?v=1630395581342",
     "genre": ["Pop-Punk", "Pop"],
-    "year": 2021,
-    "length": "2:58"
+    "length": "2:58",
+    "year": 2021
   },
   {
     "id": 2,
@@ -29,8 +29,8 @@
     "album": "Millenium",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FBackstreet_Boys_Millennium.jpg?v=1630395553586",
     "genre": ["Pop"],
-    "year": 1999,
-    "length": "3:33"
+    "length": "3:33",
+    "year": 1999
   },
   {
     "id": 3,
@@ -40,6 +40,7 @@
     "album": "Justice",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FJustin_Bieber_Justice.png?v=1630395564134",
     "genre": ["Pop"],
+    "length": "3:18",
     "year": 2021
   },  
   {
@@ -50,6 +51,7 @@
     "album": "Nellyville",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FNelly_Nellyville.jpg?v=1630395574505",
     "genre": ["Pop", "R&B"],
+    "length": "4:49",
     "year": 2002
   },
   {
@@ -60,6 +62,7 @@
     "album": "Manorofanimals",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Ftall_trees.jpeg?v=1621055790085",
     "genre": ["Pop"],
+    "length": "4:12",
     "year": 2021
   },
   {
@@ -70,6 +73,7 @@
     "album": "Tickets to My Downfall",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FMachine_Gun_Kelly_Tickets_to_My_Downfall.png?v=1630395569665",
     "genre": ["Pop Punk"],
+    "length": "2:19",
     "year": 2020
   },
   {
@@ -80,6 +84,7 @@
     "album": "Savage Garden",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FSavage_Garden_Savage_Garden.jpg?v=1630395576628",
     "genre": ["Pop"],
+    "length": "4:37",
     "year": 1997
   },
   {
@@ -90,6 +95,7 @@
     "album": "Songs About Jane",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FMaroon_5_Songs_About_Jane.jpg?v=1630395572591",
     "genre": ["Pop Rock"],
+    "length": "4:17",
     "year": 2004
   },
   {
@@ -100,8 +106,9 @@
     "album": "Some Girls",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Frolling-stones-some-girls.jpg?v=1591040877607",
     "genre": ["Classic Rock"],
+    "length": "4:24",
     "year": 1978
-  }, 
+  },
   {
     "id": 10,
     "title": "Killing Me Softly",
@@ -110,6 +117,7 @@
     "album": "The Score",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Ffugees-the-score.png?v=1591040952706",
     "genre": ["Hip Hop", "Soul"],
+    "length": "4:46",
     "year": 1996
   },
   {
@@ -120,6 +128,7 @@
     "album": "In Keeping Secrets of Silent Earth: 3",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fcoheed-and-cambria-in-keeping-secrets.jpg?v=1591040969216",
     "genre": ["Emo", "Pop Punk"],
+    "length": "4:06",
     "year": 2003
   },
   {
@@ -130,6 +139,7 @@
     "album": "Wheatus",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fwheatus-wheatus.jpg?v=1591114972728.jpg",
     "genre": ["Pop Rock", "Pop Punk"],
+    "length": "4:07",
     "year": 2000
   },
   {
@@ -140,6 +150,7 @@
     "album": "Fearless",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FTaylor_Swift_Fearless.png?v=1630395579012",
     "genre": ["Pop", "Country"],
+    "length": "3:57",
     "year": 2008
   },
   {
@@ -150,6 +161,7 @@
     "album": "Red",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Ftaylor-swift-red.png?v=1591115004639",
     "genre": ["Pop", "Country", "Pop Rock"],
+    "length": "3:43",
     "year": 2012
   },
   {
@@ -160,6 +172,7 @@
     "album": "Taylor Swift",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FTaylor_Swift_Taylor_Swift.png?v=1632015837963",
     "genre": ["Pop", "Country"],
+    "length": "3:22",
     "year": 2006
   },
   {
@@ -170,6 +183,7 @@
     "album": "Demon Days",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fgorillaz-demon-days.jpg?v=1591115146848",
     "genre": ["Hip Hop", "Rock"],
+    "length": "3:42",
     "year": 2005
   },
   {
@@ -180,6 +194,7 @@
     "album": "Old Crow Medicine Show",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fold-crow-medicine-show-ocms.jpg?v=1591115180138",
     "genre": ["Country", "Folk"],
+    "length": "3:52",
     "year": 2004
   },
   {
@@ -191,6 +206,7 @@
     "album": "Born Sinner",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fj-cole-born-sinner.jpg?v=1591115254771",
     "genre": ["Hip Hop"],
+    "length": "4:00",
     "year": 2013
   },
   {
@@ -201,6 +217,7 @@
     "album": "Future Nostalgia",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fdua-lipa-future-nostalgia.png?v=1591115288043",
     "genre": ["Pop"],
+    "length": "3:03",
     "year": 2020
   },
   {
@@ -211,6 +228,7 @@
     "album": "Let's Get It On",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fmarvin-gaye-lets-get-it-on.jpg?v=1591115313029",
     "genre": ["Soul", "Funk"],
+    "length": "4:53",
     "year": 1973
   },
   {
@@ -221,87 +239,96 @@
     "album": "Oh, Inverted World",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fshins-oh-inverted-world.jpg?v=1591115405298",
     "genre": ["Indie Rock"],
-    "year": 1900
+    "length": "3:51",
+    "year": 2001
   },
   {
     "id": 22,
     "title": "Boys (Summertime Love)",
     "artist": "Sabrina",
     "alternate_names": [""],
-    "album": "",
+    "album": "Sabrina",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fsabrina-sabrina.jpg?v=1591157973806",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Disco"],
+    "length": "2:08",
+    "year": 1987
   },
   {
     "id": 23,
     "title": "Come and Get Your Love",
     "artist": "Redbone",
     "alternate_names": [""],
-    "album": "",
+    "album": "Wovoka",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fredbone-wovoka.jpg?v=1591158069587",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Classic Rock"],
+    "length": "3:27",
+    "year": 1974
   },
   {
     "id": 24,
     "title": "Running Up That Hill",
     "artist": "Kate Bush",
     "alternate_names": [""],
-    "album": "",
+    "album": "Hounds of Love",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fkate-bush-hounds-of-love.png?v=1591158143497",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["New Wave", "Pop"],
+    "length": "4:58",
+    "year": 1985
   },
   {
     "id": 25,
     "title": "What's Luv (ft. Ashanti & Ja Rule)",
     "artist": "Fat Joe",
     "alternate_names": [""],
-    "album": "",
+    "album": "Jealous Ones Still Envy (J.O.S.E.)",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Ffat-joe-jealous-ones-still-envy.jpg?v=1591158242429",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Hip-Hop", "Rap"],
+    "length": "4:52",
+    "year": 2001
   },
   {
     "id": 26,
     "title": "Where Is the Love?",
     "artist": "Black Eyed Peas",
-    "alternate_names": [""],
-    "album": "",
+    "alternate_names": ["Fergie", "will.i.am"],
+    "album": "Elephunk",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fthe-black-eyed-peas-elephunk.jpg?v=1592289078276",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Pop", "Hip Hop", "Rap", "R&B"],
+    "length": "4:34",
+    "year": 2003
   },
   {
     "id": 27,
     "title": "Shallow",
     "artist": "Lady Gaga, Bradley Cooper",
     "alternate_names": [""],
-    "album": "",
+    "album": "A Star Is Born",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fa-star-is-born-soundtrack.png?v=1592289621175",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Rock", "Pop Rock"],
+    "length": "3:37",
+    "year": 2018
   },
   {
     "id": 28,
     "title": "Starman",
     "artist": "David Bowie",
     "alternate_names": [""],
-    "album": "",
+    "album": "The Rise and Fall of Ziggy Stardust and the Spiders from Mars",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FZiggyStardust.jpg?v=1592290475425",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Classic Rock", "Glam Rock"],
+    "length": "4:16",
+    "year": 1972
   },
   {
     "id": 29,
     "title": "So Into You",
     "artist": "Tamia",
     "alternate_names": [""],
-    "album": "",
+    "album": "Tamia",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Ftamia-tamia.jpg?v=1592293320960",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["R&B", "Pop"],
+    "length": "4:20",
+    "year": 1998
   },
   {
     "id": 30,

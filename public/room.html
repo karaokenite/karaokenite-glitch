@@ -530,7 +530,7 @@
 
       var queue = [
         {
-          "title": "Welcome Video",
+          "title": "Welcome",
           "artist": "Karaoke Nite",
           "album": "Onboarding",
           "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fprofile.png?v=1596924786340",
@@ -750,7 +750,7 @@
         playlist.push(jukebox[selectedIndex]);
         sonny2.emit(SE_ADD_SONG_TO_PLAYLIST, jukebox[selectedIndex]);
 
-        // Fetch the correct from songs.json
+        // Fetch the correct song from songs.json
         
         const loadsongs = async () => {
           try {
@@ -763,9 +763,7 @@
 
         loadsongs();
 
-        let obj = songs.find(o => o.id === selectedIndex);
-
-        console.log(obj);
+        let obj = songs.find(song => song.id === selectedIndex);
 
         // Add to queue:
         var new_song_to_queue = {

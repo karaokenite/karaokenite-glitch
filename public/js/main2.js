@@ -168,12 +168,11 @@ function init() {
 
   socket.on(SE_ADD_SONG_TO_PLAYLIST, (songUrl) => {
     playlist.push(songUrl);
-    console.log('asdfasdfasdfasdf');
   });
 
   socket.on(SE_ADD_SONG_TO_QUEUE, (queueSong) => {
     queue.push(queueSong);
-    console.log("main2.js........", queueSong);
+    displayQueue(queue);
   });
 
   // Username:
