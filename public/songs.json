@@ -335,100 +335,110 @@
     "title": "So Far I'll Go",
     "artist": "Moana",
     "alternate_names": [""],
-    "album": "",
+    "album": "How Far I'll Go",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fmoana.jpg?v=1592293556055",
-    "genre": ["Disney", ""],
-    "year": 1900
+    "genre": ["Disney", "Pop"],
+    "length": "2:55",
+    "year": 2016
   },
   {
     "id": 31,
     "title": "Complicated",
     "artist": "Avril Lavigne",
     "alternate_names": [""],
-    "album": "",
+    "album": "Avril Lavigne",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Favril-lavigne-let-go.jpg?v=1592350310450",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Pop Rock", "Alternative Rock"],
+    "length": "4:04",
+    "year": 2002
   },
   {
     "id": 32,
     "title": "The Scientist",
     "artist": "Coldplay",
     "alternate_names": [""],
-    "album": "",
+    "album": "A Rush of Blood to the Head",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fcoldplay_a_rush_of_blood_to_the_head.jpg?v=1592345525258",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Pop Rock", "Alternative Rock"],
+    "length": "5:09",
+    "year": 2002
   },
   {
     "id": 33,
-    "title": "Slow Jamz",
+    "title": "Slow Jamz (ft. Twista, Jamie Foxx)",
     "artist": "Kanye West",
-    "alternate_names": [""],
-    "album": "",
+    "alternate_names": ["Ye", "Yeezy"],
+    "album": "The College Dropout",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fkanye-west-college-dropout.jpg?v=1592345728189",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Hip-Hop", "Rap"],
+    "length": "5:16",
+    "year": 2004
   },
   {
     "id": 34,
     "title": "Only God Knows Why",
     "artist": "Kid Rock",
     "alternate_names": [""],
-    "album": "",
+    "album": "Devil Wihout a Cause",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fkid_rock_devil_without_a_cause.jpg",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Country Rock"],
+    "length": "5:27",
+    "year": 1998
   },
   {
     "id": 35,
     "title": "Drive",
     "artist": "Incubus",
     "alternate_names": [""],
-    "album": "",
+    "album": "Make Yourself",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fincubus_make_yourself.jpg?v=1592351374184",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Alternative Rock"],
+    "length": "3:52",
+    "year": 2000
   },
   {
     "id": 36,
     "title": "Electric Feel",
     "artist": "MGMT",
     "alternate_names": [""],
-    "album": "",
+    "album": "Oracular Spectacular",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fmgmt-oracular-spectacular.jpg?v=1597048139589",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Indie Rock", "Electronic Dance", "Pop"],
+    "length": "3:50",
+    "year": 2008
   },
   {
     "id": 37,
     "title": "Whatever You Like",
     "artist": "T.I.",
     "alternate_names": [""],
-    "album": "",
+    "album": "Paper Trail",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fti-paper-trail.jpg?v=1597048556668",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Hip-Hop", "Rap"],
+    "length": "4:09",
+    "year": 2008
   },
   {
     "id": 38,
     "title": "When the Party's Over",
     "artist": "Billie Eilish",
     "alternate_names": [""],
-    "album": "",
+    "album": "When We All Fall Asleep, Where Do We Go?",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fbillie-eilish-when-we-all-fall-asleep-where-do-we-go.png?v=1597048822150",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Pop", "Dark Pop"],
+    "length": "3:16",
+    "year": 2019
   },
   {
     "id": 39,
     "title": "Last Nite",
     "artist": "The Strokes",
     "alternate_names": [""],
-    "album": "",
+    "album": "Is This It",
     "album_image": "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fthe-strokes-is-this-it.jpeg?v=1597049464828",
-    "genre": ["", ""],
-    "year": 1900
+    "genre": ["Indie Rock", "Rock"],
+    "length": "3:13",
+    "year": 2001
   },
   {
     "id": 40,
