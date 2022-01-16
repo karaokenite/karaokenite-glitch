@@ -433,7 +433,7 @@ footer {
   max-width: 100%;
   margin: 0 auto;
   /* background-color: var(--color-jet); */
-  border: 3px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 video {
