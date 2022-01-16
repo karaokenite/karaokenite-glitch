@@ -18,7 +18,7 @@
 
 .song-queue.show {
   opacity: 1;
-  width: 250px;
+  width: 275px;
   max-height: 400px;
   min-height: 278px;
 }
