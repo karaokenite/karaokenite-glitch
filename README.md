@@ -8,7 +8,7 @@
 2. Run `node server-new.js` in the root folder.
 3. Navigate to [localhost:8080](http://localhost:8080) to see the local version of Karaoke Nite.
 
-## Niters
+## Nite Team
 
 - [@sonnynomnom](https://twitter.com/sonnynomnom)
 - [@airrobb](https://github.com/codecaaron)
