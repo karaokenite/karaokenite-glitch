@@ -115,6 +115,7 @@ function init() {
     console.log('INIT');
     playlist.push(...playInfo.playlist);
     queue.push(...playInfo.queue);
+    displayQueue(queue);
     video_count = playInfo.currentPlayingIndex;
 
     var video = document.querySelector('#karaoke-video');
