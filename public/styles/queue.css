@@ -63,9 +63,24 @@
 }
 
 .queue-album {
+  height: 35px;
+  width: 35px;
+}
+
+.queue-album img {
   border-radius: 50%;
-  height: 33px;
-  width: 33px;
+}
+
+.queue-album-circle {
+  position: relative;
+  z-index: 99;
+  left: 13px; 
+  top: -28px;
+  border-radius: 100%;
+  width: 8px; 
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(80px);
 }
 
 .queue-title {
