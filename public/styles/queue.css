@@ -69,6 +69,16 @@
 
 .queue-album img {
   border-radius: 50%;
+  animation: rotation 5s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 .queue-album-circle {

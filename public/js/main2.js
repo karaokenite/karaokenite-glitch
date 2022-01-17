@@ -110,7 +110,7 @@ function init() {
       userName: userName
     },
   });
-
+  
   socket.on(SE_INIT, (playInfo) => {
     console.log('INIT');
     playlist.push(...playInfo.playlist);
