@@ -5,7 +5,8 @@ const displayQueue = (songs) => {
   .map(({ album, album_image, length, title, artist }) => `
     <div class="queue-song">
       <div class="queue-album">
-        <img
+        <img 
+          class="queue-album-image"
           src=${album_image}
           alt=${album}
         />

@@ -67,7 +67,7 @@
   width: 35px;
 }
 
-.queue-album img {
+.queue-album-image {
   border-radius: 50%;
   animation: rotation 5s infinite linear;
 }
