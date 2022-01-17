@@ -96,19 +96,19 @@
 .queue-title {
   display: grid;
   font-weight: 500;
-  color: #F2F2F2;
+  color: var(--color-linen);
   font-size: 16px;
   font-weight: bold;
 }
 
 .queue-artist {
   display: grid;
-  color: #F2F2F2;
+  color: var(--color-old-laundry);
   font-size: 13px;
 }
 
 .queue-time {
   display: grid;
-  color: #F2F2F2;
+  color: var(--color-old-laundry);
   font-size: 13px;
 }
