@@ -13,6 +13,7 @@ const SE_INIT = "Init",
       SE_PREV = "Prev",
       SE_NEXT = "Next",
       SE_ADD_SONG_TO_PLAYLIST = "AddSongToPlaylist",
+      SE_ADD_SONG_TO_QUEUE = "AddSongToQueue",
       SE_GET_PLAY_INFO = "GetPlayInfo";
 
 // Socket.io socket
@@ -109,10 +110,12 @@ function init() {
       userName: userName
     },
   });
-
+  
   socket.on(SE_INIT, (playInfo) => {
     console.log('INIT');
     playlist.push(...playInfo.playlist);
+    queue.push(...playInfo.queue);
+    displayQueue(queue);
     video_count = playInfo.currentPlayingIndex;
 
     var video = document.querySelector('#karaoke-video');
@@ -166,6 +169,11 @@ function init() {
 
   socket.on(SE_ADD_SONG_TO_PLAYLIST, (songUrl) => {
     playlist.push(songUrl);
+  });
+
+  socket.on(SE_ADD_SONG_TO_QUEUE, (queueSong) => {
+    queue.push(queueSong);
+    displayQueue(queue);
   });
 
   // Username:

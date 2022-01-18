@@ -1,0 +1,120 @@
+.song-queue {
+  position: absolute;
+  min-height: 278px;
+  padding: 1rem;
+  right: 29px;
+  justify-items: center;
+  max-height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  backdrop-filter: blur(80px);
+  border-radius: 24px;
+  width: 1px;
+  opacity: 0;
+  transition: all .75s ease;
+  max-height: 400px;
+}
+
+.song-queue.show {
+  opacity: 1;
+  width: 275px;
+  max-height: 400px;
+  min-height: 278px;
+}
+
+.queue-list {
+  display: flex;
+  padding: 5px;
+  position: relative;
+  flex-direction: column;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.queue-group {
+  /* border-bottom: 1px solid grey; */
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.queue-group::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -10px;
+  transform: translate(0, +50%);
+  background-color: white;
+}
+
+.queue-song {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 21px;
+}
+
+.queue-song:last-of-type .queue-group::after {
+  display: none;
+}
+
+.queue-album {
+  position: relative;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 35px; /* for the box-shadow */
+  width: 35px; /* for the box-shadow */
+}
+
+.queue-album-image {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  animation: rotation 5s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.queue-album-circle {
+  position: absolute;
+  width: 8px; 
+  height: 8px;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(50px);
+}
+
+.queue-title {
+  display: grid;
+  font-weight: 500;
+  color: var(--color-linen);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.queue-artist {
+  display: grid;
+  color: var(--color-old-laundry);
+  font-size: 13px;
+}
+
+.queue-time {
+  display: grid;
+  color: var(--color-old-laundry);
+  font-size: 13px;
+}

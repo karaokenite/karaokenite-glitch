@@ -433,7 +433,7 @@ footer {
   max-width: 100%;
   margin: 0 auto;
   /* background-color: var(--color-jet); */
-  border: 3px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 video {
@@ -511,7 +511,6 @@ mask-image: -webkit-gradient(linear, center top, center bottom,
   color-stop(0.50,  rgba(0,0,0,1)),
   color-stop(1.00,  rgba(0,0,0,0)));
 }
-
 
 @media (min-width: 768px) {
   .footer-right {
