@@ -725,18 +725,7 @@
         playlist.push(jukebox[selectedIndex]);
         sonny2.emit(SE_ADD_SONG_TO_PLAYLIST, jukebox[selectedIndex]);
 
-        // Fetch the correct song from songs.json
-        
-        const loadsongs = async () => {
-          try {
-            const res = await fetch('./songs.json');
-            songs = await res.json();
-          } catch (err) {
-            console.error(err);
-          }
-        };
-
-        loadsongs();
+        // In songs.js, we fetched all the songs in songs.json to songs variable
 
         let obj = songs.find(song => song.id === selectedIndex);
 
