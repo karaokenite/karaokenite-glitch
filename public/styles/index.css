@@ -656,3 +656,22 @@ section#steps {
     padding-top: 1rem;
   }
 }
+
+/* Video */
+.video-mask {
+  /* display: block; */
+  /* margin: 0 auto; */
+  display: flex;
+  justify-content: center;
+  border-radius: 400px;
+}
+
+video {
+  border-radius: 20px;
+}
+
+@media (max-width: 60rem) {
+  .hero {
+    padding-top: 1rem;
+  }
+}
