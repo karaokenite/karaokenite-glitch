@@ -656,3 +656,18 @@ section#steps {
     padding-top: 1rem;
   }
 }
+
+/* Product Demo Video */
+
+.video-mask {
+  display: flex;
+  justify-content: center;
+}
+
+video {
+  border-radius: 20px;
+  border: 2px solid var(--color-moray-teal);
+  box-shadow: 0px 0px 12px var(--color-slurm);
+  width: calc(100% - 80px);
+  max-width: 60rem;
+}
