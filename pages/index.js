@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 const Index = () => {
   return (
     <main class="layout layout__fluid">
