@@ -5,8 +5,17 @@ const withTM = require("next-transpile-modules")([
 ]);
 
 const withPlugins = require("next-compose-plugins");
+const withMDX = require("@next/mdx")();
 
-module.exports = withPlugins([withTM], {
-  modern: true,
-  experimental: { esmExternals: true },
-});
+module.exports = withPlugins(
+  [
+    withMDX({
+      pageExtensions: ["js", "md", "mdx"],
+    }),
+    withTM,
+  ],
+  {
+    modern: true,
+    experimental: { esmExternals: true },
+  }
+);
