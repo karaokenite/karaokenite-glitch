@@ -81,13 +81,6 @@
   YP   YP Y88888P 88   YD  `Y88P'
 */
 
-.hero {
-  padding: 0;
-  position: relative;
-  min-height: var(--hero-height);
-  align-items: flex-start;
-}
-
 .hero-bg {
   overflow: hidden;
   top: 0;

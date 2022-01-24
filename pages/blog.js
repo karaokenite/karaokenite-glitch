@@ -1,10 +1,10 @@
 const Blog = () => {
   return (
-    <main class="layout layout__small layout-grid">
-      <section class="layout-grid">
+    <main className="layout layout__small layout-grid">
+      <section className="layout-grid">
         <article>
           <h4>January 6th, 2022</h4>
-          <h2 class="page-subtitle">🛳 On Deck and v2.1 Update</h2>
+          <h2 className="page-subtitle">🛳 On Deck and v2.1 Update</h2>
 
           <p>
             Happy New Year, y’all! Last month (December) was our second best
@@ -13,7 +13,11 @@ const Blog = () => {
           </p>
           <p>
             In the fall, we joined{" "}
-            <a class="link" href="https://www.beondeck.com/" target="_blank">
+            <a
+              className="link"
+              href="https://www.beondeck.com/"
+              target="_blank"
+            >
               On Deck
             </a>{" "}
             and it’s been an invaluable experience so far.
@@ -22,7 +26,7 @@ const Blog = () => {
           <p>
             Special shoutout to{" "}
             <a
-              class="link"
+              className="link"
               href="https://twitter.com/justinepalefsky"
               target="_blank"
             >
@@ -30,7 +34,7 @@ const Blog = () => {
             </a>
             ,
             <a
-              class="link"
+              className="link"
               href="https://twitter.com/georgeverywhere"
               target="_blank"
             >
@@ -38,7 +42,7 @@ const Blog = () => {
             </a>
             ,
             <a
-              class="link"
+              className="link"
               href="https://twitter.com/stephenchoi"
               target="_blank"
             >
@@ -46,31 +50,47 @@ const Blog = () => {
             </a>
             ,
             <a
-              class="link"
+              className="link"
               href="https://twitter.com/_danielnieto"
               target="_blank"
             >
               Daniel
             </a>
             ,
-            <a class="link" href="https://twitter.com/bwatroba" target="_blank">
+            <a
+              className="link"
+              href="https://twitter.com/bwatroba"
+              target="_blank"
+            >
               Brian
             </a>
             ,
-            <a class="link" href="https://twitter.com/aka_suje" target="_blank">
+            <a
+              className="link"
+              href="https://twitter.com/aka_suje"
+              target="_blank"
+            >
               Sujith
             </a>
             ,
-            <a class="link" href="https://twitter.com/melkargi" target="_blank">
+            <a
+              className="link"
+              href="https://twitter.com/melkargi"
+              target="_blank"
+            >
               Melissa
             </a>
             ,
-            <a class="link" href="https://twitter.com/mwil20" target="_blank">
+            <a
+              className="link"
+              href="https://twitter.com/mwil20"
+              target="_blank"
+            >
               Mike
             </a>
             ,
             <a
-              class="link"
+              className="link"
               href="https://twitter.com/therealishmatt"
               target="_blank"
             >
@@ -83,7 +103,7 @@ const Blog = () => {
 
           <h4>Release Build v2.1</h4>
 
-          <ul class="list list__dense">
+          <ul className="list list__dense">
             <li>🔎 New search bar.</li>
             <li>👋 New onboarding modal.</li>
             <li>💕 New heart button (experiment).</li>
@@ -93,7 +113,11 @@ const Blog = () => {
 
           <p>
             This month, Sonny is staying at{" "}
-            <a class="link" href="https://www.launchhouse.co/" target="_blank">
+            <a
+              className="link"
+              href="https://www.launchhouse.co/"
+              target="_blank"
+            >
               Launch House
             </a>{" "}
             in LA to focus on taking Karaoke Nite to MLP, Minimum Lovable
@@ -102,7 +126,7 @@ const Blog = () => {
           <p>
             Make sure to follow{" "}
             <a
-              class="link"
+              className="link"
               href="https://twitter.com/karaoke_nite"
               target="_blank"
             >
@@ -114,7 +138,7 @@ const Blog = () => {
 
         <article>
           <h4>September 20th, 2021</h4>
-          <h2 class="page-subtitle">🥁 v2 Launch: Face Cams</h2>
+          <h2 className="page-subtitle">🥁 v2 Launch: Face Cams</h2>
 
           <p>This is the moment you've been waiting for. Drum roll please...</p>
           <p>
@@ -129,7 +153,7 @@ const Blog = () => {
           </p>
           <h4>Release Build v2.0</h4>
 
-          <ul class="list list__dense">
+          <ul className="list list__dense">
             <li>📹 Video cams to see your friends' faces.</li>
             <li>🎵 New songs to choose from.</li>
             <li>📱 Mobile-friendly home page.</li>
@@ -141,7 +165,7 @@ const Blog = () => {
             take Karaoke Nite. Get your friends ready, play around, and let us
             know{" "}
             <a
-              class="link"
+              className="link"
               href="https://karaokenite.typeform.com/to/SaHxnvyT"
               target="_blank"
             >
@@ -153,7 +177,7 @@ const Blog = () => {
 
         <article>
           <h4>May 21st, 2021</h4>
-          <h2 class="page-subtitle">✌️ v1.3 Update and YC</h2>
+          <h2 className="page-subtitle">✌️ v1.3 Update and YC</h2>
 
           <p>
             We just released the most recent build v1.3 which includes a FAQ
@@ -164,7 +188,7 @@ const Blog = () => {
           <p>
             In other news, we were rejected from{" "}
             <a
-              class="link"
+              className="link"
               href="https://twitter.com/ycombinator"
               target="_blank"
             >
@@ -179,7 +203,7 @@ const Blog = () => {
           <p>
             P.S. Here's a little
             <a
-              class="link"
+              className="link"
               href="https://twitter.com/karaoke_nite/status/1369729297779486726?s=20"
               target="_blank"
             >
@@ -191,7 +215,7 @@ const Blog = () => {
 
         <article>
           <h4>March 20th, 2021</h4>
-          <h2 class="page-subtitle">🚀 Product Hunt and 2,500 Users</h2>
+          <h2 className="page-subtitle">🚀 Product Hunt and 2,500 Users</h2>
 
           <p>
             March has been an absolutely crazy month for us. We launched on
@@ -206,7 +230,7 @@ const Blog = () => {
 
           <p>Because of you, we hit a new milestone! Let's gooo.</p>
           <p>
-            <ul class="list">
+            <ul className="list">
               <li>
                 <b>Users:</b> 2,500
               </li>
@@ -219,7 +243,7 @@ const Blog = () => {
           <a
             href="https://www.producthunt.com/posts/karaoke-nite?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-karaoke-nite"
             target="_blank"
-            class="link__plain"
+            className="link__plain"
           >
             <img
               src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=287216&theme=light"
@@ -233,7 +257,7 @@ const Blog = () => {
 
         <article>
           <h4>March 5th, 2021</h4>
-          <h2 class="page-subtitle">📝 User Research Wrap-Up</h2>
+          <h2 className="page-subtitle">📝 User Research Wrap-Up</h2>
 
           <p>
             After chatting with 40 users from around the world and testing it
@@ -246,10 +270,10 @@ const Blog = () => {
             calls:
           </p>
 
-          <ul class="list">
+          <ul className="list">
             <li>
               <a
-                class="link"
+                className="link"
                 href="https://twitter.com/jesslynnrose"
                 target="_blank"
               >
@@ -258,7 +282,7 @@ const Blog = () => {
             </li>
             <li>
               <a
-                class="link"
+                className="link"
                 href="https://twitter.com/campyampire"
                 target="_blank"
               >
@@ -267,7 +291,7 @@ const Blog = () => {
             </li>
             <li>
               <a
-                class="link"
+                className="link"
                 href="https://twitter.com/illathekilla"
                 target="_blank"
               >
@@ -276,7 +300,7 @@ const Blog = () => {
             </li>
             <li>
               <a
-                class="link"
+                className="link"
                 href="https://twitter.com/catherinezh"
                 target="_blank"
               >
@@ -285,7 +309,7 @@ const Blog = () => {
             </li>
             <li>
               <a
-                class="link"
+                className="link"
                 href="https://twitter.com/jay_yow07"
                 target="_blank"
               >
@@ -294,7 +318,7 @@ const Blog = () => {
             </li>
             <li>
               <a
-                class="link"
+                className="link"
                 href="https://twitter.com/supermandota2"
                 target="_blank"
               >
@@ -303,7 +327,7 @@ const Blog = () => {
             </li>
             <li>
               <a
-                class="link"
+                className="link"
                 href="https://twitter.com/hueypriest"
                 target="_blank"
               >
@@ -312,7 +336,7 @@ const Blog = () => {
             </li>
             <li>
               <a
-                class="link"
+                className="link"
                 href="https://twitter.com/catheryn_li"
                 target="_blank"
               >
@@ -328,7 +352,7 @@ const Blog = () => {
 
         <article>
           <h4>February 28th, 2021</h4>
-          <h2 class="page-subtitle">👯‍♂️ #DreamTeam</h2>
+          <h2 className="page-subtitle">👯‍♂️ #DreamTeam</h2>
 
           <p>
             The journey of finding product-market fit isn't easy. Just wanted to
@@ -336,75 +360,75 @@ const Blog = () => {
             getting us here.
           </p>
 
-          <div id="members" class="member-list">
-            <div class="member-item">
+          <div id="members" className="member-list">
+            <div className="member-item">
               <img
-                class="member-avatar"
+                className="member-avatar"
                 src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fsonny.png?v=1596248195534"
                 alt="@sonnynomnom<"
               />
               <a
-                class="link"
+                className="link"
                 href="https://twitter.com/sonnynomnom"
                 target="_blank"
               >
-                <div class="memberlabel">@sonnynomnom</div>
+                <div className="memberlabel">@sonnynomnom</div>
               </a>
             </div>
-            <div class="member-item">
+            <div className="member-item">
               <img
-                class="member-avatar"
+                className="member-avatar"
                 src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fjackieliu.jpg?v=1596248186734"
                 alt="@jackieis_online"
               />
               <a
-                class="link"
+                className="link"
                 href="https://twitter.com/jackieis_online"
                 target="_blank"
               >
-                <div class="memberlabel">@jackieis_online</div>
+                <div className="memberlabel">@jackieis_online</div>
               </a>
             </div>
-            <div class="member-item">
+            <div className="member-item">
               <img
-                class="member-avatar"
+                className="member-avatar"
                 src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fjosh.jpg?v=1596248189591"
                 alt="@joshuakgoldberg"
               />
               <a
-                class="link"
+                className="link"
                 href="https://twitter.com/JoshuaKGoldberg"
                 target="_blank"
               >
-                <div class="memberlabel">@joshuakgoldberg</div>
+                <div className="memberlabel">@joshuakgoldberg</div>
               </a>
             </div>
-            <div class="member-item">
+            <div className="member-item">
               <img
-                class="member-avatar"
+                className="member-avatar"
                 src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/fede.jpeg?v=1641246378142"
                 alt="@irlfede<"
               />
               <a
-                class="link"
+                className="link"
                 href="https://twitter.com/irlfede"
                 target="_blank"
               >
-                <div class="memberlabel">@irlfede</div>
+                <div className="memberlabel">@irlfede</div>
               </a>
             </div>
-            <div class="member-item">
+            <div className="member-item">
               <img
-                class="member-avatar"
+                className="member-avatar"
                 src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fmicaela.jpg?v=1596248304793"
                 alt="@micaelars"
               />
               <a
-                class="link"
+                className="link"
                 href="https://www.behance.net/micaelars"
                 target="_blank"
               >
-                <div class="memberlabel">@micaelars</div>
+                <div className="memberlabel">@micaelars</div>
               </a>
             </div>
           </div>
@@ -412,7 +436,7 @@ const Blog = () => {
           <p>
             And our friend
             <a
-              class="link"
+              className="link"
               href="https://twitter.com/HaydenLee37"
               target="_blank"
             >
@@ -422,10 +446,10 @@ const Blog = () => {
           </p>
         </article>
       </section>
-      <section class="layout-grid layout-grid__sm">
+      <section className="layout-grid layout-grid__sm">
         <article>
           <h4>Release Build v1.3</h4>
-          <ul class="list list__dense">
+          <ul className="list list__dense">
             <li>🆕 Added a /faq page.</li>
             <li>🏗 Updated /about page.</li>
             <li>🏗 Cleaned up the codebase in preparation of v2.</li>
@@ -434,7 +458,7 @@ const Blog = () => {
         </article>
         <article>
           <h4>Release Build v1.2</h4>
-          <ul class="list list__dense">
+          <ul className="list list__dense">
             <li>🆕 Added a Privacy Policy. Thanks, Min-Kyu!</li>
             <li>🆕 Added demo video.</li>
             <li>🆕 Added release notes.</li>
@@ -445,7 +469,7 @@ const Blog = () => {
         </article>
         <article>
           <h4>Release Build v1.1</h4>
-          <ul class="list list__dense">
+          <ul className="list list__dense">
             <li>
               🆕 Added floating animation to the stars on the landing page.
             </li>

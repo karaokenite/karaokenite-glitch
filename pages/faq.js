@@ -4,13 +4,13 @@ import { useState } from "react";
 const FAQ = () => {
   const [openAreas, setOpenAreas] = useState({});
   return (
-    <main class="layout layout__small layout-grid layout-grid__sm">
-      <h1 class="page-subtitle">💬 Frequently Asked Questions</h1>
-      <section class="layout-grid layout-grid__sm collapse">
-        <div class="collapse-area">
+    <main className="layout layout__small layout-grid layout-grid__sm">
+      <h1 className="page-subtitle">💬 Frequently Asked Questions</h1>
+      <section className="layout-grid layout-grid__sm collapse">
+        <div className="collapse-area">
           <button
             type="button"
-            class="collapse-button collapsible"
+            className="collapse-button collapsible"
             onClick={() =>
               setOpenAreas((prev) => ({ ...prev, mic: !prev?.mic }))
             }
@@ -19,7 +19,7 @@ const FAQ = () => {
           </button>
 
           <div
-            class="collapse-content content"
+            className="collapse-content content"
             style={{ display: openAreas.mic ? "block" : "none" }}
           >
             <p>
@@ -29,11 +29,11 @@ const FAQ = () => {
 
             <p>Here are some microphones that we recommend:</p>
 
-            <ul class="list">
+            <ul className="list">
               <li>
                 $49.99
                 <a
-                  class="link"
+                  className="link"
                   href="https://www.amazon.com/Singing-Machine-Bluetooth-Microphone-CPK545/dp/B07SLFVGSC/"
                   target="_blank"
                 >
@@ -43,7 +43,7 @@ const FAQ = () => {
               <li>
                 $16.99
                 <a
-                  class="link"
+                  className="link"
                   href="https://www.amazon.com/Handheld-Microphone-Nintendo-Singing-Compatible/dp/B08K6WXR29"
                   target="_blank"
                 >
@@ -58,20 +58,20 @@ const FAQ = () => {
             </p>
           </div>
         </div>
-        <div class="collapse-area">
+        <div className="collapse-area">
           <button
             type="button"
-            class="collapse-button collapsible"
+            className="collapse-button collapsible"
             onClick={() => setOpenAreas((prev) => ({ ...prev, pc: !prev?.pc }))}
           >
             How do I connect my microphone to the PC?
           </button>
           <div
-            class="collapse-content content"
+            className="collapse-content content"
             style={{ display: openAreas.pc ? "block" : "none" }}
           >
             <p>You can do this in three simple steps:</p>
-            <ol class="list">
+            <ol className="list">
               <li>Charge the microphone unit or make sure there's battery.</li>
               <li>
                 Plug the other end of the cable into computer USB port or AUX
@@ -93,10 +93,10 @@ const FAQ = () => {
             </p>
           </div>
         </div>
-        <div class="collapse-area">
+        <div className="collapse-area">
           <button
             type="button"
-            class="collapse-button collapsible"
+            className="collapse-button collapsible"
             onClick={() =>
               setOpenAreas((prev) => ({ ...prev, speakers: !prev?.speakers }))
             }
@@ -105,11 +105,11 @@ const FAQ = () => {
           </button>
 
           <div
-            class="collapse-content content"
+            className="collapse-content content"
             style={{ display: openAreas.speakers ? "block" : "none" }}
           >
             <p>Windows users:</p>
-            <ol class="list">
+            <ol className="list">
               <li>Click on "Spearkers" in the taskbar.</li>
               <li>
                 Click on "Sound" and make sure your microphone is set as the
@@ -120,7 +120,7 @@ const FAQ = () => {
             </ol>
 
             <p>Mac users:</p>
-            <ol class="list">
+            <ol className="list">
               <li>Open QuickTime Player.</li>
               <li>Click "File" ➡ "New Audio Recording".</li>
               <li>
@@ -130,10 +130,10 @@ const FAQ = () => {
             </ol>
           </div>
         </div>
-        <div class="collapse-area">
+        <div className="collapse-area">
           <button
             type="button"
-            class="collapsible collapse-button"
+            className="collapsible collapse-button"
             onClick={() =>
               setOpenAreas((prev) => ({ ...prev, updates: !prev?.updates }))
             }
@@ -142,7 +142,7 @@ const FAQ = () => {
           </button>
 
           <div
-            class="content collapse-content"
+            className="content collapse-content"
             style={{ display: openAreas.updates ? "block" : "none" }}
           >
             <h3>
@@ -151,7 +151,7 @@ const FAQ = () => {
 
             <h4>Release Build v2.1</h4>
 
-            <ul class="list list__dense">
+            <ul className="list list__dense">
               <li>🔎 New search bar.</li>
               <li>👋 New onboarding modal.</li>
               <li>💕 New heart button (experiment).</li>
@@ -160,7 +160,7 @@ const FAQ = () => {
             </ul>
 
             <h4>Release Build v2.0</h4>
-            <ul class="list list__dense">
+            <ul className="list list__dense">
               <li>📹 Video cams to see your friends' faces.</li>
               <li>🎵 New songs to choose from.</li>
               <li>📱 Mobile-friendly home page.</li>
@@ -169,7 +169,7 @@ const FAQ = () => {
             </ul>
 
             <h4>Release Build v1.3</h4>
-            <ul class="list list__dense">
+            <ul className="list list__dense">
               <li>🆕 Added a /faq page.</li>
               <li>🏗 Updated /about page.</li>
               <li>🏗 Cleaned up the codebase in preparation of v2.</li>
@@ -177,7 +177,7 @@ const FAQ = () => {
             </ul>
 
             <h4>Release Build v1.2</h4>
-            <ul class="list list__dense">
+            <ul className="list list__dense">
               <li>🆕 Added a Privacy Policy. Thanks, Min-Kyu!</li>
               <li>🆕 Added demo video.</li>
               <li>🆕 Added release notes.</li>
@@ -187,7 +187,7 @@ const FAQ = () => {
             </ul>
 
             <h4>Release Build v1.1</h4>
-            <ul class="list list__dense">
+            <ul className="list list__dense">
               <li>
                 🆕 Added floating animation to the stars on the landing page.
               </li>
@@ -201,7 +201,7 @@ const FAQ = () => {
       <section>
         <p>
           Let us know if you have other questions{" "}
-          <a class="link" href="mailto: sonnynomnom@gmail.com">
+          <a className="link" href="mailto: sonnynomnom@gmail.com">
             here
           </a>
           .
@@ -209,12 +209,12 @@ const FAQ = () => {
       </section>
       <Head>
         <script
-          class="shoutout-script"
+          className="shoutout-script"
           src="https://embed.shoutout.so/embed.js"
           defer
         ></script>
       </Head>
-      <div class="shoutout-embed" data-wall="karaoke_nite"></div>
+      <div className="shoutout-embed" data-wall="karaoke_nite"></div>
     </main>
   );
 };

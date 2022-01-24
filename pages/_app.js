@@ -2,15 +2,9 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import {
-  AnimusProvider,
-  Background,
-  Box,
-  ColorMode,
-} from "@animus-ui/components";
+import { AnimusProvider, Box } from "@animus-ui/components";
 import { createTheme } from "@animus-ui/theming";
 import { compatTheme } from "@animus-ui/core";
-import { Reset } from "../components/Reset";
 
 const theme = createTheme(compatTheme)
   .addColors({
@@ -94,7 +88,11 @@ const App = ({ Component, pageProps }) => {
   const isRoom = asPath.startsWith("/room");
 
   return (
-    <AnimusProvider theme={theme} useCache={false}>
+    <AnimusProvider
+      theme={theme}
+      useCache={false}
+      mode={asPath === "/" ? "dark" : "light"}
+    >
       <Head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -157,14 +155,11 @@ const App = ({ Component, pageProps }) => {
           type="text/css"
         />
       </Head>
-      <Reset />
-      <ColorMode mode={asPath === "/" ? "dark" : "light"}>
-        <Box bg="background">
-          {!isRoom && <Header />}
-          <Component {...pageProps} />
-          {!isRoom && <Footer />}
-        </Box>
-      </ColorMode>
+      <Box bg="background">
+        {!isRoom && <Header />}
+        <Component {...pageProps} />
+        {!isRoom && <Footer />}
+      </Box>
     </AnimusProvider>
   );
 };

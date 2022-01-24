@@ -1,78 +1,82 @@
 const About = () => (
-  <main class="layout layout__small layout-grid">
-    <section class="layout-grid">
+  <main className="layout layout__small layout-grid">
+    <section className="layout-grid">
       <article>
-        <h1 class="page-title">
+        <h1 className="page-title">
           Karaoke Nite is a social app. Our north star is to create the next-gen
-          <span class="orange">h</span>
-          <span class="pink__light">o</span>
-          <span class="pink">u</span>
-          <span class="pink__dark">s</span>
-          <span class="green">e</span>
-          <span class="orange">p</span>
-          <span class="yellow__light">a</span>
-          <span class="green__light">r</span>
-          <span class="teal">t</span>
-          <span class="pink">y</span>.
+          <span className="orange">h</span>
+          <span className="pink__light">o</span>
+          <span className="pink">u</span>
+          <span className="pink__dark">s</span>
+          <span className="green">e</span>
+          <span className="orange">p</span>
+          <span className="yellow__light">a</span>
+          <span className="green__light">r</span>
+          <span className="teal">t</span>
+          <span className="pink">y</span>.
         </h1>
 
-        <hr class="fancyLine" />
+        <hr className="fancyLine" />
 
-        <p class="description">
+        <p className="description">
           At Karaoke Nite, we believe that singing with friends is way more fun
           than humming by yourself in the shower and on a mobile app.
         </p>
 
-        <p class="description">
+        <p className="description">
           Whether you are getting silly together because of a birthday or
           heartbreak, happy hour or a casual hang, we are here to help you have
           a good time.
         </p>
       </article>
 
-      <div id="members" class="member-list">
-        <div class="member-item">
+      <div id="members" className="member-list">
+        <div className="member-item">
           <img
-            class="member-avatar"
+            className="member-avatar"
             src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fsonny.png?v=1596248195534"
             alt="@sonnynomnom<"
           />
           <a
-            class="link"
+            className="link"
             href="https://twitter.com/sonnynomnom"
             target="_blank"
           >
-            <div class="memberlabel">@sonnynomnom</div>
+            <div className="memberlabel">@sonnynomnom</div>
           </a>
         </div>
-        <div class="member-item">
+        <div className="member-item">
           <img
-            class="member-avatar"
+            className="member-avatar"
             src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/52927224.png?v=1640028013545"
             alt="@airrobb"
           />
           <a
-            class="link"
+            className="link"
             href="https://linkedin.com/in/airrobb"
             target="_blank"
           >
-            <div class="memberlabel">@airrobb</div>
+            <div className="memberlabel">@airrobb</div>
           </a>
         </div>
-        <div class="member-item">
+        <div className="member-item">
           <img
-            class="member-avatar"
+            className="member-avatar"
             src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/27750827_10155405174043723_5026593950977093526_n.jpg?v=1640028048589"
             alt="@guyenster"
           />
-          <a class="link" href="https://twitter.com/guyenster" target="_blank">
-            <div class="memberlabel">@guyenster</div>
+          <a
+            className="link"
+            href="https://twitter.com/guyenster"
+            target="_blank"
+          >
+            <div className="memberlabel">@guyenster</div>
           </a>
         </div>
       </div>
 
       <article>
-        <h2 class="page-subtitle">Beta v2.0</h2>
+        <h2 className="page-subtitle">Beta v2.0</h2>
 
         <p>
           We are a small team of friends based in Brooklyn, building Karaoke
@@ -85,7 +89,7 @@ const About = () => (
           and goodies coming soon so stay tuned. In the meantime, please help us
           make the experience better by answering a quick
           <a
-            class="link"
+            className="link"
             href="https://karaokenite.typeform.com/to/SaHxnvyT"
             target="_blank"
           >
@@ -97,7 +101,11 @@ const About = () => (
         <p>
           Karaoke Nite is also open-sourced. If you are a programmer, designer,
           3d modeler, or game artist, you can find the project on
-          <a class="link" href="https://github.com/karaokenite" target="_blank">
+          <a
+            className="link"
+            href="https://github.com/karaokenite"
+            target="_blank"
+          >
             GitHub
           </a>
           .
@@ -105,19 +113,19 @@ const About = () => (
       </article>
 
       <article>
-        <h2 class="page-subtitle">Record Labels & Artists</h2>
+        <h2 className="page-subtitle">Record Labels & Artists</h2>
         <p>
           If you are a indie record label or band/artist that's interested in
           having your music videos or lyric videos be featured in the app,
           please let us know via
-          <a class="link" href="mailto: sonnynomnom@gmail.com">
+          <a className="link" href="mailto: sonnynomnom@gmail.com">
             email
           </a>
           . We would love to have you!
         </p>
       </article>
       <article>
-        <h2 class="page-subtitle">Legal</h2>
+        <h2 className="page-subtitle">Legal</h2>
 
         <p>
           The Beta was launched in 2021 with 50 karaoke soundtracks featured in
@@ -130,7 +138,7 @@ const About = () => (
         <p>
           Privacy Policy can be found
           <a
-            class="link"
+            className="link"
             href="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FPrivacy%20Policy%20v1.pdf?v=1616300368184"
             target="_blank"
           >

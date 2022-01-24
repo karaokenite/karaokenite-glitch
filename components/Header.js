@@ -14,7 +14,6 @@ const NavLink = animus
     position: "relative",
     zIndex: 1,
     lineHeight: "var(--line-height-text)",
-    transition: "all 0.2s ease-in-out",
     "&:hover": {
       textDecoration: "none",
     },
@@ -41,17 +40,23 @@ const NavLink = animus
 
 export const Header = () => {
   const { asPath } = useRouter();
-  console.log(asPath);
+  const isHome = asPath === "home";
   return (
     <header role="banner" className="header">
       <nav className="navbar">
         <div className="navbar-section navbar-section__left">
-          <NavLink home href="/" fontSize={{ _: 16, sm: 20 }}>
-            <h1 className="brand-logo">
-              KARAOKE NITE
-              <span className="brand-betatag">beta</span>
-            </h1>
-          </NavLink>
+          <Link passHref href="/">
+            <NavLink
+              display={isHome ? "none" : "flex"}
+              href="/"
+              fontSize={{ _: 16, sm: 20 }}
+            >
+              <h1 className="brand-logo">
+                KARAOKE NITE
+                <span className="brand-betatag">beta</span>
+              </h1>
+            </NavLink>
+          </Link>
           <button className="navbar-toggle">
             <svg
               className="navbar-toggleIcon navbar-toggleIcon__open"
