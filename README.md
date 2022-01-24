@@ -5,7 +5,7 @@
 ## Running Locally
 
 1. Run `npm install` to download all of the app's dependencies.
-2. Run `node server-new.js` in the root folder.
+2. Run `npm start` in the root folder.
 3. Navigate to [localhost:8080](http://localhost:8080) to see the local version of Karaoke Nite.
 
 ## Nite Team
