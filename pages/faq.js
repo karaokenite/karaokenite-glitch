@@ -1,5 +1,43 @@
 import Head from "next/head";
 import { useState } from "react";
+import { animus, Box, Text } from "@animus-ui/components";
+
+const Collapsible = animus
+  .styles({
+    p: 18,
+    width: '1',
+    backgroundColor: "var(--color-dirty-linen)",
+    color: "var(--color-industry)",
+    border: "none",
+    textAlign: "left",
+    outline: "none",
+    fontSize: 'var(--font-size-md)',
+    fontFamily: 'var(--font-brand)',
+    fontWeight: 'var(--weight-title)',
+    borderRadius: '10px',
+    '&:hover': {
+      cursor: "pointer",
+      backgroundColor: "var(--color-old-laundry)"
+    },
+    '&:after': {
+      content: '"+"',
+      color: "var(--color-linen)",
+      fontWeight: "var(--weight-heavy)",
+      float: "right",
+      ml: "5"
+    }
+  })
+  .states({
+    active: {
+      '&:after': {
+        content: '"-"',
+      }
+    },
+  })
+  .groups({
+    space: true,
+  })
+  .asComponent("button");
 
 const FAQ = () => {
   const [openAreas, setOpenAreas] = useState({});
@@ -8,18 +46,18 @@ const FAQ = () => {
       <h1 className="page-subtitle">💬 Frequently Asked Questions</h1>
       <section className="layout-grid layout-grid__sm collapse">
         <div className="collapse-area">
-          <button
-            type="button"
-            className="collapse-button collapsible"
-            onClick={() =>
-              setOpenAreas((prev) => ({ ...prev, mic: !prev?.mic }))
-            }
+          <Collapsible
+            as="button" active={!!openAreas.mic}
+            onClick={() => setOpenAreas((prev) => ({ ...prev, mic: !prev?.mic }))}
           >
             Do I need a microphone for Karaoke Nite?
-          </button>
+          </Collapsible>
 
-          <div
-            className="collapse-content content"
+          <Box
+            p='1rem'
+            display='none'
+            overflow='hidden'
+            bg="cloud-nine"
             style={{ display: openAreas.mic ? "block" : "none" }}
           >
             <p>
@@ -31,7 +69,7 @@ const FAQ = () => {
 
             <ul className="list">
               <li>
-                $49.99
+                $49.99{' '}
                 <a
                   className="link"
                   href="https://www.amazon.com/Singing-Machine-Bluetooth-Microphone-CPK545/dp/B07SLFVGSC/"
@@ -41,7 +79,7 @@ const FAQ = () => {
                 </a>
               </li>
               <li>
-                $16.99
+                $16.99{' '}
                 <a
                   className="link"
                   href="https://www.amazon.com/Handheld-Microphone-Nintendo-Singing-Compatible/dp/B08K6WXR29"
@@ -56,18 +94,20 @@ const FAQ = () => {
               using a professional microphone (*cough QR code and mobile), keep
               on the look out for a feature update!
             </p>
-          </div>
+          </Box>
         </div>
         <div className="collapse-area">
-          <button
-            type="button"
-            className="collapse-button collapsible"
+          <Collapsible
+            as="button" active={!!openAreas.pc}
             onClick={() => setOpenAreas((prev) => ({ ...prev, pc: !prev?.pc }))}
           >
             How do I connect my microphone to the PC?
-          </button>
-          <div
-            className="collapse-content content"
+          </Collapsible>
+          <Box
+            p='1rem'
+            display='none'
+            overflow='hidden'
+            bg="cloud-nine"
             style={{ display: openAreas.pc ? "block" : "none" }}
           >
             <p>You can do this in three simple steps:</p>
@@ -91,21 +131,21 @@ const FAQ = () => {
               with friends & hope everyone adopt a good microphone hygiene
               routine!
             </p>
-          </div>
+          </Box>
         </div>
         <div className="collapse-area">
-          <button
-            type="button"
-            className="collapse-button collapsible"
-            onClick={() =>
-              setOpenAreas((prev) => ({ ...prev, speakers: !prev?.speakers }))
-            }
+          <Collapsible
+            as="button" active={!!openAreas.speakers}
+            onClick={() => setOpenAreas((prev) => ({ ...prev, speakers: !prev?.speakers }))}
           >
             How do I hear myself through the speakers?
-          </button>
+          </Collapsible>
 
-          <div
-            className="collapse-content content"
+          <Box
+            p='1rem'
+            display='none'
+            overflow='hidden'
+            bg="cloud-nine"
             style={{ display: openAreas.speakers ? "block" : "none" }}
           >
             <p>Windows users:</p>
@@ -128,29 +168,33 @@ const FAQ = () => {
                 yourself.
               </li>
             </ol>
-          </div>
+          </Box>
         </div>
         <div className="collapse-area">
-          <button
-            type="button"
-            className="collapsible collapse-button"
-            onClick={() =>
-              setOpenAreas((prev) => ({ ...prev, updates: !prev?.updates }))
-            }
+          <Collapsible
+            as="button" active={!!openAreas.updates}
+            onClick={() => setOpenAreas((prev) => ({ ...prev, updates: !prev?.updates }))}
           >
             What are the new updates?
-          </button>
-
-          <div
-            className="content collapse-content"
+          </Collapsible>
+          
+          <Box
+            p='1rem'
+            display='none'
+            overflow='hidden'
+            bg="cloud-nine"
             style={{ display: openAreas.updates ? "block" : "none" }}
           >
             <h3>
               v2.2 is currently in production! Scoped to launch in winter 2022.
             </h3>
 
-            <h4>Release Build v2.1</h4>
-
+            <Text 
+              as="h4"
+              fontSize="16"
+              my="1rem">
+                Release Build v2.1
+            </Text>
             <ul className="list list__dense">
               <li>🔎 New search bar.</li>
               <li>👋 New onboarding modal.</li>
@@ -159,7 +203,12 @@ const FAQ = () => {
               <li>👩🏻‍🎨 New favicon.</li>
             </ul>
 
-            <h4>Release Build v2.0</h4>
+            <Text 
+              as="h4"
+              fontSize="16px"
+              my="1rem">
+                Release Build v2.0
+            </Text>
             <ul className="list list__dense">
               <li>📹 Video cams to see your friends' faces.</li>
               <li>🎵 New songs to choose from.</li>
@@ -168,7 +217,12 @@ const FAQ = () => {
               <li>🐛 Bug fixes and more.</li>
             </ul>
 
-            <h4>Release Build v1.3</h4>
+            <Text 
+              as="h4"
+              fontSize="16"
+              my="1rem">
+                Release Build v1.3
+            </Text>
             <ul className="list list__dense">
               <li>🆕 Added a /faq page.</li>
               <li>🏗 Updated /about page.</li>
@@ -176,7 +230,12 @@ const FAQ = () => {
               <li>💸 Created the pre-seed pitch deck.</li>
             </ul>
 
-            <h4>Release Build v1.2</h4>
+            <Text 
+              as="h4"
+              fontSize="16px"
+              my="1rem">
+                Release Build v1.2
+            </Text>
             <ul className="list list__dense">
               <li>🆕 Added a Privacy Policy. Thanks, Min-Kyu!</li>
               <li>🆕 Added demo video.</li>
@@ -186,7 +245,12 @@ const FAQ = () => {
               <li>🐛 Fixed the "Let's Get It On" autoplay bug.</li>
             </ul>
 
-            <h4>Release Build v1.1</h4>
+            <Text 
+              as="h4"
+              fontSize="16"
+              my="1rem">
+                Release Build v1.1
+            </Text>
             <ul className="list list__dense">
               <li>
                 🆕 Added floating animation to the stars on the landing page.
@@ -195,12 +259,12 @@ const FAQ = () => {
               <li>🆕 Added a /blog page.</li>
               <li>🐛 Fixed social channel links bug in the footer.</li>
             </ul>
-          </div>
+          </Box>
         </div>
       </section>
       <section>
         <p>
-          Let us know if you have other questions{" "}
+          Let us know if you have other questions{' '}
           <a className="link" href="mailto: sonnynomnom@gmail.com">
             here
           </a>
