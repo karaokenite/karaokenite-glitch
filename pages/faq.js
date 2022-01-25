@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
-import { animus, Box } from "@animus-ui/components";
+import { animus, Box, Text } from "@animus-ui/components";
 
 const Collapsible = animus
   .styles({
@@ -27,28 +27,15 @@ const Collapsible = animus
       ml: "5"
     }
   })
-  // .variant({
-  //   prop: "size",
-  //   variants: {
-  //       },
-  //     },
-  //   },
-  // })
   .states({
     active: {
-      content: '"-"',
-      // alignItems: "center",
-      // justifyContent: "center",
+      '&:after': {
+        content: '"-"',
+      }
     },
   })
   .groups({
     space: true,
-  })
-  .props({
-    // cool: {
-    //   property: "padding",
-    //   scale: ["initial", "none"],
-    // },
   })
   .asComponent("button");
 
@@ -60,7 +47,7 @@ const FAQ = () => {
       <section className="layout-grid layout-grid__sm collapse">
         <div className="collapse-area">
           <Collapsible
-            as="button"
+            as="button" active={!!openAreas.mic}
             onClick={() => setOpenAreas((prev) => ({ ...prev, mic: !prev?.mic }))}
           >
             Do I need a microphone for Karaoke Nite?
@@ -82,7 +69,7 @@ const FAQ = () => {
 
             <ul className="list">
               <li>
-                $49.99
+                $49.99{' '}
                 <a
                   className="link"
                   href="https://www.amazon.com/Singing-Machine-Bluetooth-Microphone-CPK545/dp/B07SLFVGSC/"
@@ -92,7 +79,7 @@ const FAQ = () => {
                 </a>
               </li>
               <li>
-                $16.99
+                $16.99{' '}
                 <a
                   className="link"
                   href="https://www.amazon.com/Handheld-Microphone-Nintendo-Singing-Compatible/dp/B08K6WXR29"
@@ -111,7 +98,7 @@ const FAQ = () => {
         </div>
         <div className="collapse-area">
           <Collapsible
-            as="button"
+            as="button" active={!!openAreas.pc}
             onClick={() => setOpenAreas((prev) => ({ ...prev, pc: !prev?.pc }))}
           >
             How do I connect my microphone to the PC?
@@ -148,7 +135,7 @@ const FAQ = () => {
         </div>
         <div className="collapse-area">
           <Collapsible
-            as="button"
+            as="button" active={!!openAreas.speakers}
             onClick={() => setOpenAreas((prev) => ({ ...prev, speakers: !prev?.speakers }))}
           >
             How do I hear myself through the speakers?
@@ -185,7 +172,7 @@ const FAQ = () => {
         </div>
         <div className="collapse-area">
           <Collapsible
-            as="button"
+            as="button" active={!!openAreas.updates}
             onClick={() => setOpenAreas((prev) => ({ ...prev, updates: !prev?.updates }))}
           >
             What are the new updates?
@@ -202,8 +189,12 @@ const FAQ = () => {
               v2.2 is currently in production! Scoped to launch in winter 2022.
             </h3>
 
-            <h4>Release Build v2.1</h4>
-
+            <Text 
+              as="h4"
+              fontSize="16px"
+              my="1em">
+                Release Build v2.1
+            </Text>
             <ul className="list list__dense">
               <li>🔎 New search bar.</li>
               <li>👋 New onboarding modal.</li>
@@ -212,7 +203,12 @@ const FAQ = () => {
               <li>👩🏻‍🎨 New favicon.</li>
             </ul>
 
-            <h4>Release Build v2.0</h4>
+            <Text 
+              as="h4"
+              fontSize="16px"
+              my="1em">
+                Release Build v2.0
+            </Text>
             <ul className="list list__dense">
               <li>📹 Video cams to see your friends' faces.</li>
               <li>🎵 New songs to choose from.</li>
@@ -221,7 +217,12 @@ const FAQ = () => {
               <li>🐛 Bug fixes and more.</li>
             </ul>
 
-            <h4>Release Build v1.3</h4>
+            <Text 
+              as="h4"
+              fontSize="16px"
+              my="1em">
+                Release Build v1.3
+            </Text>
             <ul className="list list__dense">
               <li>🆕 Added a /faq page.</li>
               <li>🏗 Updated /about page.</li>
@@ -229,7 +230,12 @@ const FAQ = () => {
               <li>💸 Created the pre-seed pitch deck.</li>
             </ul>
 
-            <h4>Release Build v1.2</h4>
+            <Text 
+              as="h4"
+              fontSize="16px"
+              my="1em">
+                Release Build v1.2
+            </Text>
             <ul className="list list__dense">
               <li>🆕 Added a Privacy Policy. Thanks, Min-Kyu!</li>
               <li>🆕 Added demo video.</li>
@@ -239,7 +245,12 @@ const FAQ = () => {
               <li>🐛 Fixed the "Let's Get It On" autoplay bug.</li>
             </ul>
 
-            <h4>Release Build v1.1</h4>
+            <Text 
+              as="h4"
+              fontSize="16px"
+              my="1em">
+                Release Build v1.1
+            </Text>
             <ul className="list list__dense">
               <li>
                 🆕 Added floating animation to the stars on the landing page.
@@ -253,7 +264,7 @@ const FAQ = () => {
       </section>
       <section>
         <p>
-          Let us know if you have other questions{" "}
+          Let us know if you have other questions{' '}
           <a className="link" href="mailto: sonnynomnom@gmail.com">
             here
           </a>
