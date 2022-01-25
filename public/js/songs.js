@@ -1,21 +1,23 @@
-const songsList = document.getElementsByClassName('catalog-grid')[0];
-const searchBar = document.getElementById('searchBar');
-const noResults = document.getElementById('no-results-text');
+const songsList = document.getElementsByClassName("catalog-grid")[0];
+const searchBar = document.getElementById("searchBar");
+const noResults = document.getElementById("no-results-text");
 
 let songs = [];
 
 console.log(searchBar);
 
 // After an user type a character in the searchbox
-searchBar.addEventListener('keyup', (e) => {
+searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value.toLowerCase();
 
-  const filteredSongs = songs.filter( song => {
-
-    return Object.values(song).some(value => typeof value === 'string' ? value.toLowerCase().includes(searchString) : false)
-  
+  const filteredSongs = songs.filter((song) => {
+    return Object.values(song).some((value) =>
+      typeof value === "string"
+        ? value.toLowerCase().includes(searchString)
+        : false
+    );
   });
-  
+
   displaysongs(filteredSongs);
   noResults.style.display = "none";
 
@@ -25,10 +27,9 @@ searchBar.addEventListener('keyup', (e) => {
   }
 });
 
-
 const loadsongs = async () => {
   try {
-    const res = await fetch('./songs.json');
+    const res = await fetch("./songs.json");
     songs = await res.json();
     displaysongs(songs);
   } catch (err) {
@@ -49,15 +50,15 @@ const displaysongs = (songs) => {
           src="${song.album_image}"
           alt="${song.album}"
           width="600"
-          height="400">
-        </img>
+          height="400" 
+        />
 
         <div class="title">${song.title}</div>
         <div class="artist">${song.artist}</div>
       </button>
     `;
     })
-    .join('');
+    .join("");
   songsList.innerHTML = htmlString;
 };
 

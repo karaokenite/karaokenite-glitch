@@ -87,12 +87,12 @@ const theme = createTheme(compatTheme)
 const App = ({ Component, pageProps }) => {
   const { asPath } = useRouter();
   const isRoom = asPath.startsWith("/room");
-
+  const darkMode = asPath === "/" || isRoom;
   return (
     <AnimusProvider
       theme={theme}
       useCache={false}
-      mode={asPath === "/" ? "dark" : "light"}
+      mode={darkMode ? "dark" : "light"}
     >
       <AppProvider>
         <Head>
@@ -157,11 +157,9 @@ const App = ({ Component, pageProps }) => {
             type="text/css"
           />
         </Head>
-        <Box bg="background">
-          {!isRoom && <Header />}
-          <Component {...pageProps} />
-          {!isRoom && <Footer />}
-        </Box>
+        {!isRoom && <Header />}
+        <Component {...pageProps} />
+        {!isRoom && <Footer />}
       </AppProvider>
     </AnimusProvider>
   );

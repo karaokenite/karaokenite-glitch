@@ -6,7 +6,9 @@
 }
 
 body {
-  background: #000 url("https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fbackground.png?v=1632723514853") top left no-repeat;
+  background: #000
+    url("https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fbackground.png?v=1632723514853")
+    top left no-repeat;
 }
 
 .room-container {
@@ -29,7 +31,7 @@ body {
     4rem minmax(0, 1fr)
     5rem;
   -webkit-filter: blur(0);
-          filter: blur(0);
+  filter: blur(0);
   opacity: 1;
 }
 
@@ -184,7 +186,6 @@ body {
   align-items: center;
   position: relative;
   margin: 0 0.25rem;
-
 }
 
 #btn-group2 {
@@ -289,7 +290,7 @@ body {
 }
 
 #queueButton:hover {
-  opacity: 90%
+  opacity: 90%;
 }
 
 #chatButton:hover {
@@ -327,7 +328,8 @@ body {
     /* filter: drop-shadow(0px 0px 1px #fff) drop-shadow(0px 0px 2px #ffb48e); */
     /* drop-shadow(0px 0px 3px #FF8647) */
     /* background-color: var(--color-old-yellow); */
-    filter: drop-shadow(0px 0px 1px var(--color-old-yellow)) drop-shadow(0px 0px 2px #ffb48e);
+    filter: drop-shadow(0px 0px 1px var(--color-old-yellow))
+      drop-shadow(0px 0px 2px #ffb48e);
     opacity: 100%;
   }
   100% {
@@ -513,12 +515,20 @@ video {
   position: relative;
   width: 100%;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  -webkit-mask-image: -webkit-gradient(linear, center top, center bottom, 
-  color-stop(0.50,  rgba(0,0,0,1)),
-  color-stop(1.00,  rgba(0,0,0,0)));
-mask-image: -webkit-gradient(linear, center top, center bottom, 
-  color-stop(0.50,  rgba(0,0,0,1)),
-  color-stop(1.00,  rgba(0,0,0,0)));
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    center top,
+    center bottom,
+    color-stop(0.5, rgba(0, 0, 0, 1)),
+    color-stop(1, rgba(0, 0, 0, 0))
+  );
+  mask-image: -webkit-gradient(
+    linear,
+    center top,
+    center bottom,
+    color-stop(0.5, rgba(0, 0, 0, 1)),
+    color-stop(1, rgba(0, 0, 0, 0))
+  );
 }
 
 @media (min-width: 768px) {
@@ -687,7 +697,7 @@ mask-image: -webkit-gradient(linear, center top, center bottom,
   height: auto;
   border-radius: 10px;
   border: 4px solid transparent;
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 
 .catalog-item img:hover {
@@ -715,12 +725,12 @@ mask-image: -webkit-gradient(linear, center top, center bottom,
 .title {
   font-weight: 500;
   margin: 0.5rem 0 0.25rem;
-  color: #F2F2F2;
+  color: #f2f2f2;
   font-size: 17px;
 }
 
 .artist {
-  color: #C4C4C4;
+  color: #c4c4c4;
   font-size: 16px;
 }
 
@@ -777,7 +787,7 @@ kbd {
   text-align: center;
   position: fixed;
   background: rgba(255, 255, 255, 0.1);
-  color: #FAFAFA;
+  color: #fafafa;
   border: 1px solid #000000;
   border-radius: 10px;
   padding: 20px;
@@ -921,13 +931,14 @@ kbd {
   /* width: 76px; */
   border: none;
   background-size: 50%;
-  background: linear-gradient(99.24deg, #FFA4BA 6.62%, #FE3466 100%);
+  background: linear-gradient(99.24deg, #ffa4ba 6.62%, #fe3466 100%);
   padding: 2px;
   margin-left: 10px;
 }
 
 #feedbackIcon {
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(42deg) brightness(98%) contrast(113%)
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(42deg) brightness(98%)
+    contrast(113%);
 }
 
 #feedback:hover {
@@ -991,7 +1002,6 @@ kbd {
   animation: 2.5s ease-in-out hearts normal;
   left: 2px;
   animation-duration: 4s;
-
 }
 
 .heart2animate {
@@ -1044,7 +1054,6 @@ kbd {
 
 /* Inside box */
 
-
 #volume {
   float: left;
   margin: 0 auto;
@@ -1089,11 +1098,17 @@ kbd {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
- 
+
 @keyframes floating {
-    0% { transform: translate(0,  0px); }
-    50%  { transform: translate(0, 10px); }
-    100%   { transform: translate(0, -0px); }   
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
 }
 
 /* Search Bar */
@@ -1113,20 +1128,19 @@ kbd {
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
   border-radius: 12px;
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 ::placeholder {
-  color: #D8D8D8;
+  color: #d8d8d8;
 }
 
-#searchBar:hover, #searchBar:focus {
-  border: 2px solid #F7FF57;
+#searchBar:hover,
+#searchBar:focus {
+  border: 2px solid #f7ff57;
   background-color: rgba(255, 255, 255, 0.2);
   outline: none !important;
-} 
+}
 
 .search-icon {
   position: absolute;
@@ -1153,7 +1167,7 @@ kbd {
   left: 50%;
   bottom: -25px;
   transform: translate(-50%);
-  background: #F7FF57;
+  background: #f7ff57;
   border-radius: 40px;
   font-weight: 525;
   font-size: 16px;
