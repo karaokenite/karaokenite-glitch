@@ -1,5 +1,18 @@
 import { Text, Box, FlexBox, Image } from "@animus-ui/components";
 
+const Divider = () =>  (
+  <Box
+    as="hr"
+    width={.3}
+    height={5}
+    bg="deep-blue-something"
+    borderRadius="10px"
+    width="30%"
+    mx="auto"
+    mb="var(--page-padding)"
+  />
+);
+
 const About = () => (
   <main className="layout layout__small layout-grid">
     <section className="layout-grid">
@@ -24,19 +37,8 @@ const About = () => (
           <span className="teal">t</span>
           <span className="pink">y</span>.
         </Text>
-   const Divider = () =>  (
-      <Box
-          as="hr"
-          width={.3}
-          height={5}
-          bg="deep-blue-something"
-          borderRadius="10px"
-          width="30%"
-          mx="auto"
-          mb="var(--page-padding)"
-        />
-  );
-        </Box>
+
+        <Divider />
 
         <Text
           as="p"
@@ -91,37 +93,37 @@ const About = () => (
           textAlign="center"
           width="25%"
         >
-              <Image
-                width="150px"
-                borderRadius="50%"
-                border="3px solid var(--color-midnight)"
-                src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/52927224.png?v=1640028013545"
-                alt="@airrobb"
-              />
-              <a
-                className="link"
-                href="https://www.linkedin.com/in/airrobb"
-                target="_blank"
-              >
-                <div className="memberlabel">@airrobb</div>
-              </a>
-            </Box>
-            <Box
-              textAlign="center"
-              width="25%"
-            >
-              <Image
-                width="150px"
-                borderRadius="50%"
-                border="3px solid var(--color-midnight)"
-                src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/27750827_10155405174043723_5026593950977093526_n.jpg?v=1640028048589"
-                alt="@guyenster"
-              />
-              <a
-                className="link"
-                href="https://www.linkedin.com/in/guyendinh"
-                target="_blank"
-              >
+          <Image
+            width="150px"
+            borderRadius="50%"
+            border="3px solid var(--color-midnight)"
+            src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/52927224.png?v=1640028013545"
+            alt="@airrobb"
+          />
+          <a
+            className="link"
+            href="https://www.linkedin.com/in/airrobb"
+            target="_blank"
+          >
+            <div className="memberlabel">@airrobb</div>
+          </a>
+        </Box>
+        <Box
+          textAlign="center"
+          width="25%"
+        >
+          <Image
+            width="150px"
+            borderRadius="50%"
+            border="3px solid var(--color-midnight)"
+            src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/27750827_10155405174043723_5026593950977093526_n.jpg?v=1640028048589"
+            alt="@guyenster"
+          />
+          <a
+            className="link"
+            href="https://www.linkedin.com/in/guyendinh"
+            target="_blank"
+          >
             <div className="memberlabel">@guyenster</div>
           </a>
         </Box>
