@@ -1,3 +1,5 @@
+import { Box, FlexBox, Image } from "@animus-ui/components";
+
 const Blog = () => {
   return (
     <main className="layout layout__small layout-grid">
@@ -352,7 +354,7 @@ const Blog = () => {
 
         <article>
           <h4>February 28th, 2021</h4>
-          <h2 className="page-subtitle">👯‍♂️ #DreamTeam</h2>
+          <h2 className="page-subtitle">👯‍♂️ v1 Team</h2>
 
           <p>
             The journey of finding product-market fit isn't easy. Just wanted to
@@ -360,12 +362,21 @@ const Blog = () => {
             getting us here.
           </p>
 
-          <div id="members" className="member-list">
-            <div className="member-item">
-              <img
-                className="member-avatar"
+          <FlexBox
+            inline wrap
+            justifyContent="center"
+            gap="10px"
+          >
+            <Box
+              textAlign="center"
+              width="25%"
+            >
+              <Image
+                width="150px"
+                borderRadius="50%"
+                border="3px solid var(--color-midnight)"
                 src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fsonny.png?v=1596248195534"
-                alt="@sonnynomnom<"
+                alt="@sonnynomnom"
               />
               <a
                 className="link"
@@ -374,10 +385,15 @@ const Blog = () => {
               >
                 <div className="memberlabel">@sonnynomnom</div>
               </a>
-            </div>
-            <div className="member-item">
-              <img
-                className="member-avatar"
+            </Box>
+            <Box
+              textAlign="center"
+              width="25%"
+            >
+              <Image
+                width="150px"
+                borderRadius="50%"
+                border="3px solid var(--color-midnight)"
                 src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fjackieliu.jpg?v=1596248186734"
                 alt="@jackieis_online"
               />
@@ -388,10 +404,15 @@ const Blog = () => {
               >
                 <div className="memberlabel">@jackieis_online</div>
               </a>
-            </div>
-            <div className="member-item">
-              <img
-                className="member-avatar"
+            </Box>
+            <Box
+              textAlign="center"
+              width="25%"
+            >
+              <Image
+                width="150px"
+                borderRadius="50%"
+                border="3px solid var(--color-midnight)"
                 src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fjosh.jpg?v=1596248189591"
                 alt="@joshuakgoldberg"
               />
@@ -402,12 +423,17 @@ const Blog = () => {
               >
                 <div className="memberlabel">@joshuakgoldberg</div>
               </a>
-            </div>
-            <div className="member-item">
-              <img
-                className="member-avatar"
+            </Box>
+            <Box
+              textAlign="center"
+              width="25%"
+            >
+              <Image
+                width="150px"
+                borderRadius="50%"
+                border="3px solid var(--color-midnight)"
                 src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/fede.jpeg?v=1641246378142"
-                alt="@irlfede<"
+                alt="@irlfede"
               />
               <a
                 className="link"
@@ -416,10 +442,15 @@ const Blog = () => {
               >
                 <div className="memberlabel">@irlfede</div>
               </a>
-            </div>
-            <div className="member-item">
-              <img
-                className="member-avatar"
+            </Box>
+            <Box
+              textAlign="center"
+              width="25%"
+            >
+              <Image
+                width="150px"
+                borderRadius="50%"
+                border="3px solid var(--color-midnight)"
                 src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fmicaela.jpg?v=1596248304793"
                 alt="@micaelars"
               />
@@ -430,9 +461,8 @@ const Blog = () => {
               >
                 <div className="memberlabel">@micaelars</div>
               </a>
-            </div>
-          </div>
-
+            </Box>
+          </FlexBox>
           <p>
             And our friend
             <a
