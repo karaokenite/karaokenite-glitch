@@ -5,7 +5,7 @@ import { animus, Box, Text } from "@animus-ui/components";
 const Collapsible = animus
   .styles({
     p: 18,
-    width: '{1}',
+    width: '1',
     backgroundColor: "var(--color-dirty-linen)",
     color: "var(--color-industry)",
     border: "none",
@@ -191,8 +191,8 @@ const FAQ = () => {
 
             <Text 
               as="h4"
-              fontSize="16px"
-              my="1em">
+              fontSize="16"
+              my="1rem">
                 Release Build v2.1
             </Text>
             <ul className="list list__dense">
@@ -206,7 +206,7 @@ const FAQ = () => {
             <Text 
               as="h4"
               fontSize="16px"
-              my="1em">
+              my="1rem">
                 Release Build v2.0
             </Text>
             <ul className="list list__dense">
@@ -219,8 +219,8 @@ const FAQ = () => {
 
             <Text 
               as="h4"
-              fontSize="16px"
-              my="1em">
+              fontSize="16"
+              my="1rem">
                 Release Build v1.3
             </Text>
             <ul className="list list__dense">
@@ -233,7 +233,7 @@ const FAQ = () => {
             <Text 
               as="h4"
               fontSize="16px"
-              my="1em">
+              my="1rem">
                 Release Build v1.2
             </Text>
             <ul className="list list__dense">
@@ -247,8 +247,8 @@ const FAQ = () => {
 
             <Text 
               as="h4"
-              fontSize="16px"
-              my="1em">
+              fontSize="16"
+              my="1rem">
                 Release Build v1.1
             </Text>
             <ul className="list list__dense">
