@@ -1,6 +1,6 @@
-:root {
+/* :root {
   --color-link-underline: var(--color-moray-teal);
-}
+} */
 
 .container__md > * {
   margin-bottom: 2rem;
@@ -9,7 +9,7 @@
 /* Collapsible  */
 
 /* Style the button that is used to open and close the collapsible content */
-.collapsible {
+/* .collapsible {
   background-color: var(--color-dirty-linen);
   color: var(--color-industry);
   padding: 18px;
@@ -21,33 +21,32 @@
   font-family: var(--font-brand);
   font-weight: var(--weight-title);
   border-radius: 10px;
-}
+} */
 
-.collapsible:hover {
+/* .collapsible:hover {
   cursor: pointer;
-}
-
+} */
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active,
+/* .active,
 .collapsible:hover {
   background-color: var(--color-old-laundry);
-}
+} */
 
 /* Style the collapsible content. Note: hidden by default */
-.content {
+/* .content {
   padding: 1rem;
   display: none;
   overflow: hidden;
   background-color: var(--color-cloud-nine);
-}
+} */
 
-.collapsible:after {
+/* .collapsible:after {
   content: "\002B";
   color: var(--color-linen);
   font-weight: var(--weight-heavy);
   float: right;
   margin-left: 5px;
-}
+} */
 
 .collapsible.active:after {
   content: "\2212";
