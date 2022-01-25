@@ -1,41 +1,85 @@
+import { Text, Box, FlexBox, Image } from "@animus-ui/components";
+
+const Divider = () =>  (
+  <Box
+    as="hr"
+    width={.3}
+    height={5}
+    bg="deep-blue-something"
+    borderRadius="10px"
+    width="30%"
+    mx="auto"
+    mb="var(--page-padding)"
+  />
+);
+
 const About = () => (
   <main className="layout layout__small layout-grid">
     <section className="layout-grid">
       <article>
-        <h1 className="page-title">
-          Karaoke Nite is a social app. Our north star is to create the next-gen
+        <Text
+          as="h1"
+          color="var(--color-deep-blue-something)"
+          fontSize="2.8em"
+          textAlign="center"
+          fontWeight="var(--weight-heavy)"
+          mb="0.67em"
+        >
+          Karaoke Nite is a social app. Our north star is to create the next-gen{' '}
           <span className="orange">h</span>
           <span className="pink__light">o</span>
           <span className="pink">u</span>
           <span className="pink__dark">s</span>
-          <span className="green">e</span>
+          <span className="green">e</span>{' '}
           <span className="orange">p</span>
           <span className="yellow__light">a</span>
           <span className="green__light">r</span>
           <span className="teal">t</span>
           <span className="pink">y</span>.
-        </h1>
+        </Text>
 
-        <hr className="fancyLine" />
+        <Divider />
 
-        <p className="description">
+        <Text
+          as="p"
+          textAlign="center"
+          color="var(--color-frozen-blueberry)"
+          fontSize="var(--font-size-md)"
+          fontWeight="400"
+          mb="1rem"
+        >
           At Karaoke Nite, we believe that singing with friends is way more fun
           than humming by yourself in the shower and on a mobile app.
-        </p>
-
-        <p className="description">
-          Whether you are getting silly together because of a birthday or
-          heartbreak, happy hour or a casual hang, we are here to help you have
+        </Text>
+        <Text
+          as="p"
+          textAlign="center"
+          color="var(--color-frozen-blueberry)"
+          fontSize="var(--font-size-md)"
+          fontWeight="400"
+          mb="1rem"
+        >
+          Whether you are getting silly together because of a bday or
+          heartbreak, happy hour or a casual hang, you are gonna have
           a good time.
-        </p>
+        </Text>
       </article>
 
-      <div id="members" className="member-list">
-        <div className="member-item">
-          <img
-            className="member-avatar"
+      <FlexBox
+        inline wrap
+        justifyContent="center"
+        gap="10px"
+      >
+        <Box
+          textAlign="center"
+          width="25%"
+        >
+          <Image
+            width="150px"
+            borderRadius="50%"
+            border="3px solid var(--color-midnight)"
             src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fsonny.png?v=1596248195534"
-            alt="@sonnynomnom<"
+            alt="@sonnynomnom"
           />
           <a
             className="link"
@@ -44,39 +88,49 @@ const About = () => (
           >
             <div className="memberlabel">@sonnynomnom</div>
           </a>
-        </div>
-        <div className="member-item">
-          <img
-            className="member-avatar"
+        </Box>
+        <Box
+          textAlign="center"
+          width="25%"
+        >
+          <Image
+            width="150px"
+            borderRadius="50%"
+            border="3px solid var(--color-midnight)"
             src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/52927224.png?v=1640028013545"
             alt="@airrobb"
           />
           <a
             className="link"
-            href="https://linkedin.com/in/airrobb"
+            href="https://www.linkedin.com/in/airrobb"
             target="_blank"
           >
             <div className="memberlabel">@airrobb</div>
           </a>
-        </div>
-        <div className="member-item">
-          <img
-            className="member-avatar"
+        </Box>
+        <Box
+          textAlign="center"
+          width="25%"
+        >
+          <Image
+            width="150px"
+            borderRadius="50%"
+            border="3px solid var(--color-midnight)"
             src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/27750827_10155405174043723_5026593950977093526_n.jpg?v=1640028048589"
             alt="@guyenster"
           />
           <a
             className="link"
-            href="https://twitter.com/guyenster"
+            href="https://www.linkedin.com/in/guyendinh"
             target="_blank"
           >
             <div className="memberlabel">@guyenster</div>
           </a>
-        </div>
-      </div>
+        </Box>
+      </FlexBox>
 
       <article>
-        <h2 className="page-subtitle">Beta v2.0</h2>
+        <h2 className="page-subtitle">Beta v2.1</h2>
 
         <p>
           We are a small team of friends based in Brooklyn, building Karaoke
@@ -87,7 +141,7 @@ const About = () => (
         <p>
           This is currently a Beta version of the app. We have a ton of features
           and goodies coming soon so stay tuned. In the meantime, please help us
-          make the experience better by answering a quick
+          make the experience better by answering a quick{' '}
           <a
             className="link"
             href="https://karaokenite.typeform.com/to/SaHxnvyT"
@@ -100,7 +154,7 @@ const About = () => (
 
         <p>
           Karaoke Nite is also open-sourced. If you are a programmer, designer,
-          3d modeler, or game artist, you can find the project on
+          3d modeler, or game artist, you can find the project on{' '}
           <a
             className="link"
             href="https://github.com/karaokenite"
@@ -117,7 +171,7 @@ const About = () => (
         <p>
           If you are a indie record label or band/artist that's interested in
           having your music videos or lyric videos be featured in the app,
-          please let us know via
+          please let us know via{' '}
           <a className="link" href="mailto: sonnynomnom@gmail.com">
             email
           </a>
@@ -136,7 +190,7 @@ const About = () => (
         </p>
 
         <p>
-          Privacy Policy can be found
+          Privacy Policy can be found{' '}
           <a
             className="link"
             href="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FPrivacy%20Policy%20v1.pdf?v=1616300368184"

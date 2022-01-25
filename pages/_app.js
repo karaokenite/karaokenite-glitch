@@ -144,7 +144,7 @@ const App = ({ Component, pageProps }) => {
           />
 
           <link
-            href="https://fonts.googleapis.com/css?family=Space+Mono:400,700"
+            href="https://fonts.googleapis.com/css?family=Space+Mono:400,600,700"
             rel="stylesheet"
           />
           <link href="/styles/vendor.css" rel="stylesheet" type="text/css" />
