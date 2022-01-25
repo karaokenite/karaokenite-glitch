@@ -24,13 +24,18 @@ const About = () => (
           <span className="teal">t</span>
           <span className="pink">y</span>.
         </Text>
-        <Box
+   const Divider = () =>  (
+      <Box
           as="hr"
-          borderBottom="5px solid var(--color-deep-blue-something);"
+          width={.3}
+          height={5}
+          bg="deep-blue-something"
           borderRadius="10px"
           width="30%"
-          m="0 auto var(--page-padding)"
-        >
+          mx="auto"
+          mb="var(--page-padding)"
+        />
+  );
         </Box>
 
         <Text
