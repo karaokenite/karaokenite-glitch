@@ -21,23 +21,26 @@ export const IconButtonContainer = animus
     prop: "sizeVariant",
     variants: {
       sm: {
-        width: 20,
-        height: 20,
-        padding: "6px",
+        size: 20,
+        padding: "4px",
       },
       md: {
-        width: 32,
-        height: 32,
+        size: 32,
         padding: "8px",
+      },
+      lg: {
+        size: 48,
+        padding: "12px",
       },
     },
   })
+  .states({ bordered: { color: "text", border: 2 } })
   .asComponent("button");
 
 export const IconButton = ({ icon: Icon, size, ...props }) => {
   return (
     <IconButtonContainer sizeVariant={size} {...props}>
-      <Icon />
+      <Icon size={1} />
     </IconButtonContainer>
   );
 };

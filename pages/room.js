@@ -8,12 +8,15 @@ import { Playlist } from "../components/Playlist";
 import { IconButton } from "../components/IconButton";
 import {
   Camera,
-  Previous,
+  Forward,
+  Backward,
   Mic,
-  Next,
-  Volume,
   Heart,
   Playlist as PlaylistIcon,
+  VolumeHigh,
+  AddSongs,
+  Play,
+  Feedback,
 } from "../icons";
 
 const Container = animus
@@ -33,6 +36,34 @@ const Container = animus
     },
   })
   .asComponent("div");
+
+const VolumeSlider = () => {
+  return (
+    <div id="volumeModal" className="modal">
+      <img
+        id="volumeDownIcon"
+        src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FVolume%20-%20Low.svg?v=1621062867508"
+      />
+      <input
+        type="range"
+        min="0.0"
+        max="1.0"
+        value="0.5"
+        className="slider"
+        id="volume"
+        step={0.05}
+      />
+      <img
+        id="volumeUpIcon"
+        src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_volume_white.svg?v=1614749830096"
+      />
+      <img
+        id="closeIcon"
+        src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fclose.svg?v=1632640337294"
+      />
+    </div>
+  );
+};
 
 const Room = () => {
   const [openModal, setModal] = useState();
@@ -91,17 +122,13 @@ const Room = () => {
               >
                 Room <span className="hidden__xs">&nbsp;Info</span>
               </button>
-              <button
-                className="button"
-                id="feedback"
+              <IconButton
+                ml="8px"
                 onClick={() => setModal("feedback")}
-                title="Feedback"
-              >
-                <img
-                  id="feedbackIcon"
-                  src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Ffeedback.svg?v=1596918776029"
-                />
-              </button>
+                icon={Feedback}
+                size="lg"
+                bordered
+              />
             </div>
           </div>
           <GridBox cols={1} rows="5fr:1fr" maxHeight="calc(100vh - 12rem)">
@@ -149,69 +176,15 @@ const Room = () => {
                   </a>
                 </div>
 
-                <div className="footer-middle">
-                  <div className="btn-group" id="btn-group">
-                    <div className="btn-tab">
-                      <IconButton icon={Camera} size="md" />
-                    </div>
-
-                    <div className="btn-tab">
-                      <IconButton icon={Mic} size="md" />
-                    </div>
-
-                    <div className="btn-tab">
-                      <IconButton icon={Previous} size="md" />
-                    </div>
-
-                    <div className="btn-tab">
-                      <button
-                        id="playpauseButton"
-                        className="grow"
-                        type="button"
-                        data-state="play"
-                      >
-                        <img
-                          id="playpauseButtonIcon"
-                          src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FGroup%2021.svg?v=1618632508004"
-                        />
-                      </button>
-                    </div>
-
-                    <div className="btn-tab">
-                      <IconButton icon={Next} size="md" />
-                    </div>
-
-                    <div className="btn-tab">
-                      <IconButton icon={Volume} size="md" />
-
-                      <div id="volumeModal" className="modal">
-                        <img
-                          id="volumeDownIcon"
-                          src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FVolume%20-%20Low.svg?v=1621062867508"
-                        />
-
-                        <input
-                          type="range"
-                          min="0.0"
-                          max="1.0"
-                          value="0.5"
-                          className="slider"
-                          id="volume"
-                          step={0.05}
-                        />
-
-                        <img
-                          id="volumeUpIcon"
-                          src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_volume_white.svg?v=1614749830096"
-                        />
-
-                        <img
-                          id="closeIcon"
-                          src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fclose.svg?v=1632640337294"
-                        />
-                      </div>
-                    </div>
-                  </div>
+                <FlexBox center>
+                  <GridBox cols={7} width={320} center justifyItems="center">
+                    <IconButton icon={Camera} size="md" />
+                    <IconButton icon={Mic} size="md" />
+                    <IconButton icon={Backward} size="md" />
+                    <IconButton icon={Play} size="md" />
+                    <IconButton icon={Forward} size="md" />
+                    <IconButton icon={VolumeHigh} size="md" />
+                  </GridBox>
 
                   <div
                     style={{ display: "none" }}
@@ -219,26 +192,14 @@ const Room = () => {
                     className="controls"
                     data-state="hidden"
                   ></div>
-                </div>
+                </FlexBox>
 
                 <div className="footer-right">
-                  <div className="btn-group" id="btn-group2">
-                    <button
-                      id="playlistButton"
-                      type="button"
-                      onClick={() => setModal("catalog")}
-                      title="Add Song"
-                    >
-                      <img
-                        id="playlistIcon"
-                        src="https://cdn.glitch.global/aa3b905c-b152-45c7-9d6f-45c998461107/add-song.svg?v=1641949339851"
-                      />
-                      <div id="onboard-tooltip">Add Songs</div>
-                    </button>
+                  <GridBox cols={3} center justifyItems="center">
+                    <IconButton icon={AddSongs} size="md" />
                     <IconButton icon={PlaylistIcon} size="md" />
-
                     <IconButton icon={Heart} size="md" />
-                  </div>
+                  </GridBox>
                 </div>
               </div>
             </div>

@@ -14,6 +14,7 @@ module.exports = {
     height: "{height}",
     color: "text",
   },
+  replaceAttrValues: { "#000": "currentColor", black: "currentColor" },
   jsx: {
     babelConfig: {
       plugins: [plugin],
