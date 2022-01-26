@@ -1,4 +1,3 @@
-// Old code: peers = {};
 var rooms = {};
 
 // Socket event constants.
@@ -125,16 +124,9 @@ module.exports = (io) => {
         `Client ${socket.id} in room ${roomName} emitted 'Signal' event.`
       );
 
-      // Old code: if (!peers[data.socket_id]) return;
       if (!rooms[roomName].socketUserMap[data.socket_id]) {
         return;
       }
-
-      // Old code:
-      // peers[data.socket_id].emit('signal', {
-      //   socket_id: socket.id,
-      //   signal: data.signal,
-      // });
 
       rooms[roomName].socketUserMap[data.socket_id].socket.emit(SE_SIGNAL, {
         socket_id: socket.id,
@@ -142,20 +134,10 @@ module.exports = (io) => {
       });
     });
 
-    // Username
-    // socket.on('send-username', function (userName) {
-    //   // rooms[roomName][data.socket_id].username = username;
-    //   // users.push(socket.nickname);
-    //   // console.log('We are at the username' + username);
-    //   socket.to(roomName).emit('receive-username', userName);
-    // });
-
     // Remove the disconnected peer connection from all other connected clients
     socket.on(SE_DISCONNECT, () => {
       console.log('socket disconnected ' + socket.id);
       socket.to(roomName).emit(SE_USER_REMOVED, socket.id);
-      // Old code: socket.broadcast.emit('removePeer', socket.id);
-      // Old code: delete peers[socket.id];
       delete rooms[roomName].socketUserMap[socket.id];
 
       // Delete room if there's no socket.
@@ -167,13 +149,6 @@ module.exports = (io) => {
 
     // Triggered when a user presses the play button
     socket.on(SE_PLAY, function () {
-      // socket.broadcast.emit("play", roomName);
-      // Old code:
-      // for (let id in peers) {
-      //   if (id === socket.id) continue;
-      //   console.log('sending init receive to ' + socket.id);
-      //   peers[id].emit('play');
-      // }
       console.log(
         `Client ${socket.id} in room ${roomName} emitted 'Play' event.`
       );
@@ -185,13 +160,7 @@ module.exports = (io) => {
 
     // Triggered when a user presses the pause button
     socket.on(SE_PAUSE, function () {
-      // socket.broadcast.emit("pause", roomName);
-      // Old code:
-      // for (let id in peers) {
-      //   if (id === socket.id) continue;
-      //   console.log('sending init receive to ' + socket.id);
-      //   peers[id].emit('pause');
-      // }
+
       console.log(
         `Client ${socket.id} in room ${roomName} emitted 'Pause' event.`
       );
@@ -207,13 +176,6 @@ module.exports = (io) => {
 
     // Triggered when a user presses the "next" button
     socket.on(SE_NEXT, function () {
-      // socket.broadcast.emit("next", roomName);
-      // Old code:
-      // for (let id in peers) {
-      //   if (id === socket.id) continue;
-      //   console.log('sending init receive to ' + socket.id);
-      //   peers[id].emit('next');
-      // }
       console.log(
         `Client ${socket.id} in room ${roomName} emitted 'Next' event.`
       );
@@ -227,13 +189,7 @@ module.exports = (io) => {
 
     // Triggered when a user presses the "previous" button
     socket.on(SE_PREV, function () {
-      // socket.broadcast.emit("prev", roomName);
-      // Old code:
-      // for (let id in peers) {
-      //   if (id === socket.id) continue;
-      //   console.log('sending init receive to ' + socket.id);
-      //   peers[id].emit('prev');
-      // }
+
       console.log(
         `Client ${socket.id} in room ${roomName} emitted 'Prev' event.`
       );
