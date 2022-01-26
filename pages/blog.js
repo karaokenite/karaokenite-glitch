@@ -1,4 +1,5 @@
 import { Box, FlexBox, Image } from "@animus-ui/components";
+import { Avatar } from "../components/Avatar";
 
 const Blog = () => {
   return (
@@ -371,12 +372,9 @@ const Blog = () => {
               textAlign="center"
               width="25%"
             >
-              <Image
-                width="150px"
-                borderRadius="50%"
-                border="3px solid var(--color-midnight)"
-                src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fsonny.png?v=1596248195534"
-                alt="@sonnynomnom"
+              <Avatar
+                imageSource="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fsonny.png?v=1596248195534"
+                imageName="@sonnynomnom"
               />
               <a
                 className="link"
@@ -390,12 +388,9 @@ const Blog = () => {
               textAlign="center"
               width="25%"
             >
-              <Image
-                width="150px"
-                borderRadius="50%"
-                border="3px solid var(--color-midnight)"
-                src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fjackieliu.jpg?v=1596248186734"
-                alt="@jackieis_online"
+              <Avatar
+                imageSource="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fjackieliu.jpg?v=1596248186734"
+                imageName="@jackieis_online"
               />
               <a
                 className="link"
@@ -409,12 +404,9 @@ const Blog = () => {
               textAlign="center"
               width="25%"
             >
-              <Image
-                width="150px"
-                borderRadius="50%"
-                border="3px solid var(--color-midnight)"
-                src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fjosh.jpg?v=1596248189591"
-                alt="@joshuakgoldberg"
+              <Avatar
+                imageSource="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fjosh.jpg?v=1596248189591"
+                imageName="@joshuakgoldberg"
               />
               <a
                 className="link"
@@ -428,12 +420,9 @@ const Blog = () => {
               textAlign="center"
               width="25%"
             >
-              <Image
-                width="150px"
-                borderRadius="50%"
-                border="3px solid var(--color-midnight)"
-                src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/fede.jpeg?v=1641246378142"
-                alt="@irlfede"
+              <Avatar
+                imageSource="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/fede.jpeg?v=1641246378142"
+                imageName="@irlfede"
               />
               <a
                 className="link"
@@ -447,12 +436,9 @@ const Blog = () => {
               textAlign="center"
               width="25%"
             >
-              <Image
-                width="150px"
-                borderRadius="50%"
-                border="3px solid var(--color-midnight)"
-                src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fmicaela.jpg?v=1596248304793"
-                alt="@micaelars"
+              <Avatar
+                imageSource="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fmicaela.jpg?v=1596248304793"
+                imageName="@micaelars"
               />
               <a
                 className="link"
@@ -518,5 +504,3 @@ const Blog = () => {
     </main>
   );
 };
-
-export default Blog;
