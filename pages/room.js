@@ -131,7 +131,7 @@ const Room = () => {
               />
             </div>
           </div>
-          <GridBox cols={1} rows="5fr:1fr" maxHeight="calc(100vh - 12rem)">
+          <GridBox cols={1} rows="5:1" maxHeight="calc(100vh - 12rem)">
             <FlexBox p={32} pl={48} gap={16} center>
               <Box flex={1} size={1} position="relative">
                 <video
@@ -161,49 +161,52 @@ const Room = () => {
             </FlexBox>
             <FlexBox></FlexBox>
           </GridBox>
-          <footer className="controls-container">
-            <div className="footer-bg">
-              <div id="footer--content">
-                <div className="footer-left">
-                  <a href="javascript:history.back()">
-                    <button
-                      className="button button__small hidden__xs"
-                      id="leaveRoomButton"
-                      title="Leave Room"
-                    >
-                      Exit
-                    </button>
-                  </a>
-                </div>
+          <GridBox
+            as="footer"
+            p={{ _: 0, sm: "8px" }}
+            center
+            cols={{ _: 1, sm: 3 }}
+          >
+            <FlexBox>
+              <a href="javascript:history.back()">
+                <button
+                  className="button button__small hidden__xs"
+                  id="leaveRoomButton"
+                  title="Leave Room"
+                >
+                  Exit
+                </button>
+              </a>
+            </FlexBox>
+            <FlexBox center>
+              <GridBox
+                cols="1:1:1:max:1:1:1"
+                width={{ _: 1, sm: 400 }}
+                gap="8px"
+                center
+                justifyItems="center"
+              >
+                <IconButton icon={Camera} size="lg" />
+                <IconButton icon={Mic} size="lg" />
+                <IconButton icon={Backward} size="lg" />
+                <IconButton icon={Play} size="xl" cta />
+                <IconButton icon={Forward} size="lg" />
+                <IconButton icon={VolumeHigh} size="lg" />
+              </GridBox>
+            </FlexBox>
 
-                <FlexBox center>
-                  <GridBox cols={7} width={320} center justifyItems="center">
-                    <IconButton icon={Camera} size="md" />
-                    <IconButton icon={Mic} size="md" />
-                    <IconButton icon={Backward} size="md" />
-                    <IconButton icon={Play} size="md" />
-                    <IconButton icon={Forward} size="md" />
-                    <IconButton icon={VolumeHigh} size="md" />
-                  </GridBox>
-
-                  <div
-                    style={{ display: "none" }}
-                    id="video-controls"
-                    className="controls"
-                    data-state="hidden"
-                  ></div>
-                </FlexBox>
-
-                <div className="footer-right">
-                  <GridBox cols={3} center justifyItems="center">
-                    <IconButton icon={AddSongs} size="md" />
-                    <IconButton icon={PlaylistIcon} size="md" />
-                    <IconButton icon={Heart} size="md" />
-                  </GridBox>
-                </div>
-              </div>
-            </div>
-          </footer>
+            <FlexBox
+              justifyContent="flex-end"
+              position={{ _: "absolute", sm: "static" }}
+              top={-24}
+            >
+              <GridBox cols={3} center justifyItems="center">
+                <IconButton icon={AddSongs} size="lg" />
+                <IconButton icon={PlaylistIcon} size="lg" />
+                <IconButton icon={Heart} size="lg" />
+              </GridBox>
+            </FlexBox>
+          </GridBox>
         </GridBox>
       </Container>
       {openModal === "catalog" && (

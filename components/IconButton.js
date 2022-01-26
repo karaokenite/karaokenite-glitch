@@ -2,6 +2,7 @@ import { animus } from "@animus-ui/core";
 
 export const IconButtonContainer = animus
   .styles({
+    color: "text",
     bg: "transparent",
     display: "flex",
     padding: "8px",
@@ -32,15 +33,28 @@ export const IconButtonContainer = animus
         size: 48,
         padding: "12px",
       },
+      xl: {
+        size: 56,
+        padding: "14px",
+      },
     },
   })
-  .states({ bordered: { color: "text", border: 2 } })
+  .states({
+    bordered: { color: "text", border: 2 },
+    cta: {
+      bg: "old-yellow",
+      borderRadius: "50%",
+      color: "background",
+      transition: "transform ease-in 200ms",
+      "&:hover": { bg: "old-yellow", transform: "scale(1.1)" },
+    },
+  })
   .asComponent("button");
 
 export const IconButton = ({ icon: Icon, size, ...props }) => {
   return (
     <IconButtonContainer sizeVariant={size} {...props}>
-      <Icon size={1} />
+      <Icon size={1} color="inherit" />
     </IconButtonContainer>
   );
 };
