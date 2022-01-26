@@ -1,4 +1,5 @@
 import { Text, Box, FlexBox, Image } from "@animus-ui/components";
+import { Avatar } from "../components/Avatar";
 
 const Divider = () =>  (
   <Box
@@ -74,12 +75,9 @@ const About = () => (
           textAlign="center"
           width="25%"
         >
-          <Image
-            width="150px"
-            borderRadius="50%"
-            border="3px solid var(--color-midnight)"
-            src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fsonny.png?v=1596248195534"
-            alt="@sonnynomnom"
+          <Avatar
+            imageSource="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fsonny.png?v=1596248195534"
+            imageName="@sonnynomnom"
           />
           <a
             className="link"
@@ -89,16 +87,14 @@ const About = () => (
             <div className="memberlabel">@sonnynomnom</div>
           </a>
         </Box>
+
         <Box
           textAlign="center"
           width="25%"
         >
-          <Image
-            width="150px"
-            borderRadius="50%"
-            border="3px solid var(--color-midnight)"
-            src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/52927224.png?v=1640028013545"
-            alt="@airrobb"
+          <Avatar
+            imageSource="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/52927224.png?v=1640028013545"
+            imageName="@airrobb"
           />
           <a
             className="link"
@@ -108,16 +104,14 @@ const About = () => (
             <div className="memberlabel">@airrobb</div>
           </a>
         </Box>
+        
         <Box
           textAlign="center"
           width="25%"
         >
-          <Image
-            width="150px"
-            borderRadius="50%"
-            border="3px solid var(--color-midnight)"
-            src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/27750827_10155405174043723_5026593950977093526_n.jpg?v=1640028048589"
-            alt="@guyenster"
+          <Avatar
+            imageSource="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/27750827_10155405174043723_5026593950977093526_n.jpg?v=1640028048589"
+            imageName="@guyenster"
           />
           <a
             className="link"
