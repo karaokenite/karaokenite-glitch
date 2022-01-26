@@ -1,8 +1,16 @@
 import { Box, ColorMode, FlexBox, useCurrentMode } from "@animus-ui/components";
 import { createPortal } from "react-dom";
-import { CloseButton } from "./CloseButton";
+import { FocusOn } from "react-focus-on";
+import { IconButton } from "./IconButton";
+import { Close } from "../icons";
 
-export const Portal = ({ mode, children, onClose }) => {
+export const Portal = ({
+  mode,
+  children,
+  onClose,
+  align = "center",
+  hideClose = false,
+}) => {
   const activeMode = useCurrentMode(mode);
 
   // const [isReady, setIsReady] = useState(false);
@@ -17,12 +25,16 @@ export const Portal = ({ mode, children, onClose }) => {
 
   return createPortal(
     <ColorMode mode={activeMode}>
-      <FlexBox center position="fixed" inset={0}>
-        <Box position="relative">
-          <Box position="absolute" top={16} right={16}>
-            <CloseButton onClick={onClose} />
-          </Box>
-          {children}
+      <FlexBox p={16} center position="fixed" inset={0}>
+        <Box alignSelf={align} position="relative">
+          <FocusOn onEscapeKey={onClose} onClickOutside={onClose}>
+            {!hideClose && (
+              <Box position="absolute" top={16} right={16}>
+                <IconButton icon={Close} size="md" onClick={onClose} />
+              </Box>
+            )}
+            {children}
+          </FocusOn>
         </Box>
       </FlexBox>
     </ColorMode>,

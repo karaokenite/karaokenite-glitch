@@ -157,9 +157,11 @@ const App = ({ Component, pageProps }) => {
             type="text/css"
           />
         </Head>
-        {!isRoom && <Header />}
-        <Component {...pageProps} />
-        {!isRoom && <Footer />}
+        <Box position="relative" overflow="hidden">
+          {!isRoom && <Header />}
+          <Component {...pageProps} />
+          {!isRoom && <Footer />}
+        </Box>
       </AppProvider>
     </AnimusProvider>
   );

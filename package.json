@@ -4,6 +4,8 @@
   "description": "Karaoke Nite",
   "main": "server.js",
   "scripts": {
+    "build:icon": "rm -rf ./icons && svgr --out-dir ./icons --ext 'js' ./svg",
+    "format:icon": "svgo -f ./svg --pretty --config=svgo.config.js",
     "start": "node server.js",
     "dev": "next dev"
   },
@@ -19,6 +21,7 @@
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^12.0.8",
     "express": "^4.17.0",
+    "framer-motion": "^6.2.3",
     "httpolyglot": "^0.1.2",
     "lodash": "^4.17.21",
     "next": "^12.0.8",
@@ -26,6 +29,7 @@
     "next-transpile-modules": "^9.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-focus-on": "^3.5.4",
     "socket.io": "^4.4.1"
   },
   "engines": {
@@ -39,5 +43,9 @@
     "node",
     "glitch",
     "express"
-  ]
+  ],
+  "devDependencies": {
+    "@svgr/cli": "5.5.0",
+    "svgo": "^2.8.0"
+  }
 }

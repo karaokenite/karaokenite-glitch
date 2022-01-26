@@ -1,14 +1,17 @@
 import { Box, FlexBox, Image, Text } from "@animus-ui/components";
 import { useState } from "react";
 import songs from "../public/songs.json";
-import { CloseButton } from "./CloseButton";
+import { IconButton } from "./IconButton";
+import { Close } from "../icons";
 import { Portal } from "./Portal";
 
-export const CatalogModal = ({ onClose }) => {
+export const CatalogModal = ({ onSelect, onClose }) => {
   const [filter, setFilter] = useState("");
+  const [selected, setSelected] = useState([]);
+
   const filteredSongs = songs.filter(({ title, artist }) => {
     if (!filter) return true;
-    const parsedFilter = filter.toLowerCase();
+    const parsedFilter = filter.toLowerCase().trim();
     return (
       title.toLowerCase().includes(parsedFilter) ||
       artist.toLowerCase().includes(parsedFilter)
@@ -20,10 +23,17 @@ export const CatalogModal = ({ onClose }) => {
       return (
         <div className="catalog-grid" onscroll="dismissAddedNotice()">
           {filteredSongs.map((song) => {
+            const isSelected = selected.includes(song.id);
+            const method = isSelected
+              ? () => setSelected((prev) => prev.filter((id) => id !== song.id))
+              : () => setSelected((prev) => prev.concat(song.id));
+
             return (
               <button
-                onclick="grabURL(event, ${song.id})"
-                class="catalog-item jukebox"
+                onClick={method}
+                class={`catalog-item jukebox ${
+                  isSelected ? "jukebox-selected" : ""
+                }`}
                 type="button"
               >
                 <Image
@@ -65,16 +75,21 @@ export const CatalogModal = ({ onClose }) => {
                 src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/search_icon.svg?v=1640474938766"
               />
               <input
-                type="text"
                 name="searchBar"
                 id="searchBar"
-                value={filter}
-                onChange={(e) => setFilter(e.target.value)}
+                value={filter.replace(/\./g, "")}
+                onChange={(e) =>
+                  setFilter(e.target.value.replace(/[\.]/gm, " "))
+                }
                 placeholder="Search for song titles or artist name"
               />
               {filter.length > 0 && (
                 <FlexBox position="absolute" inset="1rem" left="initial">
-                  <CloseButton onClick={() => setFilter("")} />
+                  <IconButton
+                    icon={Close}
+                    size="md"
+                    onClick={() => setFilter("")}
+                  />
                 </FlexBox>
               )}
             </FlexBox>
@@ -91,12 +106,15 @@ export const CatalogModal = ({ onClose }) => {
               </button>
             </div>
             <button
-              disabled
               className="modal-button"
               id="choose-song"
-              onclick="addSong()"
+              disabled={selected.length === 0}
+              onClick={() => {
+                onSelect(selected);
+                onClose();
+              }}
             >
-              ADD SONG
+              ADD SONG{selected.length > 1 ? "S" : ""}
             </button>
           </div>
         </Box>

@@ -4,6 +4,17 @@ import { animus } from "@animus-ui/core";
 import { useRouter } from "next/router";
 import { Portal } from "../components/Portal";
 import { CatalogModal } from "../components/CatalogModal";
+import { Playlist } from "../components/Playlist";
+import { IconButton } from "../components/IconButton";
+import {
+  Camera,
+  Previous,
+  Mic,
+  Next,
+  Volume,
+  Heart,
+  Playlist as PlaylistIcon,
+} from "../icons";
 
 const Container = animus
   .styles({
@@ -12,9 +23,9 @@ const Container = animus
     minWidth: "100vw",
     maxWidth: "100vw",
     size: 1,
-    overflow: "hidden",
     background:
       'url("https://cdn.glitch.com/aa3b905c-b152-45c7-9d6f-45c998461107%2Focean.gif?v=1632943857677") no-repeat center fixed',
+    overflow: "hidden",
   })
   .states({
     blur: {
@@ -25,15 +36,18 @@ const Container = animus
 
 const Room = () => {
   const [openModal, setModal] = useState();
+  const [queue, setQueue] = useState([]);
   const { query } = useRouter();
 
   const closeModal = useCallback(() => {
     setModal();
   }, [setModal]);
 
+  const onRemove = (id) =>
+    setQueue((prev) => prev.filter((songId) => id !== songId));
   return (
     <ColorMode mode="dark">
-      <Container blur={openModal !== undefined}>
+      <Container blur={![undefined, "keyboard"].includes(openModal)}>
         <GridBox minHeight="100vh" cols={1} rows="5rem:1:5rem" gap={16}>
           <div className="info-container">
             <div className="info-section-left">
@@ -50,13 +64,22 @@ const Room = () => {
             </div>
 
             <div className="info-section-middle">
-              <button id="keyboardButton" onClick={() => setModal("keyboard")}>
-                <img
-                  id="keyboardButtonIcon"
-                  src="https://cdn.glitch.com/aa3b905c-b152-45c7-9d6f-45c998461107%2Fkeyboard_icon.svg?v=1631257748840"
-                  title="Keyboard Help"
-                />
-              </button>
+              <FlexBox
+                width={1}
+                center
+                display={openModal === "keyboard" ? "none" : "flex"}
+              >
+                <button
+                  id="keyboardButton"
+                  onClick={() => setModal("keyboard")}
+                >
+                  <img
+                    id="keyboardButtonIcon"
+                    src="https://cdn.glitch.com/aa3b905c-b152-45c7-9d6f-45c998461107%2Fkeyboard_icon.svg?v=1631257748840"
+                    title="Keyboard Help"
+                  />
+                </button>
+              </FlexBox>
             </div>
 
             <div className="info-section-right">
@@ -81,10 +104,17 @@ const Room = () => {
               </button>
             </div>
           </div>
-          <div className="video-container">
-            <div className="group">
-              <div className="karaoke-video-mask">
+          <GridBox cols={1} rows="5fr:1fr" maxHeight="calc(100vh - 12rem)">
+            <FlexBox p={32} pl={48} gap={16} center>
+              <Box flex={1} size={1} position="relative">
                 <video
+                  style={{
+                    objectFit: "contain",
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                  }}
                   id="karaoke-video"
                   preload="metadata"
                   poster="https://cdn.glitch.com/34fb7d5a-0c88-492e-afe8-58af6c6f4ca6%2Fkaraoke-niteasdf.jpg?v=1632183725189"
@@ -93,32 +123,17 @@ const Room = () => {
                     src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Flaunch_video.mp4?v=1616301081342"
                     type="video/mp4"
                   />
-
                   <a href="http://iandevlin.github.io/mdn/video-player/video/tears-of-steel-battle-clip-medium.mp4">
                     Download MP4
                   </a>
                 </video>
-
-                <div className="song-queue">
-                  <h3>Playlist</h3>
-
-                  <div className="queue-list"></div>
-                </div>
-              </div>
-
-              <div className="user-container" id="videoChatRoom">
-                <div className="user">
-                  <video
-                    id="localVideo"
-                    className="user-camera user-video"
-                    autoplay
-                    muted
-                  ></video>
-                  <div className="user-name" id="userName"></div>
-                </div>
-              </div>
-            </div>
-          </div>
+              </Box>
+              <Box flexShrink={1} flexBasis="max-content">
+                <Playlist queue={queue} onRemove={onRemove} />
+              </Box>
+            </FlexBox>
+            <FlexBox></FlexBox>
+          </GridBox>
           <footer className="controls-container">
             <div className="footer-bg">
               <div id="footer--content">
@@ -137,40 +152,15 @@ const Room = () => {
                 <div className="footer-middle">
                   <div className="btn-group" id="btn-group">
                     <div className="btn-tab">
-                      <button id="hideCameraButton" title="Hide Camera">
-                        <img
-                          id="hideCameraButtonIcon"
-                          src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_camera_white.svg?v=1614747337937"
-                        />
-                      </button>
+                      <IconButton icon={Camera} size="md" />
                     </div>
 
                     <div className="btn-tab">
-                      <button
-                        id="muteButton"
-                        type="button"
-                        data-state="mute"
-                        title="Mute Mic"
-                      >
-                        <img
-                          id="muteButtonIcon"
-                          src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_mic_white.svg?v=1614747341515"
-                        />
-                      </button>
+                      <IconButton icon={Mic} size="md" />
                     </div>
 
                     <div className="btn-tab">
-                      <button
-                        id="backButton"
-                        type="button"
-                        data-state="play"
-                        title="Previous"
-                      >
-                        <img
-                          id="backButtonIcon"
-                          src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_previous_white.svg?v=1614749830096"
-                        />
-                      </button>
+                      <IconButton icon={Previous} size="md" />
                     </div>
 
                     <div className="btn-tab">
@@ -188,31 +178,11 @@ const Room = () => {
                     </div>
 
                     <div className="btn-tab">
-                      <button
-                        id="nextButton"
-                        type="button"
-                        data-state="play"
-                        title="Next"
-                      >
-                        <img
-                          id="nextButtonIcon"
-                          src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_next_white.svg?v=1614749830096"
-                        />
-                      </button>
+                      <IconButton icon={Next} size="md" />
                     </div>
 
                     <div className="btn-tab">
-                      <button
-                        id="volumeButton"
-                        type="button"
-                        data-state="voldown"
-                        title="Change Volume"
-                      >
-                        <img
-                          id="volumeButtonIcon"
-                          src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FVolume%20-%20Low.svg?v=1621062867508"
-                        />
-                      </button>
+                      <IconButton icon={Volume} size="md" />
 
                       <div id="volumeModal" className="modal">
                         <img
@@ -265,51 +235,9 @@ const Room = () => {
                       />
                       <div id="onboard-tooltip">Add Songs</div>
                     </button>
-                    <button id="queueButton" type="button" title="Song Queue">
-                      <img
-                        id="queueIcon"
-                        src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FPlaylist.svg?v=1621070364610"
-                      />
+                    <IconButton icon={PlaylistIcon} size="md" />
 
-                      <div id="onboard-tooltip">Add Songs</div>
-                    </button>
-
-                    <button
-                      id="heartButton"
-                      type="button"
-                      data-state="heart"
-                      title="Heart Button (Testing)"
-                      onclick="heartAnimation()"
-                    >
-                      <img
-                        id="heartIcon"
-                        src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FHeart.svg?v=1621070361140"
-                      />
-
-                      <div id="hearts-animations">
-                        <div id="heart1">
-                          <img
-                            src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FHeart.svg?v=1621070361140"
-                            height="35px"
-                            width="36px"
-                          />
-                        </div>
-                        <div id="heart2">
-                          <img
-                            src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FHeart.svg?v=1621070361140"
-                            height="35px"
-                            width="36px"
-                          />
-                        </div>
-                        <div id="heart3">
-                          <img
-                            src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FHeart.svg?v=1621070361140"
-                            height="35px"
-                            width="36px"
-                          />
-                        </div>
-                      </div>
-                    </button>
+                    <IconButton icon={Heart} size="md" />
                   </div>
                 </div>
               </div>
@@ -317,7 +245,12 @@ const Room = () => {
           </footer>
         </GridBox>
       </Container>
-      {openModal === "catalog" && <CatalogModal onClose={closeModal} />}
+      {openModal === "catalog" && (
+        <CatalogModal
+          onClose={closeModal}
+          onSelect={(songIds) => setQueue((prev) => prev.concat(songIds))}
+        />
+      )}
       {openModal === "feedback" && (
         <Portal mode="light" onClose={closeModal}>
           <Box
@@ -363,10 +296,21 @@ const Room = () => {
       )}
 
       {openModal === "keyboard" && (
-        <Portal onClose={closeModal}>
-          <div id="keyboardModal" className="modal">
-            Press <kbd>shift</kbd> + <kbd>space</kbd> to change the scenery.
-          </div>
+        <Portal onClose={closeModal} align="flex-start" hideClose>
+          <Box
+            alignSelf="flex-start"
+            bg="rgba(255, 255, 255, 0.1)"
+            color="#fafafa"
+            border={1}
+            borderColor="#000"
+            p={16}
+            px={32}
+            borderRadius="1rem"
+          >
+            <div>
+              Press <kbd>shift</kbd> + <kbd>space</kbd> to change the scenery.
+            </div>
+          </Box>
         </Portal>
       )}
 

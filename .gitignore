@@ -35,3 +35,6 @@ lerna-debug.log*
 
 # ssl  
 ssl
+
+# Generated Icons
+icons
