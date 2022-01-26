@@ -1,4 +1,11 @@
-import { Box, ColorMode, FlexBox, GridBox, Text } from "@animus-ui/components";
+import {
+  Box,
+  ColorMode,
+  FlexBox,
+  GridBox,
+  Link,
+  Text,
+} from "@animus-ui/components";
 import { useCallback, useState } from "react";
 import { animus } from "@animus-ui/core";
 import { useRouter } from "next/router";
@@ -18,6 +25,8 @@ import {
   Play,
   Feedback,
 } from "../icons";
+import { Button } from "../components/Button";
+import { useRoom } from "../hooks/useRoom";
 
 const Container = animus
   .styles({
@@ -26,13 +35,14 @@ const Container = animus
     minWidth: "100vw",
     maxWidth: "100vw",
     size: 1,
+    transition: "filter ease 200ms",
     background:
       'url("https://cdn.glitch.com/aa3b905c-b152-45c7-9d6f-45c998461107%2Focean.gif?v=1632943857677") no-repeat center fixed',
     overflow: "hidden",
   })
   .states({
     blur: {
-      filter: "blur(25px)",
+      filter: "blur(50px)",
     },
   })
   .asComponent("div");
@@ -68,7 +78,10 @@ const VolumeSlider = () => {
 const Room = () => {
   const [openModal, setModal] = useState();
   const [queue, setQueue] = useState([]);
-  const { query } = useRouter();
+  const { query, back } = useRouter();
+  const [playListOpen, setPlaylistOpen] = useState(false);
+
+  useRoom();
 
   const closeModal = useCallback(() => {
     setModal();
@@ -82,16 +95,12 @@ const Room = () => {
         <GridBox minHeight="100vh" cols={1} rows="5rem:1:5rem" gap={16}>
           <div className="info-container">
             <div className="info-section-left">
-              <a
-                className="navbar-link navbar-link__home"
-                href="/"
-                target="_blank"
-              >
+              <Link href="/">
                 <h1 className="brand-logo">
                   KARAOKE NITE
                   <span className="brand-betatag">beta</span>
                 </h1>
-              </a>
+              </Link>
             </div>
 
             <div className="info-section-middle">
@@ -114,14 +123,7 @@ const Room = () => {
             </div>
 
             <div className="info-section-right">
-              <button
-                className="button"
-                id="room"
-                onClick={() => setModal("invite")}
-                title="Room Name"
-              >
-                Room <span className="hidden__xs">&nbsp;Info</span>
-              </button>
+              <Button onClick={() => setModal("invite")}>Room Info</Button>
               <IconButton
                 ml="8px"
                 onClick={() => setModal("feedback")}
@@ -131,7 +133,12 @@ const Room = () => {
               />
             </div>
           </div>
-          <GridBox cols={1} rows="5:1" maxHeight="calc(100vh - 12rem)">
+          <GridBox
+            cols={1}
+            rows="5:1"
+            maxHeight="calc(100vh - 12rem)"
+            position="relative"
+          >
             <FlexBox p={32} pl={48} gap={16} center>
               <Box flex={1} size={1} position="relative">
                 <video
@@ -156,27 +163,31 @@ const Room = () => {
                 </video>
               </Box>
               <Box flexShrink={1} flexBasis="max-content">
-                <Playlist queue={queue} onRemove={onRemove} />
+                <Playlist
+                  isOpen={playListOpen}
+                  queue={queue}
+                  onRemove={onRemove}
+                />
               </Box>
             </FlexBox>
             <FlexBox></FlexBox>
           </GridBox>
           <GridBox
             as="footer"
+            position="relative"
             p={{ _: 0, sm: "8px" }}
             center
             cols={{ _: 1, sm: 3 }}
           >
             <FlexBox>
-              <a href="javascript:history.back()">
-                <button
-                  className="button button__small hidden__xs"
-                  id="leaveRoomButton"
-                  title="Leave Room"
-                >
-                  Exit
-                </button>
-              </a>
+              <button
+                onClick={() => back()}
+                className="button button__small hidden__xs"
+                id="leaveRoomButton"
+                title="Leave Room"
+              >
+                Exit
+              </button>
             </FlexBox>
             <FlexBox center>
               <GridBox
@@ -198,144 +209,160 @@ const Room = () => {
             <FlexBox
               justifyContent="flex-end"
               position={{ _: "absolute", sm: "static" }}
-              top={-24}
+              top={-48}
+              right={0}
             >
               <GridBox cols={3} center justifyItems="center">
-                <IconButton icon={AddSongs} size="lg" />
-                <IconButton icon={PlaylistIcon} size="lg" />
+                <IconButton
+                  icon={AddSongs}
+                  size="lg"
+                  onClick={() => setModal("catalog")}
+                />
+                <IconButton
+                  icon={PlaylistIcon}
+                  size="lg"
+                  onClick={() => {
+                    setPlaylistOpen((prev) => !prev);
+                  }}
+                />
                 <IconButton icon={Heart} size="lg" />
               </GridBox>
             </FlexBox>
           </GridBox>
         </GridBox>
       </Container>
-      {openModal === "catalog" && (
-        <CatalogModal
-          onClose={closeModal}
-          onSelect={(songIds) => setQueue((prev) => prev.concat(songIds))}
-        />
-      )}
-      {openModal === "feedback" && (
-        <Portal mode="light" onClose={closeModal}>
-          <Box
-            bg="background-current"
-            p={24}
-            py={36}
-            borderRadius="2rem"
-            width={500}
-            textAlign="center"
+      <CatalogModal
+        isOpen={openModal === "catalog"}
+        onClose={closeModal}
+        queue={queue}
+        onSelect={(songIds) => {
+          setQueue((prev) => prev.concat(songIds));
+          setPlaylistOpen(true);
+        }}
+      />
+      <Portal
+        mode="light"
+        onClose={closeModal}
+        isOpen={openModal === "feedback"}
+      >
+        <Box
+          bg="background-current"
+          p={24}
+          py={36}
+          borderRadius="2rem"
+          width={500}
+          textAlign="center"
+        >
+          <Text as="h3" mb={16}>
+            What do you think?
+          </Text>
+          <Text>
+            Karaoke Nite is an ongoing project. We're looking to hear your
+            thoughts on how to make it even better!
+          </Text>
+
+          <a
+            id="giveFeedbackButton"
+            className="button button-bold"
+            href="https://karaokenite.typeform.com/to/SaHxnvyT"
+            target="_blank"
+            rel="noopener"
+            title="Give Feedback"
           >
-            <Text as="h3" mb={16}>
-              What do you think?
-            </Text>
-            <Text>
-              Karaoke Nite is an ongoing project. We're looking to hear your
-              thoughts on how to make it even better!
-            </Text>
+            Give Feedback
+          </a>
+          <br />
 
-            <a
-              id="giveFeedbackButton"
-              className="button button-bold"
-              href="https://karaokenite.typeform.com/to/SaHxnvyT"
-              target="_blank"
-              rel="noopener"
-              title="Give Feedback"
-            >
-              Give Feedback
-            </a>
-            <br />
-
-            <a
-              id="reportBugButton"
-              className="button"
-              href="https://karaokenite.typeform.com/to/qqQslFgC"
-              target="_blank"
-              rel="noopener"
-              title="Invite friends to the room"
-            >
-              Report a Bug
-            </a>
-          </Box>
-        </Portal>
-      )}
-
-      {openModal === "keyboard" && (
-        <Portal onClose={closeModal} align="flex-start" hideClose>
-          <Box
-            alignSelf="flex-start"
-            bg="rgba(255, 255, 255, 0.1)"
-            color="#fafafa"
-            border={1}
-            borderColor="#000"
-            p={16}
-            px={32}
-            borderRadius="1rem"
+          <a
+            id="reportBugButton"
+            className="button"
+            href="https://karaokenite.typeform.com/to/qqQslFgC"
+            target="_blank"
+            rel="noopener"
+            title="Invite friends to the room"
           >
-            <div>
-              Press <kbd>shift</kbd> + <kbd>space</kbd> to change the scenery.
-            </div>
-          </Box>
-        </Portal>
-      )}
+            Report a Bug
+          </a>
+        </Box>
+      </Portal>
+      <Portal
+        isOpen={openModal === "keyboard"}
+        onClose={closeModal}
+        align="flex-start"
+        hideClose
+      >
+        <Box
+          alignSelf="flex-start"
+          bg="rgba(255, 255, 255, 0.1)"
+          color="#fafafa"
+          border={1}
+          borderColor="#000"
+          p={16}
+          px={32}
+          borderRadius="1rem"
+        >
+          <div>
+            Press <kbd>shift</kbd> + <kbd>b</kbd> to change the scenery.
+          </div>
+        </Box>
+      </Portal>
 
-      {openModal === "invite" && (
-        <Portal onClose={closeModal} mode="light">
-          <FlexBox
-            bg="background-current"
-            p={24}
-            py={36}
-            borderRadius="2rem"
-            width={500}
-            textAlign="center"
-            gap={16}
-            column
-          >
-            <Text as="h3">Invite your friends!</Text>
-            <Text as="p" textAlign="center">
-              Send the link to a friend to invite them to this karaoke room.
-              <Text display="block">
-                <Box display="inline" mr="4px">
-                  🔑{" "}
-                </Box>
-                The room name is <span alt="Room name">{query.room}</span>
-              </Text>
+      <Portal isOpen={openModal === "invite"} onClose={closeModal} mode="light">
+        <FlexBox
+          bg="background-current"
+          p={24}
+          py={36}
+          borderRadius="2rem"
+          width={500}
+          textAlign="center"
+          gap={16}
+          column
+        >
+          <Text as="h3">Invite your friends!</Text>
+          <Text as="p" textAlign="center">
+            Send the link to a friend to invite them to this karaoke room.
+            <Text display="block">
+              <Box display="inline" mr="4px">
+                🔑{" "}
+              </Box>
+              The room name is <span alt="Room name">{query.room}</span>
             </Text>
-            <div className="copyWrapper">
-              <input type="text" value="https://karaokenite.co" id="myInput" />
-              <div className="tooltip">
-                <button
-                  className="button button-bold"
-                  id="copy"
-                  onclick="copyFunction()"
-                  onmouseout="outFunc()"
-                >
-                  <span className="tooltiptext" id="myTooltip">
-                    Copy to clipboard
-                  </span>
-                  Copy
-                </button>
-              </div>
-            </div>
-            <div className="shareButton">
-              <a
-                href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-                className="twitter-share-button"
-                data-size="large"
-                data-url="https://karaokenite.co"
-                data-via="karaoke_nite"
-                data-show-count="true"
+          </Text>
+          <div className="copyWrapper">
+            <input type="text" value="https://karaokenite.co" id="myInput" />
+            <div className="tooltip">
+              <button
+                className="button button-bold"
+                id="copy"
+                onclick="copyFunction()"
+                onmouseout="outFunc()"
               >
-                Tweet
-              </a>
-              <script
-                async
-                src="https://platform.twitter.com/widgets.js"
-                charset="utf-8"
-              ></script>
+                <span className="tooltiptext" id="myTooltip">
+                  Copy to clipboard
+                </span>
+                Copy
+              </button>
             </div>
-          </FlexBox>
-        </Portal>
-      )}
+          </div>
+          <div className="shareButton">
+            <a
+              href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+              className="twitter-share-button"
+              data-size="large"
+              data-url="https://karaokenite.co"
+              data-via="karaoke_nite"
+              data-show-count="true"
+            >
+              Tweet
+            </a>
+            <script
+              async
+              src="https://platform.twitter.com/widgets.js"
+              charset="utf-8"
+            ></script>
+          </div>
+        </FlexBox>
+      </Portal>
     </ColorMode>
   );
 };

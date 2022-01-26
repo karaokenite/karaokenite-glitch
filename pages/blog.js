@@ -363,15 +363,8 @@ const Blog = () => {
             getting us here.
           </p>
 
-          <FlexBox
-            inline wrap
-            justifyContent="center"
-            gap="10px"
-          >
-            <Box
-              textAlign="center"
-              width="25%"
-            >
+          <FlexBox inline wrap justifyContent="center" gap="10px">
+            <Box textAlign="center" width="25%">
               <Avatar
                 imageSource="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fsonny.png?v=1596248195534"
                 imageName="@sonnynomnom"
@@ -384,10 +377,7 @@ const Blog = () => {
                 <div className="memberlabel">@sonnynomnom</div>
               </a>
             </Box>
-            <Box
-              textAlign="center"
-              width="25%"
-            >
+            <Box textAlign="center" width="25%">
               <Avatar
                 imageSource="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fjackieliu.jpg?v=1596248186734"
                 imageName="@jackieis_online"
@@ -400,10 +390,7 @@ const Blog = () => {
                 <div className="memberlabel">@jackieis_online</div>
               </a>
             </Box>
-            <Box
-              textAlign="center"
-              width="25%"
-            >
+            <Box textAlign="center" width="25%">
               <Avatar
                 imageSource="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fjosh.jpg?v=1596248189591"
                 imageName="@joshuakgoldberg"
@@ -416,10 +403,7 @@ const Blog = () => {
                 <div className="memberlabel">@joshuakgoldberg</div>
               </a>
             </Box>
-            <Box
-              textAlign="center"
-              width="25%"
-            >
+            <Box textAlign="center" width="25%">
               <Avatar
                 imageSource="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/fede.jpeg?v=1641246378142"
                 imageName="@irlfede"
@@ -432,10 +416,7 @@ const Blog = () => {
                 <div className="memberlabel">@irlfede</div>
               </a>
             </Box>
-            <Box
-              textAlign="center"
-              width="25%"
-            >
+            <Box textAlign="center" width="25%">
               <Avatar
                 imageSource="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fmicaela.jpg?v=1596248304793"
                 imageName="@micaelars"
@@ -504,3 +485,5 @@ const Blog = () => {
     </main>
   );
 };
+
+export default Blog;

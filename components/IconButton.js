@@ -23,7 +23,7 @@ export const IconButtonContainer = animus
     variants: {
       sm: {
         size: 20,
-        padding: "4px",
+        padding: "6px",
       },
       md: {
         size: 32,
@@ -40,7 +40,7 @@ export const IconButtonContainer = animus
     },
   })
   .states({
-    bordered: { color: "text", border: 2 },
+    bordered: { color: "text", border: "2px solid currentColor" },
     cta: {
       bg: "old-yellow",
       borderRadius: "50%",

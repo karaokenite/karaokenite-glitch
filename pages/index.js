@@ -1,6 +1,10 @@
 import { Box } from "@animus-ui/components";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 const Index = () => {
+  const [values, setValues] = useState({ username: "", room: "" });
+  const { push } = useRouter();
   return (
     <main className="layout layout__fluid">
       <Box
@@ -59,9 +63,18 @@ const Index = () => {
           </div>
           <div className="join-form" id="now">
             <h2 className="page-subtitle text__center">JOIN A ROOM (FREE)</h2>
-            <form action="/room.html" method="GET">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                push(`/room?${new URLSearchParams(values).toString()}`);
+              }}
+            >
               <div>
                 <input
+                  value={values.id}
+                  onChange={(e) =>
+                    setValues((prev) => ({ ...prev, id: e.target.value }))
+                  }
                   className="input"
                   id="room"
                   name="room"
@@ -72,6 +85,10 @@ const Index = () => {
               </div>
               <div>
                 <input
+                  value={values.username}
+                  onChange={(e) =>
+                    setValues((prev) => ({ ...prev, username: e.target.value }))
+                  }
                   className="input"
                   id="username"
                   name="username"

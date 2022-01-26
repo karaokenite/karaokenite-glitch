@@ -39,7 +39,7 @@ export const FadeInSlideOut = ({ children }) => (
 
 const PlaylistContainer = animus
   .styles({
-    backdropFitler: "blur(80px)",
+    backdropFilter: "blur(20px)",
     borderRadius: "1.5rem",
     height: 400,
     p: 24,
@@ -52,15 +52,15 @@ const PlaylistContainer = animus
   })
   .asComponent("div");
 
-export const Playlist = ({ queue, onRemove }) => {
+export const Playlist = ({ isOpen, queue, onRemove }) => {
   return (
-    <Box position={{ _: "absolute", md: "static" }}>
+    <Box position={{ _: "absolute", md: "static" }} top={24} right={0}>
       <motion.div
         style={{ overflow: "hidden" }}
         initial="closed"
-        animate={queue.length > 0 ? "open" : "closed"}
+        animate={isOpen ? "open" : "closed"}
         variants={{
-          closed: { width: 0, transition: { delay: 0.4 } },
+          closed: { width: 0 },
           open: { width: 350 },
         }}
       >

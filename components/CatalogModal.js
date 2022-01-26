@@ -1,11 +1,16 @@
 import { Box, FlexBox, Image, Text } from "@animus-ui/components";
-import { useState } from "react";
+import { animus } from "@animus-ui/core";
+import { useCallback, useEffect, useState } from "react";
 import songs from "../public/songs.json";
 import { IconButton } from "./IconButton";
 import { Close } from "../icons";
 import { Portal } from "./Portal";
 
-export const CatalogModal = ({ onSelect, onClose }) => {
+const NoSelect = animus
+  .styles({ "> *": { userSelect: "none" } })
+  .asComponent("div");
+
+export const CatalogModal = ({ isOpen, onSelect, onClose, queue }) => {
   const [filter, setFilter] = useState("");
   const [selected, setSelected] = useState([]);
 
@@ -29,23 +34,26 @@ export const CatalogModal = ({ onSelect, onClose }) => {
               : () => setSelected((prev) => prev.concat(song.id));
 
             return (
-              <button
-                onClick={method}
-                class={`catalog-item jukebox ${
-                  isSelected ? "jukebox-selected" : ""
-                }`}
-                type="button"
-              >
-                <Image
-                  src={song.album_image}
-                  alt={song.album}
-                  width={600}
-                  height={400}
-                />
+              <NoSelect>
+                <button
+                  onClick={method}
+                  class={`catalog-item jukebox ${
+                    isSelected ? "jukebox-selected" : ""
+                  }`}
+                  type="button"
+                >
+                  <Image
+                    src={song.album_image}
+                    alt={song.album}
+                    width={600}
+                    height={400}
+                    draggable="false"
+                  />
 
-                <div class="title">{song.title}</div>
-                <div class="artist">{song.artist}</div>
-              </button>
+                  <div class="title">{song.title}</div>
+                  <div class="artist">{song.artist}</div>
+                </button>
+              </NoSelect>
             );
           })}
         </div>
@@ -62,7 +70,7 @@ export const CatalogModal = ({ onSelect, onClose }) => {
   };
 
   return (
-    <Portal onClose={onClose}>
+    <Portal isOpen={isOpen} onClose={onClose}>
       <FlexBox height={660} width={750} maxWidth={1} maxHeight={1}>
         <Box width={1} id="songModal" className="catalog modal modal__large">
           <div className="modal-content">
@@ -87,7 +95,7 @@ export const CatalogModal = ({ onSelect, onClose }) => {
                 <FlexBox position="absolute" inset="1rem" left="initial">
                   <IconButton
                     icon={Close}
-                    size="md"
+                    size="sm"
                     onClick={() => setFilter("")}
                   />
                 </FlexBox>

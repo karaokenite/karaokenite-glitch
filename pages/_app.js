@@ -85,9 +85,9 @@ const theme = createTheme(compatTheme)
   .build();
 
 const App = ({ Component, pageProps }) => {
-  const { asPath } = useRouter();
-  const isRoom = asPath.startsWith("/room");
-  const darkMode = asPath === "/" || isRoom;
+  const { pathname } = useRouter();
+  const isRoom = pathname.startsWith("/room");
+  const darkMode = pathname === "/" || isRoom;
   return (
     <AnimusProvider
       theme={theme}
@@ -151,7 +151,7 @@ const App = ({ Component, pageProps }) => {
           <link href="/styles/shared.css" rel="stylesheet" type="text/css" />
           <link
             href={`/styles/${
-              asPath === "/" ? "index" : asPath.replace("/", "")
+              pathname === "/" ? "index" : pathname.replace("/", "")
             }.css`}
             rel="stylesheet"
             type="text/css"
