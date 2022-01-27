@@ -119,6 +119,7 @@ export const CatalogModal = ({ isOpen, onSelect, onClose, queue }) => {
               disabled={selected.length === 0}
               onClick={() => {
                 onSelect(selected);
+                setSelected([]);
                 onClose();
               }}
             >
