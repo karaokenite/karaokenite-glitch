@@ -1,6 +1,3 @@
-// main.js is for index.html
-// main2.js is is for room.html
-
 // Socket event constants.
 const SE_INIT = "Init",
       SE_NEW_USER_ADDED = "NewUserAdded",
@@ -79,7 +76,6 @@ navigator.mediaDevices
     localVideo.srcObject = stream;
     localStream = stream;
 
-    // init();
     for (let key in peers) {
       if (!peers.hasOwnProperty(key)) continue;
       if (peers[key].streams.length < 1) peers[key].addStream(stream);
@@ -96,8 +92,6 @@ function init() {
   let params = new URLSearchParams(window.location.search),
       roomName = (params.get('room') || '').trim().replace(' ', '-'),
       userName = (params.get('username') || '').trim().replace(' ', '-');
-
-  // console.log('userName is', userName);
 
   if (!roomName) {
     alert('Please enter the room name.');
@@ -131,11 +125,6 @@ function init() {
       // For preventing this error: Uncaught (in promise) DOMException: play() failed because the user didn't interact with the document first.
       video.muted = true;
       video.play();
-      // if (playPromise) {
-      //   playPromise.then(() => {
-      //     // video.muted = false;
-      //   }).catch((e) => {});
-      // }
     }
   });
 
@@ -200,13 +189,6 @@ function removePeer(socket_id) {
   delete peers[socket_id];
 }
 
-// Creates a new peer connection and sets the event listeners
-// @param {String} socket_id
-//                 ID of the peer
-// @param {Boolean} am_initiator
-//                  Set to true if the peer initiates the connection process.
-//                  Set to false if the peer receives the connection.
-
 function addPeer(socket_id, userName, am_initiator) {
   peers[socket_id] = new SimplePeer({
     initiator: am_initiator,
@@ -238,17 +220,7 @@ function addPeer(socket_id, userName, am_initiator) {
     user.className = 'user';
     user.appendChild(newVid);
     videoChatRoom.appendChild(user);
-
-    // Original:
-
-    // let user = document.createElement('div');
-    // user.className = 'user';
-    // user.appendChild(newVid);
-    // videoChatRoom.appendChild(user);
-
-    // Recreate:
-    // videos.appendChild(newVid);
-
+    
     // Username:
     let elemUserName = document.createElement('div');
     elemUserName.className = 'user-name';
