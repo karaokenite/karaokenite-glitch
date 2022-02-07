@@ -1,11 +1,11 @@
 import { Box, FlexBox, GridBox, Image, Text } from "@animus-ui/components";
 import { animus } from "@animus-ui/core";
-import { useCallback, useEffect, useState } from "react";
-import songs from "../public/songs.json";
-import { IconButton } from "./IconButton";
-import { Checkmark, Close } from "../icons";
-import { Portal } from "./Portal";
-import { Button } from "./Button";
+import { useState } from "react";
+import songs from "../../../public/songs.json";
+import { IconButton } from "../../../components/IconButton";
+import { Checkmark, Close } from "../../../icons";
+import { Portal } from "../../../components/Portal";
+import { Button } from "../../../components/Button";
 
 const NoSelect = animus
   .styles({ "> *": { userSelect: "none" } })
@@ -25,7 +25,6 @@ const CatalogGrid = animus
     display: "grid",
     gap: "1rem",
     maxHeight: "45vh",
-    p: "2rem",
     pt: "1rem",
     mb: "1rem",
     overflowY: "auto",
@@ -49,6 +48,9 @@ const SearchInput = animus
     pl: "3rem",
     color: "linen",
     borderRadius: "0.75rem",
+    "::placeholder": {
+      color: "dirty-linen",
+    },
   })
   .asComponent("input");
 
@@ -172,9 +174,12 @@ export const CatalogModal = ({ isOpen, onSelect, onClose, queue }) => {
             gap="1rem"
             maxHeight={1}
             overflow="hidden"
+            px={32}
           >
-            <h2>Add songs in queue</h2>
-            <FlexBox position="relative" mx={32}>
+            <Text as="h2" fontSize="26px">
+              Add songs in queue
+            </Text>
+            <FlexBox position="relative">
               <Image
                 position="absolute"
                 inset="1.25rem"
@@ -193,7 +198,7 @@ export const CatalogModal = ({ isOpen, onSelect, onClose, queue }) => {
                 <FlexBox position="absolute" inset="1rem" left="initial">
                   <IconButton
                     icon={Close}
-                    size="sm"
+                    size="md"
                     onClick={() => setFilter("")}
                   />
                 </FlexBox>

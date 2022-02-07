@@ -1,10 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Box, FlexBox, GridBox, Text } from "@animus-ui/components";
 import { animus } from "@animus-ui/core";
-import songs from "../public/songs.json";
+import songs from "../../public/songs.json";
 import { keyBy } from "lodash";
-import { IconButton } from "./IconButton";
-import { Close } from "../icons";
+import { IconButton } from "../../components/IconButton";
+import { Close } from "../../icons";
 
 const songMap = keyBy(songs, (song) => song.id);
 

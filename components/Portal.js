@@ -2,18 +2,21 @@ import { Box, ColorMode, FlexBox, useCurrentMode } from "@animus-ui/components";
 import { createPortal } from "react-dom";
 import { FocusOn } from "react-focus-on";
 import { IconButton } from "./IconButton";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Close } from "../icons";
 import { AnimatePresence, motion } from "framer-motion";
+import { PortalContext } from "./PortalProvider";
 
 export const Portal = ({
   mode,
   isOpen = false,
+  blur = true,
   children,
   onClose,
   align = "center",
   hideClose = false,
 }) => {
+  const { toggleBlur } = useContext(PortalContext);
   const activeMode = useCurrentMode(mode);
   const [isReady, setIsReady] = useState(false);
 
@@ -22,6 +25,11 @@ export const Portal = ({
       setIsReady(true);
     }
   }, [isReady]);
+
+  useEffect(() => {
+    toggleBlur(isOpen && blur);
+    return () => toggleBlur(false);
+  }, [isOpen, blur]);
 
   if (!isReady) return null;
 
