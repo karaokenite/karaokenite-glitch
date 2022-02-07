@@ -73,7 +73,7 @@ const AddSongButton = animus
   })
   .asComponent("button");
 
-export const CatalogModal = ({ isOpen, onSelect, onClose, queue }) => {
+export const CatalogModal = ({ isOpen, onSelect, onClose }) => {
   const [filter, setFilter] = useState("");
   const [selected, setSelected] = useState([]);
 

@@ -1,27 +1,22 @@
-import { Box, ColorMode, FlexBox, GridBox } from "@animus-ui/components";
+import { Box, ColorMode, FlexBox } from "@animus-ui/components";
 import { useState } from "react";
 import { CatalogModal } from "../scenes/room/Modals/Catalog";
 import { Song } from "../scenes/room/Song";
 import { Playlist } from "../scenes/room/Playlist";
-import { useRoom } from "../hooks/useRoom";
 
 import { Header } from "../scenes/room/Header";
 import { Users } from "../scenes/room/Users";
 import { ControlBar } from "../scenes/room/ControlBar";
 import { RoomLayout } from "../scenes/room/RoomLayout";
+import { useQueue } from "../state/queue";
 
 const Room = () => {
-  const [queue, setQueue] = useState([]);
+  const { queue, addSong, removeSong } = useQueue();
   const [playListOpen, setPlaylistOpen] = useState(false);
   const [catalogOpen, setCatalogOpen] = useState(false);
 
-  const onRemove = (idx) =>
-    setQueue((prev) => prev.filter((songId, songIdx) => songIdx !== idx));
-
-  useRoom();
-
   return (
-    <ColorMode mode="dark">
+    <>
       <RoomLayout>
         <Header />
         <RoomLayout.Main>
@@ -33,7 +28,7 @@ const Room = () => {
               <Playlist
                 isOpen={playListOpen}
                 queue={queue}
-                onRemove={onRemove}
+                onRemove={removeSong}
               />
             </Box>
           </FlexBox>
@@ -55,13 +50,12 @@ const Room = () => {
       <CatalogModal
         isOpen={catalogOpen}
         onClose={() => setCatalogOpen(false)}
-        queue={queue}
         onSelect={(songIds) => {
-          setQueue((prev) => prev.concat(songIds));
+          addSong(songIds);
           setPlaylistOpen(true);
         }}
       />
-    </ColorMode>
+    </>
   );
 };
 

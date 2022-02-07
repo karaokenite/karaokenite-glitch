@@ -3,7 +3,6 @@ import { MDXProvider } from "@mdx-js/react";
 import { useRouter } from "next/dist/client/router";
 
 import NextLink from "next/link";
-import { createContext } from "react";
 import { PortalProvider } from "./PortalProvider";
 
 export const components = {
