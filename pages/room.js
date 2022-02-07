@@ -50,34 +50,6 @@ const Container = animus
   })
   .asComponent("div");
 
-const VolumeSlider = () => {
-  return (
-    <div id="volumeModal" className="modal">
-      <img
-        id="volumeDownIcon"
-        src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2FVolume%20-%20Low.svg?v=1621062867508"
-      />
-      <input
-        type="range"
-        min="0.0"
-        max="1.0"
-        value="0.5"
-        className="slider"
-        id="volume"
-        step={0.05}
-      />
-      <img
-        id="volumeUpIcon"
-        src="https://cdn.glitch.com/f69fa717-be61-48e8-9ad2-e8edd524fe90%2Ficon_volume_white.svg?v=1614749830096"
-      />
-      <img
-        id="closeIcon"
-        src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fclose.svg?v=1632640337294"
-      />
-    </div>
-  );
-};
-
 const SongVideo = animus
   .styles({
     display: "block",
