@@ -2,24 +2,22 @@ var rooms = {};
 
 // Socket event constants.
 const SE_INIT = "Init",
-      SE_NEW_USER_ADDED = "NewUserAdded",
-      SE_EXISTING_USER_NOTIFY = "ExistingUserNotify",
-      SE_USER_REMOVED = "UserRemoved",
-      SE_DISCONNECT = "disconnect", // Do not change this name because it is a system event.
-      SE_SIGNAL = "Signal",
-      SE_PLAY = "Play",
-      SE_PAUSE = "Pause",
-      SE_PREV = "Prev",
-      SE_NEXT = "Next",
-      SE_ADD_SONG_TO_PLAYLIST = "AddSongToPlaylist",
-      SE_ADD_SONG_TO_QUEUE = "AddSongToQueue",
-      SE_GET_PLAY_INFO = "GetPlayInfo";
-
+  SE_NEW_USER_ADDED = "NewUserAdded",
+  SE_EXISTING_USER_NOTIFY = "ExistingUserNotify",
+  SE_USER_REMOVED = "UserRemoved",
+  SE_DISCONNECT = "disconnect", // Do not change this name because it is a system event.
+  SE_SIGNAL = "Signal",
+  SE_PLAY = "Play",
+  SE_PAUSE = "Pause",
+  SE_PREV = "Prev",
+  SE_NEXT = "Next",
+  SE_ADD_SONG_TO_PLAYLIST = "AddSongToPlaylist",
+  SE_ADD_SONG_TO_QUEUE = "AddSongToQueue",
+  SE_GET_PLAY_INFO = "GetPlayInfo";
 
 function isEmpty(obj) {
   for (var prop in obj) {
-    if (obj.hasOwnProperty(prop))
-      return false;
+    if (obj.hasOwnProperty(prop)) return false;
   }
 
   return true;
@@ -29,8 +27,7 @@ function getKeyCount(obj) {
   let count = 0;
 
   for (let prop in obj) {
-    if (obj.hasOwnProperty(prop))
-      count ++;
+    if (obj.hasOwnProperty(prop)) count++;
   }
 
   return count;
@@ -38,26 +35,19 @@ function getKeyCount(obj) {
 
 function getFirstValue(obj) {
   for (let prop in obj) {
-    if (obj.hasOwnProperty(prop))
-      return obj[prop];
+    if (obj.hasOwnProperty(prop)) return obj[prop];
   }
 
   return null;
 }
 
 module.exports = (io) => {
-  io.use((socket, next) => {
-    if (!socket.handshake.query.roomName) {
-      next(new Error('Invalid Room'));
-    } else {
-      next();
-    }
-  }).on('connect', (socket) => {
+  io.of("/admin").on("connect", (socket) => {
     console.log(`Client ${socket.id} is connected.`);
-
+    const roomName = "singsing";
+    const userName = "cooldude";
     // Join to room.
-    let roomName = socket.handshake.query.roomName,
-        userName = socket.handshake.query.userName;
+
     socket.join(roomName);
 
     if (!rooms[roomName]) {
@@ -68,8 +58,8 @@ module.exports = (io) => {
           queue: [],
           currentPlayingIndex: 0,
           currentPlayingTime: 0,
-          isPlaying: false
-        }
+          isPlaying: false,
+        },
       };
     }
 
@@ -81,17 +71,21 @@ module.exports = (io) => {
     // Old code: peers[socket.id] = socket;
     rooms[roomName].socketUserMap[socket.id] = {
       socket: socket,
-      userName: userName
+      userName: userName,
     };
 
     // Initialize
     socket.on(SE_GET_PLAY_INFO, (sender, playInfo) => {
       rooms[roomName].playInfo.isPlaying = playInfo.isPlaying;
-      rooms[roomName].playInfo.currentPlayingIndex = playInfo.currentPlayingIndex;
+      rooms[roomName].playInfo.currentPlayingIndex =
+        playInfo.currentPlayingIndex;
       rooms[roomName].playInfo.currentPlayingTime = playInfo.currentPlayingTime;
 
       if (rooms[roomName].socketUserMap[sender])
-        rooms[roomName].socketUserMap[sender].socket.emit(SE_INIT, rooms[roomName].playInfo);
+        rooms[roomName].socketUserMap[sender].socket.emit(
+          SE_INIT,
+          rooms[roomName].playInfo
+        );
     });
 
     // Get play info.
@@ -113,8 +107,14 @@ module.exports = (io) => {
     // Send message to client to initiate a connection
     // The sender has already setup a peer connection receiver
     socket.on(SE_EXISTING_USER_NOTIFY, (init_socket_id, existingUserName) => {
-      console.log('EXISTING USER NOTIFY by ' + socket.id + ' for ' + init_socket_id);
-      rooms[roomName].socketUserMap[init_socket_id].socket.emit(SE_EXISTING_USER_NOTIFY, socket.id, existingUserName);
+      console.log(
+        "EXISTING USER NOTIFY by " + socket.id + " for " + init_socket_id
+      );
+      rooms[roomName].socketUserMap[init_socket_id].socket.emit(
+        SE_EXISTING_USER_NOTIFY,
+        socket.id,
+        existingUserName
+      );
     });
 
     // Relay a peerconnection signal to a specific socket
@@ -136,7 +136,7 @@ module.exports = (io) => {
 
     // Remove the disconnected peer connection from all other connected clients
     socket.on(SE_DISCONNECT, () => {
-      console.log('socket disconnected ' + socket.id);
+      console.log("socket disconnected " + socket.id);
       socket.to(roomName).emit(SE_USER_REMOVED, socket.id);
       delete rooms[roomName].socketUserMap[socket.id];
 
@@ -160,7 +160,6 @@ module.exports = (io) => {
 
     // Triggered when a user presses the pause button
     socket.on(SE_PAUSE, function () {
-
       console.log(
         `Client ${socket.id} in room ${roomName} emitted 'Pause' event.`
       );
@@ -180,21 +179,24 @@ module.exports = (io) => {
         `Client ${socket.id} in room ${roomName} emitted 'Next' event.`
       );
 
-      rooms[roomName].playInfo.currentPlayingIndex ++;
-      if (rooms[roomName].playInfo.currentPlayingIndex > rooms[roomName].playInfo.playlist.length - 1)
-        rooms[roomName].playInfo.currentPlayingIndex = rooms[roomName].playInfo.playlist.length - 1;
+      rooms[roomName].playInfo.currentPlayingIndex++;
+      if (
+        rooms[roomName].playInfo.currentPlayingIndex >
+        rooms[roomName].playInfo.playlist.length - 1
+      )
+        rooms[roomName].playInfo.currentPlayingIndex =
+          rooms[roomName].playInfo.playlist.length - 1;
 
       socket.to(roomName).emit(SE_NEXT);
     });
 
     // Triggered when a user presses the "previous" button
     socket.on(SE_PREV, function () {
-
       console.log(
         `Client ${socket.id} in room ${roomName} emitted 'Prev' event.`
       );
 
-      rooms[roomName].playInfo.currentPlayingIndex --;
+      rooms[roomName].playInfo.currentPlayingIndex--;
       if (rooms[roomName].playInfo.currentPlayingIndex < 0)
         rooms[roomName].playInfo.currentPlayingIndex = 0;
 
@@ -212,8 +214,8 @@ module.exports = (io) => {
       socket.to(roomName).emit(SE_ADD_SONG_TO_PLAYLIST, songUrl);
     });
 
-     // Triggered when a user presses the "Choose Song" button
-     socket.on(SE_ADD_SONG_TO_QUEUE, function (queueSong) {
+    // Triggered when a user presses the "Choose Song" button
+    socket.on(SE_ADD_SONG_TO_QUEUE, function (queueSong) {
       console.log(
         `Client ${socket.id} in room ${roomName} emitted 'addSongToQueue' event with ${queueSong["title"]}`
       );
@@ -222,6 +224,5 @@ module.exports = (io) => {
 
       socket.to(roomName).emit(SE_ADD_SONG_TO_QUEUE, queueSong);
     });
-
   });
 };

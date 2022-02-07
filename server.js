@@ -1,17 +1,14 @@
 // Sonny: Moved from Glitch
-const fs = require("fs");
+const { readFileSync } = require("fs");
 const next = require("next");
 const express = require("express");
-const httpolyglot = require("httpolyglot");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
+const { instrument } = require("@socket.io/admin-ui");
 
 const dev = process.env.NODE_ENV !== "production";
 // const express = require('express');
 // const app = express();
-
-const options = {
-  key: fs.readFileSync("./public/ssl/key.pem", "utf-8"),
-  cert: fs.readFileSync("./public/ssl/cert.pem", "utf-8"),
-};
 
 const nextApp = next({ dev });
 const requestHandler = nextApp.getRequestHandler();
@@ -28,8 +25,24 @@ nextApp.prepare().then(async () => {
   // const webServer = http.createServer(app);
   // const io = require('socket.io')(webServer);
 
-  const httpsServer = httpolyglot.createServer(options, app);
-  const io = require("socket.io")(httpsServer);
+  const httpsServer = createServer(
+    {
+      key: readFileSync("./public/ssl/key.pem", "utf-8"),
+      cert: readFileSync("./public/ssl/cert.pem", "utf-8"),
+    },
+    app
+  );
+
+  const io = new Server(httpsServer, {
+    cors: {
+      origin: ["https://admin.socket.io"],
+      credentials: true,
+    },
+  });
+
+  instrument(io, {
+    auth: false,
+  });
 
   require("./socketController")(io);
 

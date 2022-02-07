@@ -21,12 +21,7 @@ export const useRoom = () => {
   const socket = useRef();
 
   useEffect(() => {
-    socket.current = io("/", {
-      query: {
-        roomName: query.room,
-        userName: query.username,
-      },
-    });
+    socket.current = io("/admin", {});
 
     socket.current.on(SE_INIT, (playInfo) => {
       console.log("INIT");
