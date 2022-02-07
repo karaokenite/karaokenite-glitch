@@ -149,13 +149,15 @@ const App = ({ Component, pageProps }) => {
           />
           <link href="/styles/vendor.css" rel="stylesheet" type="text/css" />
           <link href="/styles/shared.css" rel="stylesheet" type="text/css" />
-          <link
-            href={`/styles/${
-              pathname === "/" ? "index" : pathname.replace("/", "")
-            }.css`}
-            rel="stylesheet"
-            type="text/css"
-          />
+          {!pathname.includes("room") ? (
+            <link
+              href={`/styles/${
+                pathname === "/" ? "index" : pathname.replace("/", "")
+              }.css`}
+              rel="stylesheet"
+              type="text/css"
+            />
+          ) : null}
         </Head>
         <Box position="relative" overflow="hidden">
           {!isRoom && <Header />}

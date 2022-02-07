@@ -1,14 +1,75 @@
-import { Box, FlexBox, Image, Text } from "@animus-ui/components";
+import { Box, FlexBox, GridBox, Image, Text } from "@animus-ui/components";
 import { animus } from "@animus-ui/core";
 import { useCallback, useEffect, useState } from "react";
 import songs from "../public/songs.json";
 import { IconButton } from "./IconButton";
-import { Close } from "../icons";
+import { Checkmark, Close } from "../icons";
 import { Portal } from "./Portal";
+import { Button } from "./Button";
 
 const NoSelect = animus
   .styles({ "> *": { userSelect: "none" } })
   .asComponent("div");
+
+const mask = `
+-webkit-gradient(
+  linear,
+  center top,
+  center bottom,
+  color-stop(0.5, rgba(0, 0, 0, 1)),
+  color-stop(1, rgba(0, 0, 0, 0))
+)`;
+
+const CatalogGrid = animus
+  .styles({
+    display: "grid",
+    gap: "1rem",
+    maxHeight: "45vh",
+    p: "2rem",
+    pt: "1rem",
+    mb: "1rem",
+    overflowY: "auto",
+    position: "relative",
+    width: 1,
+    cols: 3,
+    WebkitMaskImage: mask,
+  })
+  .asComponent("div");
+
+const SearchInput = animus
+  .styles({
+    width: 1,
+    height: 64,
+    border: 1,
+    borderColor: "rgba(255, 255, 255, 0.2)",
+    fontSize: "18px",
+    bg: "rgba(255, 255, 255, 0.2)",
+    py: "2px",
+    pr: "1.5rem",
+    pl: "3rem",
+    color: "linen",
+    borderRadius: "0.75rem",
+  })
+  .asComponent("input");
+
+const AddSongButton = animus
+  .styles({
+    border: "none",
+    bg: "transparent",
+    cursor: "pointer",
+    display: "flex",
+    flexDirection: "column",
+    textAlign: "start",
+    position: "relative",
+    outline: 0,
+    minHeight: "10rem",
+  })
+  .states({
+    selected: {
+      borderRadius: "4px",
+    },
+  })
+  .asComponent("button");
 
 export const CatalogModal = ({ isOpen, onSelect, onClose, queue }) => {
   const [filter, setFilter] = useState("");
@@ -26,7 +87,7 @@ export const CatalogModal = ({ isOpen, onSelect, onClose, queue }) => {
   const renderSongs = () => {
     if (filteredSongs.length > 0) {
       return (
-        <div className="catalog-grid" onscroll="dismissAddedNotice()">
+        <CatalogGrid>
           {filteredSongs.map((song) => {
             const isSelected = selected.includes(song.id);
             const method = isSelected
@@ -35,28 +96,49 @@ export const CatalogModal = ({ isOpen, onSelect, onClose, queue }) => {
 
             return (
               <NoSelect>
-                <button
-                  onClick={method}
-                  class={`catalog-item jukebox ${
-                    isSelected ? "jukebox-selected" : ""
-                  }`}
-                  type="button"
-                >
+                <AddSongButton onClick={method} type="button">
+                  {isSelected && (
+                    <Box
+                      position="absolute"
+                      right="0.5rem"
+                      top="0.5rem"
+                      zIndex={2}
+                    >
+                      <Checkmark
+                        bg="old-yellow"
+                        color="jet"
+                        p="0.5rem"
+                        size={32}
+                        borderRadius="50%"
+                      />
+                    </Box>
+                  )}
                   <Image
                     src={song.album_image}
                     alt={song.album}
-                    width={600}
-                    height={400}
+                    width={1}
+                    height="auto"
+                    border="4px"
+                    color="transparent"
                     draggable="false"
                   />
 
-                  <div class="title">{song.title}</div>
-                  <div class="artist">{song.artist}</div>
-                </button>
+                  <Text
+                    as="h2"
+                    area="name"
+                    fontSize="18px"
+                    mt="0.5rem"
+                    mb="0.25rem"
+                    color="#f2f2f2"
+                  >
+                    {song.title}
+                  </Text>
+                  <Text color="#c4c4c4">{song.artist}</Text>
+                </AddSongButton>
               </NoSelect>
             );
           })}
-        </div>
+        </CatalogGrid>
       );
     }
 
@@ -71,9 +153,26 @@ export const CatalogModal = ({ isOpen, onSelect, onClose, queue }) => {
 
   return (
     <Portal isOpen={isOpen} onClose={onClose}>
-      <FlexBox height={660} width={750} maxWidth={1} maxHeight={1}>
-        <Box width={1} id="songModal" className="catalog modal modal__large">
-          <div className="modal-content">
+      <FlexBox
+        height={660}
+        width={750}
+        maxWidth={1}
+        maxHeight={1}
+        bg="rgba(3, 3, 22, 0.4)"
+        maxWidth={750}
+        p="1.5rem"
+        pt="2rem"
+        borderRadius="1.5rem"
+      >
+        <Box width={1} id="songModal">
+          <GridBox
+            width={1}
+            maxWidth="75rem"
+            rows="max:max:1"
+            gap="1rem"
+            maxHeight={1}
+            overflow="hidden"
+          >
             <h2>Add songs in queue</h2>
             <FlexBox position="relative" mx={32}>
               <Image
@@ -82,9 +181,8 @@ export const CatalogModal = ({ isOpen, onSelect, onClose, queue }) => {
                 right="initial"
                 src="https://cdn.glitch.me/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9/search_icon.svg?v=1640474938766"
               />
-              <input
+              <SearchInput
                 name="searchBar"
-                id="searchBar"
                 value={filter.replace(/\./g, "")}
                 onChange={(e) =>
                   setFilter(e.target.value.replace(/[\.]/gm, " "))
@@ -103,29 +201,25 @@ export const CatalogModal = ({ isOpen, onSelect, onClose, queue }) => {
             </FlexBox>
 
             {renderSongs()}
-
-            <div id="added-notice">
-              <button
-                className="added-notice-contents"
-                onclick="dismissAddedNotice()"
+          </GridBox>
+          <FlexBox center>
+            <Box position="absolute" bottom={-56 / 2}>
+              <Button
+                rounded
+                height={56}
+                width={300}
+                variant="cta"
+                disabled={selected.length === 0}
+                onClick={() => {
+                  onSelect(selected);
+                  setSelected([]);
+                  onClose();
+                }}
               >
-                You just added <span id="added-notice-song"></span> to the song
-                queue!
-              </button>
-            </div>
-            <button
-              className="modal-button"
-              id="choose-song"
-              disabled={selected.length === 0}
-              onClick={() => {
-                onSelect(selected);
-                setSelected([]);
-                onClose();
-              }}
-            >
-              ADD SONG{selected.length > 1 ? "S" : ""}
-            </button>
-          </div>
+                ADD SONG{selected.length > 1 ? "S" : ""}
+              </Button>
+            </Box>
+          </FlexBox>
         </Box>
       </FlexBox>
     </Portal>

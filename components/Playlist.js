@@ -52,6 +52,15 @@ const PlaylistContainer = animus
   })
   .asComponent("div");
 
+const SongName = animus
+  .styles({
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+    maxWidth: 1,
+    overflow: "hidden",
+  })
+  .asComponent("div");
+
 export const Playlist = ({ isOpen, queue, onRemove }) => {
   return (
     <Box position={{ _: "absolute", md: "static" }} top={24} right={0}>
@@ -119,7 +128,7 @@ export const Playlist = ({ isOpen, queue, onRemove }) => {
                           alignItems="center"
                         >
                           <Text fontSize={16} fontWeight={700}>
-                            {title}
+                            <SongName>{title}</SongName>
                           </Text>
                           <Text fontSize={12} color="old-laundry">
                             {length}
@@ -130,7 +139,7 @@ export const Playlist = ({ isOpen, queue, onRemove }) => {
                           <IconButton
                             icon={Close}
                             size="sm"
-                            onClick={() => onRemove(id)}
+                            onClick={() => onRemove(idx)}
                           />
                         </GridBox>
                         {idx + 1 !== queue.length && (
