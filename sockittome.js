@@ -238,40 +238,13 @@ var rooms = {};
 //   });
 // };
 
-// Redux Store
-
-// const state = {
-//   rooms: {
-//     1: {
-//       socketUserMap: {},
-//       playInfo: {
-//         playlist: [],
-//         queue: [],
-//         currentPlayingIndex: 0,
-//         currentPlayingTime: 0,
-//         isPlaying: false,
-//       },
-//     },
-//     ids: [1],
-//   },
-// }
-
-// const state = [
-//   {
-//     socketUserMap: {},
-//     playlist: [],
-//     queue: [],
-//     currentPlayingIndex: 0,
-//     currentPlayingTime: 0,
-//     isPlaying: false,
-//   },
-//   // ],
-//   // currentUser: {}
-// ]
 
 // Redux Reducers
-let lastId = 0;
 
+let lastId = 0;
+let songIndex = 0;
+
+const CREATE_ROOM = "createRoom";
 const SONG_ADDED = "songAdded";
 const PLAY_PRESSED = "playPressed";
 const PAUSE_PRESSED = "pausePressed";
@@ -280,44 +253,51 @@ const NEXT_PRESSED = "nextPressed";
 
 export default function playlistReducer(state = [], action) {
   switch (action.type) {
-    case "SONG_ADDED":
-      return [
-        ...state,
+    case "CREATE_ROOM":
+      return state.concat([
         {
-          playlist: action.payload.song,
-        }
-      ];
-    case "PLAY_PRESSED": {
-      return [
-        ...state,
-        {
-          isPlaying: true,
-        }
-      ];
-    }
-    case "PAUSE_PRESSED": {
-      return [
-        ...state,
-        {
+          roomId: ++lastId,
+          socketUserMap: action.payload.user,
+          playlist: [],
+          queue: [],
+          currentPlayingIndex: 0,
+          currentPlayingTime: 0,
           isPlaying: false,
         }
-      ];
+      ]);
+    case "SONG_ADDED": {
+      return state.map(room => room.roomId === action.payload.id 
+        ? { 
+          ...room, 
+          playlist: [...room.playlist, action.payload.song],
+          queue: [...room.queue, action.payload.song] 
+        }
+        : room
+      )
+    }
+    case "PLAY_PRESSED": {
+      return state.map(room => room.roomId === action.payload.id 
+        ? { ...room, isPlaying: true }
+        : room
+      )
+    }
+    case "PAUSE_PRESSED": {
+      return state.map(room => room.roomId === action.payload.id 
+        ? { ...room, isPlaying: false }
+        : room
+      )
     }
     case "PREV_PRESSED": {
-      return [
-        ...state,
-        {
-          currentPlayingIndex: state.currentPlayingIndex--,
-        }
-      ];
+      return state.map(room => room.roomId === action.payload.id 
+        ? { ...room, currentPlayingIndex: --songIndex }
+        : room
+      )
     }
     case "NEXT_PRESSED": {
-      return [
-        ...state,
-        {
-          currentPlayingIndex: state.currentPlayingIndex++,
-        }
-      ];
+      return state.map(room => room.roomId === action.payload.id 
+        ? { ...room, currentPlayingIndex: ++songIndex }
+        : room
+      )
     }
     default:
       return state;
@@ -358,54 +338,95 @@ console.log(store)
 
 // Redux Actions
 
-export const songAdded = song => ({
+export const createRoom = user => ({
+  type: "CREATE_ROOM",
+  payload: {
+    user
+  }
+})
+
+export const songAdded = (id, song) => ({
   type: "SONG_ADDED",
   payload: {
+    id,
     song
   }
 })
 
-const playPressed = {
+const playPressed = id => ({
   type: "PLAY_PRESSED",
-  payload: "Play button pressed",
-};
+  payload: {
+    id
+  }
+});
 
-const pausePressed = {
+const pausePressed = id => ({
   type: "PAUSE_PRESSED",
-  payload: "Pause button pressed",
-};
+  payload: {
+    id
+  }
+});
 
-const previousPressed = {
+const prevPressed = id => ({
   type: "PREV_PRESSED",
-  payload: "Previous button pressed",
-};
+  payload: {
+    id
+  }
+});
 
-const nextPressed = {
+const nextPressed = id => ({
   type: "NEXT_PRESSED",
-  payload: "Next button pressed",
-};
-
+  payload: {
+    id
+  }
+});
 
 
 const unsubscribe = store.subscribe(() => {
   console.log("Store changed!", store.getState());
 })
 
+// Console Test
 
-store.dispatch({ 
+store.dispatch({
+  type: "CREATE_ROOM",
+  payload: {
+    user: "sonny123"
+  }
+})
+
+store.dispatch({
   type: "SONG_ADDED",
   payload: {
+    id: 1,
     song: "https://my-site.example-cdn.com/blah.mp3"
   }
 });
-// {value: 1}
+
+store.dispatch({
+  type: 'PLAY_PRESSED',
+  payload: {
+    id: 1,
+  }
+})
 
 store.dispatch({ 
-  type: 'PLAY_PRESSED' 
+  type: 'PAUSE_PRESSED',
+  payload: {
+    id: 1,
+  }
 })
-// {value: 2}
 
 store.dispatch({ 
-  type: 'PAUSE_PRESSED' 
+  type: 'NEXT_PRESSED',
+  payload: {
+    id: 1,
+  }
 })
-// {value: 1}
+
+store.dispatch({ 
+  type: 'PREV_PRESSED',
+  payload: {
+    id: 1,
+  }
+})
