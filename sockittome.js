@@ -241,9 +241,6 @@ var rooms = {};
 
 // Redux Reducers
 
-let lastId = 0;
-let songIndex = 0;
-
 const CREATE_ROOM = "createRoom";
 const SONG_ADDED = "songAdded";
 const PLAY_PRESSED = "playPressed";
@@ -251,53 +248,72 @@ const PAUSE_PRESSED = "pausePressed";
 const PREV_PRESSED = "prevPressed";
 const NEXT_PRESSED = "nextPressed";
 
-export default function playlistReducer(state = [], action) {
+let nextRoomId = 0;
+let songIndex = 0;
+
+export default function playlistReducer(state = {}, action) {
   switch (action.type) {
-    case "CREATE_ROOM":
-      return state.concat([
-        {
-          roomId: ++lastId,
+    case "CREATE_ROOM": {
+      const roomId = ++nextRoomId;
+      return {
+        ...state,
+        [roomId]: {
+          roomId,
           socketUserMap: action.payload.user,
-          playlist: [],
-          queue: [],
+          playlist: ["https://cdn.glitch.me/aa3b905c-b152-45c7-9d6f-45c998461107%2Fkaraoke_nite_welcome_video_hd.mp4"],
+          queue: ["https://cdn.glitch.me/aa3b905c-b152-45c7-9d6f-45c998461107%2Fkaraoke_nite_welcome_video_hd.mp4"],
           currentPlayingIndex: 0,
           currentPlayingTime: 0,
           isPlaying: false,
         }
-      ]);
+      }
+    }
     case "SONG_ADDED": {
-      return state.map(room => room.roomId === action.payload.id 
-        ? { 
-          ...room, 
-          playlist: [...room.playlist, action.payload.song],
-          queue: [...room.queue, action.payload.song] 
+      return {
+        ...state,
+        [action.payload.id]: {
+          ...state[action.payload.id],
+          playlist: [...state[action.payload.id].playlist, action.payload.song],
+          queue: [...state[action.payload.id].queue, action.payload.song] 
         }
-        : room
-      )
+      }
     }
     case "PLAY_PRESSED": {
-      return state.map(room => room.roomId === action.payload.id 
-        ? { ...room, isPlaying: true }
-        : room
-      )
+      return {
+        ...state,
+        [action.payload.id]: {
+          ...state[action.payload.id],
+          isPlaying: true
+        }
+      }
     }
     case "PAUSE_PRESSED": {
-      return state.map(room => room.roomId === action.payload.id 
-        ? { ...room, isPlaying: false }
-        : room
-      )
+      return {
+        ...state,
+        [action.payload.id]: {
+          ...state[action.payload.id],
+          isPlaying: false
+        }
+      }
     }
     case "PREV_PRESSED": {
-      return state.map(room => room.roomId === action.payload.id 
-        ? { ...room, currentPlayingIndex: --songIndex }
-        : room
-      )
+      return {
+        ...state,
+        [action.payload.id]: {
+          ...state[action.payload.id],
+          currentPlayingIndex: --songIndex
+        }
+      }
     }
     case "NEXT_PRESSED": {
-      return state.map(room => room.roomId === action.payload.id 
-        ? { ...room, currentPlayingIndex: ++songIndex }
-        : room
-      )
+      // const songId = ++songId;
+      return {
+        ...state,
+        [action.payload.id]: {
+          ...state[action.payload.id],
+          currentPlayingIndex: ++songIndex
+        }
+      }
     }
     default:
       return state;
@@ -388,6 +404,7 @@ const unsubscribe = store.subscribe(() => {
 
 // Console Test
 
+console.log("create room:")
 store.dispatch({
   type: "CREATE_ROOM",
   payload: {
@@ -395,6 +412,7 @@ store.dispatch({
   }
 })
 
+console.log("song added:")
 store.dispatch({
   type: "SONG_ADDED",
   payload: {
@@ -403,6 +421,7 @@ store.dispatch({
   }
 });
 
+console.log("play pressed:")
 store.dispatch({
   type: 'PLAY_PRESSED',
   payload: {
@@ -410,6 +429,7 @@ store.dispatch({
   }
 })
 
+console.log("pause pressed:")
 store.dispatch({ 
   type: 'PAUSE_PRESSED',
   payload: {
@@ -417,6 +437,7 @@ store.dispatch({
   }
 })
 
+console.log("next pressed:")
 store.dispatch({ 
   type: 'NEXT_PRESSED',
   payload: {
@@ -424,9 +445,34 @@ store.dispatch({
   }
 })
 
+console.log("prev pressed:")
 store.dispatch({ 
   type: 'PREV_PRESSED',
   payload: {
     id: 1,
+  }
+})
+
+console.log("test #2")
+
+store.dispatch({
+  type: "CREATE_ROOM",
+  payload: {
+    user: "aaron123"
+  }
+})
+
+
+store.dispatch({ 
+  type: 'NEXT_PRESSED',
+  payload: {
+    id: 2,
+  }
+})
+
+store.dispatch({ 
+  type: 'PREV_PRESSED',
+  payload: {
+    id: 2,
   }
 })
