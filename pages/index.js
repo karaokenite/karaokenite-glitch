@@ -2,6 +2,9 @@ import { Box } from "@animus-ui/components";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
+// For Sonny to test reducers
+import store from "../sockittome";
+
 const Index = () => {
   const [values, setValues] = useState({ username: "", room: "" });
   const { push } = useRouter();
