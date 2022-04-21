@@ -297,21 +297,24 @@ export default function playlistReducer(state = {}, action) {
       }
     }
     case "PREV_PRESSED": {
+      const roomId = action.payload.id;
+      const room = state[roomId];
       return {
         ...state,
-        [action.payload.id]: {
-          ...state[action.payload.id],
-          currentPlayingIndex: --songIndex
+        [roomId]: {
+          ...room,
+          currentPlayingIndex: room.currentPlayingIndex - 1 ?? 0, // Don't go below 0
         }
       }
     }
     case "NEXT_PRESSED": {
-      // const songId = ++songId;
+      const roomId = action.payload.id;
+      const room = state[roomId];
       return {
         ...state,
-        [action.payload.id]: {
-          ...state[action.payload.id],
-          currentPlayingIndex: ++songIndex
+        [roomId]: {
+          ...room,
+          currentPlayingIndex: room.currentPlayingIndex + 1,
         }
       }
     }
